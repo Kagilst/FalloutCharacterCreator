@@ -1,0 +1,177 @@
+﻿<Page x:Class="FallloutCharacterCreator.FalloutThree"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FallloutCharacterCreator"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FalloutThree">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/backgrounds/FalloutThreeBackground.jpg"/>
+        </Grid.Background>
+
+        <Border BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10"
+                VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                    <Label Content="Fallout 3 Character Creator" HorizontalAlignment="Center" VerticalAlignment="Top" Name="lblMain" 
+                        FontSize="50" FontFamily="/fonts/#Overseer Bold" Foreground="#137e3e"/>
+                    <!-- Strength Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="&lt;" Click="DecreaseStrength" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                                <TextBlock Text="{Binding StrengthText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                        <Button Content="&gt;" Click="IncreaseStrength" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!-- Strength Button End -->
+                    <!-- Perception Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="&lt;" Click="DecreasePerception" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <TextBlock Text="{Binding PerceptionText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                        <Button Content="&gt;" Click="IncreasePerception" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!-- Perception Button End -->
+                    <!--  Endurance Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="&lt;" Click="DecreaseEndurance" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <TextBlock Text="{Binding EnduranceText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                        <Button Content="&gt;" Click="IncreaseEndurance" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!--  Endurance Button End -->
+                    <!-- Charisma Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="&lt;" Click="DecreaseCharisma" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <TextBlock Text="{Binding CharismaText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                        <Button Content="&gt;" Click="IncreaseCharisma" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!-- Charisma Button End -->
+                    <!-- Intelligence Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="&lt;" Click="DecreaseIntelligence" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <TextBlock Text="{Binding IntelligenceText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                        <Button Content="&gt;" Click="IncreaseIntelligence" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!-- Intelligence Button End -->
+                    <!--  Agility Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="&lt;" Click="DecreaseAgility" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <TextBlock Text="{Binding AgilityText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                        <Button Content="&gt;" Click="IncreaseAgility" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!--  Agility Button End -->
+                    <!--  Luck Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="&lt;" Click="DecreaseLuck" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <TextBlock Text="{Binding LuckText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                        <Button Content="&gt;" Click="IncreaseLuck" HorizontalAlignment="Left" BorderBrush="Black">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
+                    <!--  Luck Button End -->
+                    <!--  Luck Button Start -->
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding SpecialPointsText}" VerticalAlignment="Center" Margin="5" FontFamily="/fonts/#Overseer" FontSize="20" Foreground="#008200"/>
+                    </StackPanel>
+                    <!--  Luck Button End -->
+
+                </StackPanel>
+
+
+
+                <Button Content="Level Up" Name="LevelUp" HorizontalAlignment="Right" 
+                        VerticalAlignment="Bottom" Width="100" Height="30" FontFamily="/fonts/#Overseer" 
+                        FontSize="18" BorderThickness="3" Grid.Row="1"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Page>

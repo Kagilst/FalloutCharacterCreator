@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="backgrounds\falloutFourBackground.jpg" />
+    <None Remove="backgrounds\falloutNVBackground.jpg" />
+    <None Remove="backgrounds\falloutOneBackground.jpg" />
+    <None Remove="backgrounds\falloutThreeBackground.jpg" />
+    <None Remove="backgrounds\falloutTwoBackground.jpg" />
+    <None Remove="backgrounds\rusticBackground.jpg" />
+    <None Remove="fonts\Overseer-pLVd.ttf" />
+    <None Remove="fonts\OverseerBold-DyzD.ttf" />
+    <None Remove="fonts\OverseerBoldItalic-AWzp.ttf" />
+    <None Remove="fonts\OverseerItalic-qqV1.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="backgrounds\falloutFourBackground.jpg" />
+    <Resource Include="backgrounds\falloutNVBackground.jpg" />
+    <Resource Include="backgrounds\falloutOneBackground.jpg" />
+    <Resource Include="backgrounds\falloutThreeBackground.jpg" />
+    <Resource Include="backgrounds\falloutTwoBackground.jpg" />
+    <Resource Include="fonts\Overseer-pLVd.ttf" />
+    <Resource Include="fonts\OverseerBold-DyzD.ttf" />
+    <Resource Include="fonts\OverseerBoldItalic-AWzp.ttf" />
+    <Resource Include="fonts\OverseerItalic-qqV1.ttf" />
+  </ItemGroup>
+
+</Project>
