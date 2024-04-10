@@ -1,0 +1,28 @@
+﻿<Window x:Class="FallloutCharacterCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FallloutCharacterCreator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="gridMain">
+
+        <Grid Width="600" Height="400" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border BorderBrush="Black" Background="#ccd3d3d3" BorderThickness="3" CornerRadius="10" Padding="10">
+                <StackPanel>
+                    <Label Content="Fallout Character Creators" HorizontalAlignment="Center" VerticalAlignment="Top" Name="lblMain" 
+                       FontSize="50" FontFamily="/fonts/#Overseer Bold" Foreground="#137e3e"/>
+
+                    <Button Name="fallout" Width="100" Height="40" Content="Fallout" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="20" BorderThickness="3" Margin="0,10,0,0" Click="fallout_Click"/>
+                    <Button Name="falloutTwo" Width="100" Height="40" Content="Fallout 2" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="20" BorderThickness="3" Margin="0,10,0,0" Click="falloutTwo_Click"/>
+                    <Button Name="falloutThree" Width="100" Height="40" Content="Fallout 3" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="20" BorderThickness="3" Margin="0,10,0,0" Click="falloutThree_Click"/>
+                    <Button Name="falloutNV" Width="100" Height="40" Content="Fallout NV" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="20" BorderThickness="3" Margin="0,10,0,0" Click="falloutNV_Click"/>
+                    <Button Name="falloutFour" Width="100" Height="40" Content="Fallout 4" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="20" BorderThickness="3" Margin="0,10,0,0" Click="falloutFour_Click"/>
+                    
+                </StackPanel>
+            </Border>
+        </Grid>
+        
+    </Grid>
+</Window>
