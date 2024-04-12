@@ -182,9 +182,272 @@
                         <TextBlock Text="{Binding TaggedSkillsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                         <TextBlock Text="{Binding SkillPointsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                     </StackPanel>
+                        <!-- Grid Column 6 Skills Values -->
+                        <StackPanel Grid.Column="6">
+                            <ToggleButton Name="BarterTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="BarterTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="BigGunsTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="BigGunsTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="EnergyWeaponsTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="EnergyWeaponsTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="ExplosivesTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="ExplosivesTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="LockpickTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="LockpickTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="MedicineTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="MedicineTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="MeleeWeaponsTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="MeleeWeaponsTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="RepairTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="RepairTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="ScienceTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="ScienceTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="SmallGunsTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="SmallGunsTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="SneakTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="SneakTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="SpeechTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="SpeechTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ToggleButton Name="UnarmedTag" Margin="0,2.5,0,1" Height="20" Width="20" Click="UnarmedTag_Click">
+                                <ToggleButton.Style>
+                                    <Style TargetType="{x:Type ToggleButton}">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ToggleButton">
+                                                    <Border BorderBrush="Black" BorderThickness="1" Background="{TemplateBinding Background}">
+                                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                    </Border>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsChecked" Value="True">
+                                                <Setter Property="Background" Value="#008200"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                        </StackPanel>
 
-                    <!-- Grid Column 6 Skills Text -->
-                    <StackPanel Grid.Column="6">
+                        <!-- Grid Column 7 Skills Text -->
+                    <StackPanel Grid.Column="7">
                         <TextBlock Text="Barter:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                         <TextBlock Text="Big Guns:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                         <TextBlock Text="Energy Weapons:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
@@ -197,10 +460,10 @@
                         <TextBlock Text="Small Guns:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                         <TextBlock Text="Sneak:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                         <TextBlock Text="Speech:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
-                        <TextBlock Text="Unarmed:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
+                        <TextBlock Text="Unarmed:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20" />
                     </StackPanel>
-                    <!-- Grid Column 7 Skills Values -->
-                    <StackPanel Grid.Column="7">
+                    <!-- Grid Column 8 Skills Values -->
+                    <StackPanel Grid.Column="8">
                         <TextBlock Text="{Binding BarterText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                         <TextBlock Text="{Binding BigGunsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                         <TextBlock Text="{Binding EnergyWeaponsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
@@ -215,7 +478,8 @@
                         <TextBlock Text="{Binding SpeechText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                         <TextBlock Text="{Binding UnarmedText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="10,2,0,1" Height="20"/>
                     </StackPanel>
-                </Grid>
+                       
+                    </Grid>
                 <Button Content="Create Character" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="0" BorderBrush="Black" Margin="3" Height="32.5">
                     <Button.Resources>
                         <Style TargetType="Border">
