@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using FallloutCharacterCreator.Fallout3;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -91,7 +92,7 @@ namespace FallloutCharacterCreator
 
         private void falloutThree_Click(object sender, RoutedEventArgs e)
         {
-            FalloutThree falloutThreePage = new FalloutThree();
+            Fallout3CharCreation falloutThreePage = new Fallout3CharCreation();
             this.Content = falloutThreePage;
         }
 
