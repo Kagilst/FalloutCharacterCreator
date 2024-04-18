@@ -87,7 +87,7 @@ namespace FallloutCharacterCreator
             Level = level;
             CarryWeight = carryWeight;
             ActionPoints = actionPoints;
-            CriticalChance = CriticalChance;
+            CriticalChance = criticalChance;
             DamageResistance = damageResistance;
             UnarmedDamage = unarmedDamage;
             SkillPoints = skillPoints;

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FallloutCharacterCreator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cac1780c0a0babe82c3139b1e57f9d65d4ff7184")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd9e1809cd81c445184e54a4cce74ef78b84f33e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FallloutCharacterCreator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FallloutCharacterCreator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

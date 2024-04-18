@@ -25,7 +25,7 @@ namespace FallloutCharacterCreator
     public partial class Fallout3CharCreation : Page, INotifyPropertyChanged
     {
         public Fallout3Character Character { get; set; }
-        private List<Fallout3Character> characterSnapshots = new List<Fallout3Character>();
+        public List<Fallout3Character> characterSnapshots = new List<Fallout3Character>();
 
         public string StrengthText => $"{Character.Strength}";
         public string PerceptionText => $"{Character.Perception}";
@@ -792,7 +792,7 @@ namespace FallloutCharacterCreator
                 characterSnapshots.Add(snapshot);
 
                 ClearFrame();
-                Fallout3Leveling fallout3LevelingPage = new Fallout3Leveling();
+                Fallout3Leveling fallout3LevelingPage = new Fallout3Leveling(characterSnapshots);
 
                 ThreeCreationFrame.Navigate(fallout3LevelingPage);
 
