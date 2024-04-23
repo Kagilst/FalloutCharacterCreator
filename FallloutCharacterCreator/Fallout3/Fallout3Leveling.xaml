@@ -14,7 +14,7 @@
         </Grid.Background>
         <Border BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10"
        	VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Grid Width="auto" Height="auto">
+            <Grid Width="auto" Height="auto" Name="LevelingGrid">
                 <StackPanel>
                     <Label Content="Fallout 3 Character Creator" HorizontalAlignment="Center" VerticalAlignment="Top" Name="lblMain"
                	FontSize="40" FontFamily="/fonts/#Overseer Bold" Foreground="#137e3e"/>
@@ -303,12 +303,14 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="{Binding CharacterNameText}" FontSize="30" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Padding="0,0,10,0" Foreground="#008200"/>
                             <TextBlock Grid.Column="1" Text="{Binding CharacterLevelText}" FontSize="30" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Padding="0,0,10,0" Foreground="#008200" HorizontalAlignment="Center"/>
-                            <Button Name="LevelUp" Grid.Column="2" Content="Level Up" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Right">
-                            </Button>
+                            <Button Name="SkillBooks" Grid.Column="2" Content="Skill Books" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click"/>
+                            <Button Name="LevelUp" Grid.Column="3" Content="Level Up" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center"/>
+
                         </Grid>
                     </Border>
 

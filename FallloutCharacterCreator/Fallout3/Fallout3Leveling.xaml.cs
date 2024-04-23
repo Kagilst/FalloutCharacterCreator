@@ -357,5 +357,10 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(UnarmedText));
         }
+
+        private void SkillBooks_Click(object sender, RoutedEventArgs e)
+        {
+            LevelingGrid.Visibility = Visibility.Collapsed;
+        }
     }
 }
