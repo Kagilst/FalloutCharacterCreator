@@ -7,13 +7,14 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Fallout3CharCreation">
+
     <Grid ShowGridLines="True">
         <Grid.Background>
             <ImageBrush ImageSource="/backgrounds/FalloutThreeBackground.jpg"/>
         </Grid.Background>
         
         
-        
+        <Viewbox Stretch="Uniform" Margin="0,40,0,40">
         <Border BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10"
         	VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid Width="auto" Height="auto">
@@ -500,6 +501,8 @@
                 </StackPanel>
             </Grid>
         </Border>
-        <Frame x:Name="ThreeCreationFrame" NavigationUIVisibility="Hidden"/>
+        </Viewbox>
+            <Frame x:Name="ThreeCreationFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
+
 </Page>

@@ -22,6 +22,8 @@ namespace FallloutCharacterCreator.Fallout3
     /// </summary>
     public partial class Fallout3Leveling : Page, INotifyPropertyChanged
     {
+        public Fallout3SkillBooks BookValues { get; set; }
+
         private List<Fallout3Character> characterSnapshots;
         public Fallout3Character Character => characterSnapshots[1];
         public string CharacterNameText => $"Name: {Character?.CharacterName}";
@@ -55,11 +57,28 @@ namespace FallloutCharacterCreator.Fallout3
         public string SneakText => $"{Character?.Sneak}";
         public string SpeechText => $"{Character?.Speech}";
         public string UnarmedText => $"{Character?.Unarmed}";
+        public string ScienceBookText => $"{BookValues.ScienceBook}  /  \u221E";
+        public string SneakBookText => $"{BookValues.SneakBook}  /  25";
+        public string MedicineBookText => $"{BookValues.MedicineBook}  /  25";
+        public string RepairBookText => $"{BookValues.RepairBook}  /  25";
+        public string ExplosivesBookText => $"{BookValues.ExplosivesBook}  /  25";
+        public string MeleeWeaponsBookText => $"{BookValues.MeleeWeaponsBook}  /  25";
+        public string SmallGunsBookText => $"{BookValues.SmallGunsBook}  /  25";
+        public string SpeechBookText => $"{BookValues.SpeechBook}  /  24";
+        public string EnergyWeaponsBookText => $"{BookValues.EnergyWeaponsBook}  /  25";
+        public string ParadiseLostText => $"{BookValues.ParadiseLost}  /  1";
+        public string UnarmedBookText => $"{BookValues.UnarmedBook}  /  25";
+        public string BarterBookText => $"{BookValues.BarterBook}  /  24";
+        public string LockpickBookText => $"{BookValues.LockpickBook}  /  25";
+        public string BigGunsBookText => $"{BookValues.BigGunsBook}  /  \u221E";
+
 
         public Fallout3Leveling(List<Fallout3Character> snapshots)
         {
             InitializeComponent();
             characterSnapshots = snapshots;
+            DataContext = this;
+            BookValues = new Fallout3SkillBooks();
             DataContext = this;
 
         }
@@ -360,7 +379,8 @@ namespace FallloutCharacterCreator.Fallout3
 
         private void SkillBooks_Click(object sender, RoutedEventArgs e)
         {
-            LevelingGrid.Visibility = Visibility.Collapsed;
+            LvlViewbox.Visibility = Visibility.Collapsed;
+            SkillBooksViewbox.Visibility = Visibility.Visible;
         }
     }
 }

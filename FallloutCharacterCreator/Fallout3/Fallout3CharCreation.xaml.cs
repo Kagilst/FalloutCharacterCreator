@@ -59,8 +59,8 @@ namespace FallloutCharacterCreator
         public Fallout3CharCreation()
         {
             InitializeComponent();
-            Character = new Fallout3Character(); // Create a new instance of Fallout3Character
-            DataContext = this; // Set DataContext to this for binding to work
+            Character = new Fallout3Character(); 
+            DataContext = this;
         }
 
         // Methods to handle strength value

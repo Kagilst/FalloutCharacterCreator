@@ -40,7 +40,6 @@ namespace FallloutCharacterCreator
         public int Speech { get; set; }
         public int Unarmed { get; set; }
         public int TaggedSkills { get; set; }
-
         public Fallout3Character() {
             InitializeDefaultValues();
         }
