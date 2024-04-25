@@ -13,167 +13,314 @@
         <Grid.Background>
             <ImageBrush ImageSource="/backgrounds/FalloutThreeBackground.jpg"/>
         </Grid.Background>
+        <!-- SkillBooks Viewbox/Grid -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="SkillBooksViewbox">
-            <Border Name="SkillBooksBorder" BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10"
-VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="300" MinWidth="300" >
+            <Border Name="SkillBooksBorder" BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="300" MinWidth="300" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition  Width="3*"/>
                         <ColumnDefinition  Width="3*"/>
                         <ColumnDefinition  Width="3*"/>
                         <ColumnDefinition  Width="1*"/>
+                        <ColumnDefinition  Width="1*"/>
+                        <ColumnDefinition  Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" >
-                        <TextBlock Text="Big Book of Science" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Chinese Army: Special Ops Training Manual" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="D.C. Journal of Internal Medicine" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Dean's Electronics" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Duck and Cover!" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Grognak the Barbarian" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Guns and Bullets" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Lying, Congressional Style" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Nikola Tesla and You" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Paradise Lost" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Pugilism Illustrated" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Tales of a Junktown, Jerky Vendor" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="Tumblers Today" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="U.S. Army: 30 Handy Flamethrower Recipes" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
-                        <TextBlock Text="Science" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="Sneak" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="Medicine" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="Repair" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Explosives" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Melee Weapons" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Small Guns" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Speech" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Energy Weapons" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Speech" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="Unarmed" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Barter" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="Lockpick" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" Margin="3" />
-                        <TextBlock Text="Big Guns" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="2">
-                        <TextBlock Text="{Binding ScienceBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="{Binding SneakBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="{Binding MedicineBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="{Binding RepairBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding ExplosivesBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding MeleeWeaponsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding SmallGunsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding SpeechBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding EnergyWeaponsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding ParadiseLostText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="{Binding UnarmedBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding BarterBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
-                        <TextBlock Text="{Binding LockpickBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" Margin="3" />
-                        <TextBlock Text="{Binding BigGunsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
-                    </StackPanel>
-                    <StackPanel Grid.Column="3">
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Big Book of Science" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Chinese Army: Special Ops Training Manual" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="D.C. Journal of Internal Medicine" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="3" Grid.Column="0" Text="Dean's Electronics" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="4" Grid.Column="0" Text="Duck and Cover!" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="5" Grid.Column="0" Text="Grognak the Barbarian" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="6" Grid.Column="0" Text="Guns and Bullets" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="7" Grid.Column="0" Text="Lying, Congressional Style" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="8" Grid.Column="0" Text="Nikola Tesla and You" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="9" Grid.Column="0" Text="Paradise Lost" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="10" Grid.Column="0" Text="Pugilism Illustrated" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="11" Grid.Column="0" Text="Tales of a Junktown, Jerky Vendor" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="12" Grid.Column="0" Text="Tumblers Today" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="13" Grid.Column="0" Text="U.S. Army: 30 Handy Flamethrower Recipes" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                    
+                    
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="Science" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1"  Text="Sneak" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="Medicine" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Repair" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="4" Grid.Column="1" Text="Explosives" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="5" Grid.Column="1" Text="Melee Weapons" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="6" Grid.Column="1" Text="Small Guns" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="7" Grid.Column="1" Text="Speech" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="8" Grid.Column="1" Text="Energy Weapons" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="9" Grid.Column="1" Text="Speech" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="10" Grid.Column="1" Text="Unarmed" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="11" Grid.Column="1" Text="Barter" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="12" Grid.Column="1" Text="Lockpick" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="13" Grid.Column="1" Text="Big Guns" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                  
+                   <!-- Book Count Value Bindings -->
+                    
+                        <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding ScienceBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding SneakBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding MedicineBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding RepairBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="4" Grid.Column="3" Text="{Binding ExplosivesBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="5" Grid.Column="3" Text="{Binding MeleeWeaponsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="6" Grid.Column="3" Text="{Binding SmallGunsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="7" Grid.Column="3" Text="{Binding SpeechBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="8" Grid.Column="3" Text="{Binding EnergyWeaponsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="9" Grid.Column="3" Text="{Binding ParadiseLostText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="10" Grid.Column="3" Text="{Binding UnarmedBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="11" Grid.Column="3" Text="{Binding BarterBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3"/>
+                        <TextBlock Grid.Row="12" Grid.Column="3" Text="{Binding LockpickBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" Margin="3" />
+                        <TextBlock Grid.Row="13" Grid.Column="3" Text="{Binding BigGunsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
+                    
+                    <!-- Increase Book Count-->
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="0" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="1" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="2" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="3" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="4" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="5" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="6" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="7" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="8" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="9" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="10" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="11" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="12" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
                             <Button.Resources>
                                 <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
+                                    <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="Read" Grid.Column="0" BorderBrush="Black" Margin="1.1" Height="17.5" Padding="1,0,1,0">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="1"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
-                    </StackPanel>
+                    <Button Content="&gt;" BorderBrush="Black" Grid.Row="13" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <!-- Decrease Book Count -->
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="0" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="1" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="2" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="3" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="4" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="5" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="6" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="7" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="8" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="9" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="10" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="11" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="12" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="&lt;" BorderBrush="Black" Grid.Row="13" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <!-- Information Warnings -->
+                    <Border Width="20" Height="20" Background="Transparent" BorderBrush="Black" BorderThickness="1.5" CornerRadius="10" Grid.Column="6" Grid.Row="0" Margin="2,0,0,0">
+                        <Border.ToolTip>
+                            <ToolTip Placement="Right" Content="You can get infinite &quot;Big Book of Science&quot; books off of the ant researcher inside Shalebridge tunnels. Get the book, leave, wait 72 hours, repeat."/>
+                        </Border.ToolTip>
+                        <TextBlock FontFamily="/fonts/#Overseer" FontStyle="Italic" Text="i" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,2,0" Grid.Row="7" Grid.Column="6">
+                        </TextBlock>
+                    </Border>
+                    <Border Width="20" Height="20" Background="Transparent" BorderBrush="Black" BorderThickness="1.5" CornerRadius="10" Grid.Column="6" Grid.Row="7" Margin="2,0,0,0">
+                        <Border.ToolTip>
+                            <ToolTip Placement="Right" Content="24 books can only be found if using the Tenpenny Tower respawn bug. Get the book once then help the ghouls get into the Tower forcefully and it should respawn."/>
+                        </Border.ToolTip>
+                        <TextBlock FontFamily="/fonts/#Overseer" FontStyle="Italic" Text="i" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,2,0" Grid.Row="7" Grid.Column="6">
+                        </TextBlock>
+                    </Border>
+                    <Border Width="20" Height="20" Background="Transparent" BorderBrush="Black" BorderThickness="1.5" CornerRadius="10" Grid.Column="6" Grid.Row="11" Margin="2,0,0,0">
+                        <Border.ToolTip>
+                            <ToolTip Placement="Right" Content="24 books can only be found if using the Tenpenny Tower respawn bug. Get the book once then help the ghouls get into the Tower forcefully and it should respawn."/>
+                        </Border.ToolTip>
+                        <TextBlock FontFamily="/fonts/#Overseer" FontStyle="Italic" Text="i" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,2,0" Grid.Row="7" Grid.Column="6">
+                        </TextBlock>
+                    </Border>
+                    <Border Width="20" Height="20" Background="Transparent" BorderBrush="Black" BorderThickness="1.5" CornerRadius="10" Grid.Column="6" Grid.Row="13" Margin="2,0,0,0">
+                        <Border.ToolTip>
+                            <ToolTip Placement="Right" Content="You can get infinite &quot;U.S. Army: 30 Handy Flamethrower Recipes&quot; books off of a raider in Bethesda offices east. Get the book, leave, wait 72 hours, repeat."/>
+                        </Border.ToolTip>
+                        <TextBlock FontFamily="/fonts/#Overseer" FontStyle="Italic" Text="i" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="0,0,2,0" Grid.Row="7" Grid.Column="6">
+                        </TextBlock>
+                    </Border>
                 </Grid>
-        </Border>
+            </Border>
         </Viewbox>
+        <!-- Leveling Viewbox/Grid -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Visible" Name="LvlViewbox">
             <Border BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10"
        	VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -479,6 +626,5 @@ VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="300" MinWidth
                 </Grid>
             </Border>
         </Viewbox>
-        </Grid>
-    
+    </Grid>
 </Page>
