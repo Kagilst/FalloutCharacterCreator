@@ -26,8 +26,8 @@ namespace FallloutCharacterCreator.Fallout3
 
         private List<Fallout3Character> characterSnapshots;
         public Fallout3Character Character => characterSnapshots[1];
-        public string CharacterNameText => $"Name: {Character?.CharacterName}";
-        public string CharacterLevelText => $"Level: {Character?.Level}";
+        public string CharacterNameText => $"{Character?.CharacterName}";
+        public string CharacterLevelText => $"{Character?.Level}";
         public string StrengthText => $"{Character?.Strength}";
         public string PerceptionText => $"{Character?.Perception}";
         public string EnduranceText => $"{Character?.Endurance}";
@@ -381,6 +381,17 @@ namespace FallloutCharacterCreator.Fallout3
         {
             LvlViewbox.Visibility = Visibility.Collapsed;
             SkillBooksViewbox.Visibility = Visibility.Visible;
+        }
+
+        private void ExtraPerks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BooksSave_Click(object sender, RoutedEventArgs e)
+        {
+            LvlViewbox.Visibility = Visibility.Visible;
+            SkillBooksViewbox.Visibility = Visibility.Collapsed;
         }
     }
 }
