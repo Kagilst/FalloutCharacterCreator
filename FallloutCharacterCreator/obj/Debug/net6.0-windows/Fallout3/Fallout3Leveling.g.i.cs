@@ -117,7 +117,7 @@ namespace FallloutCharacterCreator.Fallout3 {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FallloutCharacterCreator;component/fallout3/fallout3leveling.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/FallloutCharacterCreator;V1.0.0.0;component/fallout3/fallout3leveling.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Fallout3\Fallout3Leveling.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

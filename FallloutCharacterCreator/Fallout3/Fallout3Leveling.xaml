@@ -729,7 +729,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Button Name="ExtraPerks" Grid.Column="0" Content="Extra Perks" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="ExtraPerks_Click" />
                                 <Button Name="SkillBooks" Grid.Column="1" Content="Skill Books" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click"/>
-                                <Button Name="LevelUp" Grid.Column="2" Content="Level Up" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center"/>
+                                <Button Name="LevelUp" Grid.Column="2" Content="Level Up" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="LevelUp_Click"/>
                             </Grid>
                         </Border>
                     </StackPanel>
