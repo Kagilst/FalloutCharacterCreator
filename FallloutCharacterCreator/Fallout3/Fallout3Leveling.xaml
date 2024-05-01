@@ -7,12 +7,44 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Fallout3Leveling">
+    <Page.Resources>
+        <Style x:Key="_ListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="_Border"
+                                Padding="2"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="_Border" Property="Background" Value="#cc87f1b4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
 
     <Grid ShowGridLines="True" Width="auto" Height="auto">
         <Grid.Background>
             <ImageBrush ImageSource="/backgrounds/FalloutThreeBackground.jpg"/>
         </Grid.Background>
+        <!-- Perk List Viewbox -->
+        <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="PerksListViewbox">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
+                <ListView x:Name="PerksListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="#ccd3d3d3">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding PerkName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollViewer>
+        </Viewbox>
         <!-- SkillBooks Viewbox/Grid -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="SkillBooksViewbox">
             <Border Name="SkillBooksBorder" BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="300" MinWidth="300">
