@@ -35,15 +35,38 @@
         </Grid.Background>
         <!-- Perk List Viewbox -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="PerksListViewbox">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
-                <ListView x:Name="PerksListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="#ccd3d3d3">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding PerkName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ScrollViewer>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="170" />
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
+                        <ListView x:Name="PerksListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="Transparent" SelectionChanged="PerksListView_SelectionChanged" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PerkName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Border>
+                <Border Grid.Column="1" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5" Padding="5">
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Name="PerkDescriptionTextBlock" Text="{Binding SelectedItem.Description, ElementName=PerksListView}" TextWrapping="Wrap" Margin="10" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                            <Button Content="Cancel" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="CancelPerkSelection_Click"/>
+                            <Button Content="Confirm" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </Grid>
         </Viewbox>
         <!-- SkillBooks Viewbox/Grid -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="SkillBooksViewbox">

@@ -84,6 +84,13 @@ namespace FallloutCharacterCreator.Fallout3
 
         }
 
+        private void PerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Update the description TextBlock when a different perk is selected
+            PerkDescriptionTextBlock.Text = (PerksListView.SelectedItem as Fallout3Perks)?.PerkDescription;
+        }
+
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         // Method to notify property changed
@@ -394,6 +401,12 @@ namespace FallloutCharacterCreator.Fallout3
         {
             LvlViewbox.Visibility = Visibility.Visible;
             SkillBooksViewbox.Visibility = Visibility.Collapsed;
+        }
+
+        private void CancelPerkSelection_Click(object sender, RoutedEventArgs e)
+        {
+            LvlViewbox.Visibility = Visibility.Visible;
+            PerksListViewbox.Visibility = Visibility.Collapsed;
         }
 
         private void LevelUp_Click(object sender, RoutedEventArgs e)
