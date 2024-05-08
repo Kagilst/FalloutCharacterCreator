@@ -790,7 +790,7 @@ namespace FallloutCharacterCreator
                 snapshot.TaggedSkills = Character.TaggedSkills;
 
                 characterSnapshots.Add(snapshot);//saves starting values
-                characterSnapshots.Add(snapshot);//saves values for editing
+                //characterSnapshots.Add(snapshot);//saves values for editing
 
 
 

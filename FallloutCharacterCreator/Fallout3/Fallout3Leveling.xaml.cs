@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,41 +23,49 @@ namespace FallloutCharacterCreator.Fallout3
     /// </summary>
     public partial class Fallout3Leveling : Page, INotifyPropertyChanged
     {
+        public Fallout3Character GetLatestCharacter()
+        {
+            return characterSnapshots[characterSnapshots.Count - 1];
+        }
+
+        
+
         public Fallout3SkillBooks BookValues { get; set; }
 
         private List<Fallout3Character> characterSnapshots;
-        public Fallout3Character Character => characterSnapshots[1];
-        public string CharacterNameText => $"{Character?.CharacterName}";
-        public string CharacterLevelText => $"{Character?.Level}";
-        public string StrengthText => $"{Character?.Strength}";
-        public string PerceptionText => $"{Character?.Perception}";
-        public string EnduranceText => $"{Character?.Endurance}";
-        public string CharismaText => $"{Character?.Charisma}";
-        public string IntelligenceText => $"{Character?.Intelligence}";
-        public string AgilityText => $"{Character?.Agility}";
-        public string LuckText => $"{Character?.Luck}";
-        public string SpecialPointsText => $"{Character?.SpecialPoints}";
-        public string ActionPointsText => $"{Character?.ActionPoints}";
-        public string CarryWeightText => $"{Character?.CarryWeight}";
-        public string CriticalChanceText => $"{Character?.CriticalChance}";
-        public string DamageResistText => $"{Character?.DamageResistance}";
-        public string HealthText => $"{Character?.Health}";
-        public string UnarmedDamageText => $"{Character?.UnarmedDamage}";
-        public string TaggedSkillsText => $"{Character?.TaggedSkills}/3";
-        public string SkillPointsText => $"{Character?.SkillPoints}";
-        public string BarterText => $"{Character?.Barter}";
-        public string BigGunsText => $"{Character?.BigGuns}";
-        public string EnergyWeaponsText => $"{Character?.EnergyWeapons}";
-        public string ExplosivesText => $"{Character?.Explosives}";
-        public string LockpickText => $"{Character?.Lockpick}";
-        public string MedicineText => $"{Character?.Medicine}";
-        public string MeleeWeaponsText => $"{Character?.MeleeWeapons}";
-        public string RepairText => $"{Character?.Repair}";
-        public string ScienceText => $"{Character?.Science}";
-        public string SmallGunsText => $"{Character?.SmallGuns}";
-        public string SneakText => $"{Character?.Sneak}";
-        public string SpeechText => $"{Character?.Speech}";
-        public string UnarmedText => $"{Character?.Unarmed}";
+        
+        public Fallout3Character Character => GetLatestCharacter();
+        public string CharacterNameText => $"{Character.CharacterName}";
+        public string CharacterLevelText => $"{Character.Level}";
+        public string StrengthText => $"{Character.Strength}";
+        public string PerceptionText => $"{Character.Perception}";
+        public string EnduranceText => $"{Character.Endurance}";
+        public string CharismaText => $"{Character.Charisma}";
+        public string IntelligenceText => $"{Character.Intelligence}";
+        public string AgilityText => $"{Character.Agility}";
+        public string LuckText => $"{Character.Luck}";
+        public string SpecialPointsText => $"{Character.SpecialPoints}";
+        public string ActionPointsText => $"{Character.ActionPoints}";
+        public string CarryWeightText => $"{Character.CarryWeight}";
+        public string CriticalChanceText => $"{Character.CriticalChance}";
+        public string DamageResistText => $"{Character.DamageResistance}";
+        public string HealthText => $"{Character.Health}";
+        public string UnarmedDamageText => $"{Character.UnarmedDamage}";
+        public string TaggedSkillsText => $"{Character.TaggedSkills}/3";
+        public string SkillPointsText => $"{Character.SkillPoints}";
+        public string BarterText => $"{Character.Barter}";
+        public string BigGunsText => $"{Character.BigGuns}";
+        public string EnergyWeaponsText => $"{Character.EnergyWeapons}";
+        public string ExplosivesText => $"{Character.Explosives}";
+        public string LockpickText => $"{Character.Lockpick}";
+        public string MedicineText => $"{Character.Medicine}";
+        public string MeleeWeaponsText => $"{Character.MeleeWeapons}";
+        public string RepairText => $"{Character.Repair}";
+        public string ScienceText => $"{Character.Science}";
+        public string SmallGunsText => $"{Character.SmallGuns}";
+        public string SneakText => $"{Character.Sneak}";
+        public string SpeechText => $"{Character.Speech}";
+        public string UnarmedText => $"{Character.Unarmed}";
         public string ScienceBookText => $"{BookValues.ScienceBook}  /  \u221E";
         public string SneakBookText => $"{BookValues.SneakBook}  /  25";
         public string MedicineBookText => $"{BookValues.MedicineBook}  /  25";
@@ -409,14 +418,187 @@ namespace FallloutCharacterCreator.Fallout3
             PerksListViewbox.Visibility = Visibility.Collapsed;
         }
 
+        List<Fallout3Perks> characterPerks = new List<Fallout3Perks>();
+        private void ConfirmPerkSelection_Click(object sender, RoutedEventArgs e)
+        {
+            Fallout3Perks selectedPerk = PerksListView.SelectedItem as Fallout3Perks;
+            
+            if (selectedPerk != null)
+            {
+                
+                characterPerks.Add(selectedPerk);
+
+                foreach (Fallout3Perks perk in Fallout3Perks.AllPerksList)
+                {
+                    if (perk.PerkName == selectedPerk.PerkName)
+                    {
+                        perk.CurrentPerkRank++;
+                        break;
+                    }
+                }
+
+
+                {
+                    Fallout3Character snapshot = new Fallout3Character();
+                    snapshot.CharacterName = Character.CharacterName;
+                    snapshot.Level = Character.Level + 1;
+                    snapshot.SpecialPoints = Character.SpecialPoints;
+                    snapshot.CarryWeight = Character.CarryWeight;
+                    snapshot.ActionPoints = Character.ActionPoints;
+                    snapshot.CriticalChance = Character.CriticalChance;
+                    snapshot.DamageResistance = Character.DamageResistance;
+                    snapshot.UnarmedDamage = Character.UnarmedDamage;
+                    snapshot.SkillPoints = Character.Intelligence + 10;
+                    snapshot.Health = Character.Health + 10;
+                    snapshot.SpecialPoints = Character.SpecialPoints;
+                    snapshot.Strength = Character.Strength;
+                    snapshot.Perception = Character.Perception;
+                    snapshot.Endurance = Character.Endurance;
+                    snapshot.Charisma = Character.Charisma;
+                    snapshot.Intelligence = Character.Intelligence;
+                    snapshot.Agility = Character.Agility;
+                    snapshot.Luck = Character.Luck;
+                    snapshot.Barter = Character.Barter;
+                    snapshot.BigGuns = Character.BigGuns;
+                    snapshot.EnergyWeapons = Character.EnergyWeapons;
+                    snapshot.Explosives = Character.Explosives;
+                    snapshot.Lockpick = Character.Lockpick;
+                    snapshot.Medicine = Character.Medicine;
+                    snapshot.MeleeWeapons = Character.MeleeWeapons;
+                    snapshot.Repair = Character.Repair;
+                    snapshot.Science = Character.Science;
+                    snapshot.SmallGuns = Character.SmallGuns;
+                    snapshot.Sneak = Character.Sneak;
+                    snapshot.Speech = Character.Speech;
+                    snapshot.Unarmed = Character.Unarmed;
+                    snapshot.TaggedSkills = Character.TaggedSkills;
+
+                    characterSnapshots.Add(snapshot);
+
+                    InvalidateVisual();
+                    UpdateCharacterValues();
+                }
+            }
+
+
+
+            LvlViewbox.Visibility = Visibility.Visible;
+            PerksListViewbox.Visibility = Visibility.Collapsed;
+        }
+        private void UpdateCharacterValues()
+        {
+            OnPropertyChanged(nameof(CharacterNameText));
+            OnPropertyChanged(nameof(CharacterLevelText));
+            OnPropertyChanged(nameof(StrengthText));
+            OnPropertyChanged(nameof(PerceptionText));
+            OnPropertyChanged(nameof(EnduranceText));
+            OnPropertyChanged(nameof(CharismaText));
+            OnPropertyChanged(nameof(IntelligenceText));
+            OnPropertyChanged(nameof(AgilityText));
+            OnPropertyChanged(nameof(LuckText));
+            OnPropertyChanged(nameof(SpecialPointsText));
+            OnPropertyChanged(nameof(ActionPointsText));
+            OnPropertyChanged(nameof(CarryWeightText));
+            OnPropertyChanged(nameof(CriticalChanceText));
+            OnPropertyChanged(nameof(DamageResistText));
+            OnPropertyChanged(nameof(HealthText));
+            OnPropertyChanged(nameof(UnarmedDamageText));
+            OnPropertyChanged(nameof(TaggedSkillsText));
+            OnPropertyChanged(nameof(SkillPointsText));
+            OnPropertyChanged(nameof(BarterText));
+            OnPropertyChanged(nameof(BigGunsText));
+            OnPropertyChanged(nameof(EnergyWeaponsText));
+            OnPropertyChanged(nameof(ExplosivesText));
+            OnPropertyChanged(nameof(LockpickText));
+            OnPropertyChanged(nameof(MedicineText));
+            OnPropertyChanged(nameof(MeleeWeaponsText));
+            OnPropertyChanged(nameof(RepairText));
+            OnPropertyChanged(nameof(ScienceText));
+            OnPropertyChanged(nameof(SmallGunsText));
+            OnPropertyChanged(nameof(SneakText));
+            OnPropertyChanged(nameof(SpeechText));
+            OnPropertyChanged(nameof(UnarmedText));
+            OnPropertyChanged(nameof(ScienceBookText));
+            OnPropertyChanged(nameof(SneakBookText));
+            OnPropertyChanged(nameof(MedicineBookText));
+            OnPropertyChanged(nameof(RepairBookText));
+            OnPropertyChanged(nameof(ExplosivesBookText));
+            OnPropertyChanged(nameof(MeleeWeaponsBookText));
+            OnPropertyChanged(nameof(SmallGunsBookText));
+            OnPropertyChanged(nameof(SpeechBookText));
+            OnPropertyChanged(nameof(EnergyWeaponsBookText));
+            OnPropertyChanged(nameof(ParadiseLostText));
+            OnPropertyChanged(nameof(UnarmedBookText));
+            OnPropertyChanged(nameof(BarterBookText));
+            OnPropertyChanged(nameof(LockpickBookText));
+            OnPropertyChanged(nameof(BigGunsBookText));
+        }
+
         private void LevelUp_Click(object sender, RoutedEventArgs e)
         {
-            List<Fallout3Perks> perksList = Fallout3Perks.AllPerksList;
+     
 
-            LvlViewbox.Visibility = Visibility.Collapsed;
-            PerksListView.ItemsSource = perksList;
-            PerksListViewbox.Visibility = Visibility.Visible;
+            if (Character.SkillPoints == 0 && Character.Level < 50) {
 
+                foreach (Fallout3Perks perkcheck in Fallout3Perks.AllPerksList)
+                {
+                    if (Character.Level + 1 >= perkcheck.RequiredLevel &&
+                        Character.Strength >= perkcheck.RequiredStrength &&
+                        Character.Perception >= perkcheck.RequiredPerception &&
+                        Character.Endurance >= perkcheck.RequiredEndurance &&
+                        Character.Charisma >= perkcheck.RequiredCharisma &&
+                        Character.Intelligence >= perkcheck.RequiredIntelligence &&
+                        Character.Agility >= perkcheck.RequiredAgility &&
+                        Character.Luck >= perkcheck.RequiredLuck &&
+                        Character.Science >= perkcheck.RequiredScience &&
+                        Character.Explosives >= perkcheck.RequiredExplosives &&
+                        Character.Sneak >= perkcheck.RequiredSneak &&
+                        Character.Medicine >= perkcheck.RequiredMedicine &&
+                        Character.Lockpick >= perkcheck.RequiredLockpick &&
+                        Character.SmallGuns >= perkcheck.RequiredSmallGuns &&
+                        Character.EnergyWeapons >= perkcheck.RequiredEnergyWeapons &&
+                        Character.Barter >= perkcheck.RequiredBarter &&
+                        Character.Unarmed >= perkcheck.RequiredUnarmed &&
+                        Character.MeleeWeapons >= perkcheck.RequiredMeleeWeapons &&
+                        perkcheck.CurrentPerkRank < perkcheck.MaxPerkRank)
+                    {
+
+                        perkcheck.AvaliableOrHave = 1;
+
+                    }
+                    else if (Character.Level < perkcheck.RequiredLevel)
+                    {
+                        break;
+                    }
+                    else if (perkcheck.CurrentPerkRank == perkcheck.MaxPerkRank) { 
+                        perkcheck.AvaliableOrHave = 3;
+                    }
+
+                    List<Fallout3Perks> availablePerks = Fallout3Perks.AllPerksList
+        .Where(perk => perk.AvaliableOrHave == 1)
+        .ToList();
+
+                    LvlViewbox.Visibility = Visibility.Collapsed;
+                    PerksListView.ItemsSource = availablePerks;
+                    PerksListViewbox.Visibility = Visibility.Visible;
+                }
+                
+            }
+            else if(Character.SkillPoints != 0)
+            {
+                MessageBox.Show("Please make sure:\n" +
+                    "- You use all avaliable skill point",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+            }
+            else if (Character.Level == 50)
+            {
+                MessageBox.Show("You are already max character level\n",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+            }
         }
     }
 }

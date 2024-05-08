@@ -62,7 +62,7 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
                             <Button Content="Cancel" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="CancelPerkSelection_Click"/>
-                            <Button Content="Confirm" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                            <Button Content="Confirm" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="ConfirmPerkSelection_Click"/>
                         </StackPanel>
                     </Grid>
                 </Border>
