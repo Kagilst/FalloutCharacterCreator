@@ -86,6 +86,7 @@ namespace FallloutCharacterCreator.Fallout3
         {
             InitializeComponent();
             Fallout3Perks.InitializePerksList();
+            Fallout3Bobbleheads.InitializeBobbleheadsList();
             characterSnapshots = snapshots;
             DataContext = this;
             BookValues = new Fallout3SkillBooks();
@@ -506,10 +507,10 @@ namespace FallloutCharacterCreator.Fallout3
         private void ConfirmPerkSelection_Click(object sender, RoutedEventArgs e)
         {
             Fallout3Perks selectedPerk = PerksListView.SelectedItem as Fallout3Perks;
-            
-            if (selectedPerk != null)
+
+            if (selectedPerk.AvaliableOrHave != 0)
             {
-                
+
                 characterPerks.Add(selectedPerk);
 
                 foreach (Fallout3Perks perk in Fallout3Perks.AllPerksList)
@@ -561,13 +562,18 @@ namespace FallloutCharacterCreator.Fallout3
 
                     InvalidateVisual();
                     UpdateCharacterValues();
+
+                    LvlViewbox.Visibility = Visibility.Visible;
+                    PerksListViewbox.Visibility = Visibility.Collapsed;
                 }
             }
-
-
-
-            LvlViewbox.Visibility = Visibility.Visible;
-            PerksListViewbox.Visibility = Visibility.Collapsed;
+            else {
+                    MessageBox.Show("You do not have the requirement for this perk",
+                        "Warning",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Warning);
+                
+            }            
         }
         private void UpdateCharacterValues()
         {
@@ -657,15 +663,21 @@ namespace FallloutCharacterCreator.Fallout3
                         break;
                     }
                     else if (perkcheck.CurrentPerkRank == perkcheck.MaxPerkRank) { 
-                        perkcheck.AvaliableOrHave = 3;
+                        perkcheck.AvaliableOrHave = 2;
                     }
 
                     List<Fallout3Perks> availablePerks = Fallout3Perks.AllPerksList
         .Where(perk => perk.AvaliableOrHave == 1)
         .ToList();
 
+                    List<Fallout3Perks> unavailablePerks = Fallout3Perks.AllPerksList
+        .Where(perk => perk.AvaliableOrHave == 0)
+        .ToList();
+                    
+                    List<Fallout3Perks> perkListDisplay = availablePerks.Concat(unavailablePerks).ToList();
+
                     LvlViewbox.Visibility = Visibility.Collapsed;
-                    PerksListView.ItemsSource = availablePerks;
+                    PerksListView.ItemsSource = perkListDisplay;
                     PerksListViewbox.Visibility = Visibility.Visible;
                 }
                 
@@ -685,6 +697,34 @@ namespace FallloutCharacterCreator.Fallout3
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
             }
+        }
+
+        private void Bobbleheads_Click(object sender, RoutedEventArgs e)
+        {
+            BobbleheadsListView.ItemsSource = Fallout3Bobbleheads.AllBobbleheadsList;
+            LvlViewbox.Visibility = Visibility.Collapsed;
+            BobbleheadsListViewbox.Visibility = Visibility.Visible;
+        }
+
+        private void CharacterPerks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BobbleheadsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //BobbleheadsDescriptionTextBlock.Text = (BobbleheadsListView.SelectedItem as Fallout3Bobbleheads)?.BobbleheadDescription;
+        }
+
+        private void ConfirmBobbleheadSelection_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelBobbleHeadSelection_Click(object sender, RoutedEventArgs e)
+        {
+            LvlViewbox.Visibility = Visibility.Visible;
+            BobbleheadsListViewbox.Visibility = Visibility.Collapsed;
         }
     }
 }

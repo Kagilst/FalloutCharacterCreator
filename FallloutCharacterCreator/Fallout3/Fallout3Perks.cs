@@ -67,90 +67,9 @@ namespace FallloutCharacterCreator.Fallout3
             PerkDescription = "";
         }
 
-        public string RequirementsText
-        {
-            get
-            {
-                StringBuilder sb = new StringBuilder();
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Level: {RequiredLevel}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Strength {RequiredStrength}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Perception: {RequiredPerception}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Endurance: {RequiredEndurance}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Charisma: {RequiredCharisma}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Intelligence: {RequiredIntelligence}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Agility: {RequiredAgility}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Luck: {RequiredLuck}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Science: {RequiredScience}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Explosives: {RequiredExplosives}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Sneak: {RequiredSneak}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Medicine: {RequiredMedicine}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Lockpick: {RequiredLockpick}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Small Guns: {RequiredSmallGuns}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Energy Weapons: {RequiredEnergyWeapons}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Barter: {RequiredBarter}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Unarmed: {RequiredUnarmed}");
-                }
-                if (RequiredLevel > 0)
-                {
-                    sb.AppendLine($"Melee Weapons: {RequiredMeleeWeapons}");
-                }
-
-                return sb.ToString().TrimEnd();
-            }
-
-        }
-
         public static List<Fallout3Perks> AllPerksList = new List<Fallout3Perks>();
+
+       
 
 
         public static void InitializePerksList()

@@ -33,40 +33,113 @@
         <Grid.Background>
             <ImageBrush ImageSource="/backgrounds/FalloutThreeBackground.jpg"/>
         </Grid.Background>
-        <!-- Perk List Viewbox -->
-        <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="PerksListViewbox">
+        
+        <!-- Current Character Perks ViewBox-->
+        
+        <!-- Bobblehead Viewbox -->
+        <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="BobbleheadsListViewbox">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="170" />
+                    <ColumnDefinition Width="180" />
+                    <ColumnDefinition Width="150" />
                 </Grid.ColumnDefinitions>
+
                 <Border Grid.Column="0" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5">
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
-                        <ListView x:Name="PerksListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="Transparent" SelectionChanged="PerksListView_SelectionChanged" >
+                        <ListView x:Name="BobbleheadsListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="Transparent" SelectionMode="Multiple" SelectionChanged="BobbleheadsListView_SelectionChanged">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding PerkName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
+                                    <TextBlock Text="{Binding BobbleheadName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </ScrollViewer>
                 </Border>
+
                 <Border Grid.Column="1" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5" Padding="5">
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <StackPanel>
 
-                        <TextBlock x:Name="PerkReqTextBox" Text="{Binding RequirementsText}" TextWrapping="Wrap" Margin="10,5,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        <ScrollViewer VerticalScrollBarVisibility="Auto" Height="270">
+                            <StackPanel>
+                                <TextBlock Grid.Column="1" TextWrapping="Wrap" Margin="5">
+                                <Run Text="Selected Bobbleheads:" FontWeight="Bold" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
+                            <LineBreak/>
+                                <ItemsControl ItemsSource="{Binding SelectedItems, ElementName=BobbleheadsListView}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BobbleheadDescription}" Margin="0,5,0,0" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </TextBlock>
+                            </StackPanel>
+                        </ScrollViewer>
 
-                        <TextBlock x:Name="PerkDescriptionTextBlock" Text="{Binding SelectedItem.Description, ElementName=PerksListView}" TextWrapping="Wrap" Margin="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                            <Button Content="Cancel" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="CancelBobbleHeadSelection_Click" />
+                            <Button Content="Confirm" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="ConfirmBobbleheadSelection_Click" />
                         </StackPanel>
+
+                    </Grid>
+                </Border>
+
+            </Grid>
+        </Viewbox>
+
+        <!-- Level up Perk List Viewbox -->
+        <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="PerksListViewbox">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="170" />
+                </Grid.ColumnDefinitions>
+                
+                <Border Grid.Column="0" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
+                        <ListView x:Name="PerksListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="Transparent" SelectionChanged="PerksListView_SelectionChanged" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PerkName}" Margin="5" FontFamily="/fonts/#Overseer">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding AvaliableOrHave}" Value="1">
+                                                        <Setter Property="Foreground" Value="Green"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding AvaliableOrHave}" Value="0">
+                                                        <Setter Property="Foreground" Value="Gray"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Border>
+                
+                <Border Grid.Column="1" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5" Padding="5">
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <StackPanel>
+                            <TextBlock x:Name="PerkReqTextBox" Text="{Binding RequirementsText}" TextWrapping="Wrap" Margin="10,5,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                            <TextBlock x:Name="PerkDescriptionTextBlock" Text="{Binding SelectedItem.Description, ElementName=PerksListView}" TextWrapping="Wrap" Margin="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        </StackPanel>
+                        
                         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
                             <Button Content="Cancel" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="CancelPerkSelection_Click"/>
                             <Button Content="Confirm" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="ConfirmPerkSelection_Click"/>
                         </StackPanel>
+                        
                     </Grid>
                 </Border>
             </Grid>
@@ -668,7 +741,7 @@
                                 <TextBlock Text="{Binding SpeechText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="2,2,2,1" HorizontalAlignment="Center" Grid.Row="11"/>
                                 <TextBlock Text="{Binding UnarmedText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="19" Foreground="#008200" Margin="2,2,2,1" HorizontalAlignment="Center" Grid.Row="12"/>
                             </Grid>
-                            <!-- Grid Column 8 Increase Skills Values -->
+                            <!-- Leveling Screen Increase Skills Values -->
                             <Grid Grid.Column="7">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
@@ -778,16 +851,51 @@
                                 </Button>
                             </Grid>
                         </Grid>
+                        <!-- Leveling Frame Bottom Buttons -->
                         <Border BorderBrush="Black" BorderThickness="2" Margin="10" Padding="5,0,5,0" CornerRadius="4">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button Name="ExtraPerks" Grid.Column="0" Content="Extra Perks" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="ExtraPerks_Click" />
-                                <Button Name="SkillBooks" Grid.Column="1" Content="Skill Books" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click"/>
-                                <Button Name="LevelUp" Grid.Column="2" Content="Level Up" BorderBrush="Black" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="LevelUp_Click"/>
+                                <Button Name="Bobbleheads" Grid.Column="0" Content="Bobbleheads" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="Bobbleheads_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name="Perks" Grid.Column="1" Content="Character Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="CharacterPerks_Click" >
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name="ExtraPerks" Grid.Column="2" Content="Extra Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="ExtraPerks_Click" FontFamily="/fonts/#Overseer">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name="SkillBooks" Grid.Column="3" Content="Skill Books" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click" FontFamily="/fonts/#Overseer">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                                <Button Name="LevelUp" Grid.Column="4" Content="Level Up" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="LevelUp_Click" FontFamily="/fonts/#Overseer">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="5"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
                             </Grid>
                         </Border>
                     </StackPanel>
