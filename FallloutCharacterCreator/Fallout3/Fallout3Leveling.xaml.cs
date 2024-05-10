@@ -95,6 +95,90 @@ namespace FallloutCharacterCreator.Fallout3
 
         private void PerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+            if (PerksListView.SelectedItem != null)
+            {
+                // Cast the selected item to Fallout3Perks
+                Fallout3Perks selectedPerk = (Fallout3Perks)PerksListView.SelectedItem;
+                string requirementsText = "Requirements:\n";
+                if (selectedPerk.RequiredLevel > 0)
+                {
+                    requirementsText += $"Required Level: {selectedPerk.RequiredLevel}\n";
+                }
+                if (selectedPerk.RequiredStrength > 0)
+                {
+                    requirementsText += $"Strength {selectedPerk.RequiredStrength}\n";
+                }
+                if (selectedPerk.RequiredPerception > 0)
+                {
+                    requirementsText += $"Perception: {selectedPerk.RequiredPerception}\n";
+                }
+                if (selectedPerk.RequiredEndurance > 0)
+                {
+                    requirementsText += $"Endurance: {selectedPerk.RequiredEndurance}\n";
+                }
+                if (selectedPerk.RequiredCharisma > 0)
+                {
+                    requirementsText += $"Charisma: {selectedPerk.RequiredCharisma}\n";
+                }
+                if (selectedPerk.RequiredIntelligence > 0)
+                {
+                    requirementsText += $"Intelligence: {selectedPerk.RequiredIntelligence}\n";
+                }
+                if (selectedPerk.RequiredAgility > 0)
+                {
+                    requirementsText += $"Agility: {selectedPerk.RequiredAgility}\n";
+                }
+                if (selectedPerk.RequiredLuck > 0)
+                {
+                    requirementsText += $"Luck: {selectedPerk.RequiredLuck}\n";
+                }
+                if (selectedPerk.RequiredScience > 0)
+                {
+                    requirementsText += $"Science: {selectedPerk.RequiredScience}\n";
+                }
+                if (selectedPerk.RequiredExplosives > 0)
+                {
+                    requirementsText += $"Explosives: {selectedPerk.RequiredExplosives}\n";
+                }
+                if (selectedPerk.RequiredSneak > 0)
+                {
+                    requirementsText += $"Sneak: {selectedPerk.RequiredSneak}\n";
+                }
+                if (selectedPerk.RequiredMedicine > 0)
+                {
+                    requirementsText += $"Medicine: {selectedPerk.RequiredMedicine}\n";
+                }
+                if (selectedPerk.RequiredLockpick > 0)
+                {
+                    requirementsText += $"Lockpick: {selectedPerk.RequiredLockpick}\n";
+                }
+                if (selectedPerk.RequiredSmallGuns > 0)
+                {
+                    requirementsText += $"Small Guns: {selectedPerk.RequiredSmallGuns}\n";
+                }
+                if (selectedPerk.RequiredEnergyWeapons > 0)
+                {
+                    requirementsText += $"Energy Weapons: {selectedPerk.RequiredEnergyWeapons}\n";
+                }
+                if (selectedPerk.RequiredBarter > 0)
+                {
+                    requirementsText += $"Barter: {selectedPerk.RequiredBarter}\n";
+                }
+                if (selectedPerk.RequiredUnarmed > 0)
+                {
+                    requirementsText += $"Unarmed: {selectedPerk.RequiredUnarmed}\n";
+                }
+                if (selectedPerk.RequiredMeleeWeapons > 0)
+                {
+                    requirementsText += $"Melee Weapons: {selectedPerk.RequiredMeleeWeapons}\n";
+                }
+
+                PerkReqTextBox.Text = requirementsText;
+
+
+            }
+
             // Update the description TextBlock when a different perk is selected
             PerkDescriptionTextBlock.Text = (PerksListView.SelectedItem as Fallout3Perks)?.PerkDescription;
         }
@@ -533,6 +617,8 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(LockpickBookText));
             OnPropertyChanged(nameof(BigGunsBookText));
         }
+
+        
 
         private void LevelUp_Click(object sender, RoutedEventArgs e)
         {

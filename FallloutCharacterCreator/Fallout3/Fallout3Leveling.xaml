@@ -57,9 +57,12 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
+                        <StackPanel>
 
-                        <TextBlock x:Name="PerkDescriptionTextBlock" Text="{Binding SelectedItem.Description, ElementName=PerksListView}" TextWrapping="Wrap" Margin="10" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        <TextBlock x:Name="PerkReqTextBox" Text="{Binding RequirementsText}" TextWrapping="Wrap" Margin="10,5,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
 
+                        <TextBlock x:Name="PerkDescriptionTextBlock" Text="{Binding SelectedItem.Description, ElementName=PerksListView}" TextWrapping="Wrap" Margin="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
                             <Button Content="Cancel" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="CancelPerkSelection_Click"/>
                             <Button Content="Confirm" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="ConfirmPerkSelection_Click"/>
