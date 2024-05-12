@@ -49,7 +49,20 @@
                         <ListView x:Name="BobbleheadsListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="Transparent" SelectionMode="Multiple" SelectionChanged="BobbleheadsListView_SelectionChanged">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding BobbleheadName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200"/>
+                                    <TextBlock Text="{Binding BobbleheadName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding BobbleheadGotorNot}" Value="false">
+                                                        <Setter Property="Foreground" Value="Green"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding BobbleheadGotorNot}" Value="true">
+                                                        <Setter Property="Foreground" Value="Gray"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
@@ -86,7 +99,6 @@
 
                     </Grid>
                 </Border>
-
             </Grid>
         </Viewbox>
 

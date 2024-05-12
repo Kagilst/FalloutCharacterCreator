@@ -402,6 +402,7 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(SmallGunsText));
         }
+
         private void IncreaseSmallGuns(object sender, RoutedEventArgs e)
         {
             if (Character.SmallGuns < 100 && Character.SkillPoints > 0)
@@ -504,6 +505,8 @@ namespace FallloutCharacterCreator.Fallout3
         }
 
         List<Fallout3Perks> characterPerks = new List<Fallout3Perks>();
+
+        bool hasEducatedPerk = false; 
         private void ConfirmPerkSelection_Click(object sender, RoutedEventArgs e)
         {
             Fallout3Perks selectedPerk = PerksListView.SelectedItem as Fallout3Perks;
@@ -520,6 +523,220 @@ namespace FallloutCharacterCreator.Fallout3
                         perk.CurrentPerkRank++;
                         break;
                     }
+
+                    if (selectedPerk.PerkName == "Daddy's Boy/Girl") {
+                        if (Character.Science <= 95)
+                        {
+                            Character.Science += 5;
+                        }
+                        else {
+                            Character.Science = 100;
+                        }
+
+                        if (Character.Medicine <= 95)
+                        {
+                            Character.Medicine += 5;
+                        }
+                        else
+                        {
+                            Character.Medicine = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Gun Nut")
+                    {
+                        if (Character.SmallGuns <= 95)
+                        {
+                            Character.SmallGuns += 5;
+                        }
+                        else
+                        {
+                            Character.SmallGuns = 100;
+                        }
+
+                        if (Character.Repair <= 95)
+                        {
+                            Character.Repair += 5;
+                        }
+                        else
+                        {
+                            Character.Repair = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Little Leaguer")
+                    {
+                        if (Character.MeleeWeapons <= 95)
+                        {
+                            Character.MeleeWeapons += 5;
+                        }
+                        else
+                        {
+                            Character.MeleeWeapons = 100;
+                        }
+
+                        if (Character.Explosives <= 95)
+                        {
+                            Character.Explosives += 5;
+                        }
+                        else
+                        {
+                            Character.Explosives = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Theif")
+                    {
+                        if (Character.Lockpick <= 95)
+                        {
+                            Character.Lockpick += 5;
+                        }
+                        else
+                        {
+                            Character.Lockpick = 100;
+                        }
+
+                        if (Character.Sneak <= 95)
+                        {
+                            Character.Sneak += 5;
+                        }
+                        else
+                        {
+                            Character.Sneak = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Intense Training")
+                    {
+                        //Still deciding how to implement
+                    }
+
+                    if (selectedPerk.PerkName == "Comprehension")
+                    {
+
+                        //Still need to implement
+                    }
+
+                    if (selectedPerk.PerkName == "Educated")
+                    {
+                        hasEducatedPerk = true;
+                    }
+
+                    if (selectedPerk.PerkName == "Scoundrel")
+                    {
+                        if (Character.Speech <= 95)
+                        {
+                            Character.Speech += 5;
+                        }
+                        else
+                        {
+                            Character.Speech = 100;
+                        }
+
+                        if (Character.Barter <= 95)
+                        {
+                            Character.Barter += 5;
+                        }
+                        else
+                        {
+                            Character.Barter = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Toughness")
+                    {
+                        if (Character.DamageResistance < 75) {
+                            Character.DamageResistance = +10; }
+                        else { 
+                            Character.DamageResistance = 85;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Size Matter")
+                    {
+                        if (Character.BigGuns < 85)
+                        {
+                            Character.BigGuns += 15;
+                        }
+                        else
+                        {
+                            Character.BigGuns = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Strong Back")
+                    {
+                            Character.CarryWeight += 50;
+                    }
+
+                    if (selectedPerk.PerkName == "Finesse")
+                    {
+                            Character.CriticalChance += 5;                       
+                    }
+
+                    if (selectedPerk.PerkName == "Life Giver")
+                    {
+                        Character.Health += 30;
+                    }
+
+                    if (selectedPerk.PerkName == "Silent Running")
+                    {
+                        if (Character.Sneak < 90)
+                        {
+                            Character.Sneak += 10;
+                        }
+                        else
+                        {
+                            Character.Sneak = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Cyborg")
+                    {
+                        if (Character.EnergyWeapons < 90)
+                        {
+                            Character.EnergyWeapons += 10;
+                        }
+                        else
+                        {
+                            Character.EnergyWeapons = 100;
+                        }
+                    }
+
+                    if (selectedPerk.PerkName == "Tag")
+                    {
+                        //Need to implement
+                    }
+
+                    if (selectedPerk.PerkName == "Action Boy/Girl")
+                    {
+                        Character.ActionPoints += 25;
+                    }
+
+                    if (selectedPerk.PerkName == "No Weaknesses")
+                    {
+                        if (Character.Strength < 5) { Character.Strength = 5; }
+                        if (Character.Perception < 5) { Character.Perception = 5; }
+                        if (Character.Endurance < 5) { Character.Endurance = 5; }
+                        if (Character.Charisma < 5) { Character.Charisma = 5; }
+                        if (Character.Intelligence < 5) { Character.Intelligence = 5; }
+                        if (Character.Agility < 5) { Character.Agility = 5; }
+                        if (Character.Luck < 5) { Character.Luck = 5; }
+                    }
+
+                    if (selectedPerk.PerkName == "Almost Perfect")
+                    {
+                        if (Character.Strength < 9) { Character.Strength = 9; }
+                        if (Character.Perception < 9) { Character.Perception = 9; }
+                        if (Character.Endurance < 9) { Character.Endurance = 9; }
+                        if (Character.Charisma < 9) { Character.Charisma = 9; }
+                        if (Character.Intelligence < 9) { Character.Intelligence = 9; }
+                        if (Character.Agility < 9) { Character.Agility = 9; }
+                        if (Character.Luck < 9) { Character.Luck = 9; }
+                    }
+
+
+
                 }
 
 
@@ -533,7 +750,12 @@ namespace FallloutCharacterCreator.Fallout3
                     snapshot.CriticalChance = Character.CriticalChance;
                     snapshot.DamageResistance = Character.DamageResistance;
                     snapshot.UnarmedDamage = Character.UnarmedDamage;
-                    snapshot.SkillPoints = Character.Intelligence + 10;
+                    if (hasEducatedPerk == false){
+                        snapshot.SkillPoints = Character.Intelligence + 10;
+                    }
+                    else {
+                        snapshot.SkillPoints = Character.Intelligence + 13;
+                    }
                     snapshot.Health = Character.Health + 10;
                     snapshot.SpecialPoints = Character.SpecialPoints;
                     snapshot.Strength = Character.Strength;
@@ -560,7 +782,6 @@ namespace FallloutCharacterCreator.Fallout3
 
                     characterSnapshots.Add(snapshot);
 
-                    InvalidateVisual();
                     UpdateCharacterValues();
 
                     LvlViewbox.Visibility = Visibility.Visible;
@@ -624,11 +845,9 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(BigGunsBookText));
         }
 
-        
 
         private void LevelUp_Click(object sender, RoutedEventArgs e)
-        {
-     
+        {     
 
             if (Character.SkillPoints == 0 && Character.Level < 50) {
 
@@ -699,9 +918,12 @@ namespace FallloutCharacterCreator.Fallout3
             }
         }
 
+
+        //Still Working on functionality
         private void Bobbleheads_Click(object sender, RoutedEventArgs e)
         {
-            BobbleheadsListView.ItemsSource = Fallout3Bobbleheads.AllBobbleheadsList;
+            List<Fallout3Bobbleheads> updateBobbleList = Fallout3Bobbleheads.AllBobbleheadsList;
+            BobbleheadsListView.ItemsSource = updateBobbleList;
             LvlViewbox.Visibility = Visibility.Collapsed;
             BobbleheadsListViewbox.Visibility = Visibility.Visible;
         }
@@ -713,12 +935,194 @@ namespace FallloutCharacterCreator.Fallout3
 
         private void BobbleheadsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //BobbleheadsDescriptionTextBlock.Text = (BobbleheadsListView.SelectedItem as Fallout3Bobbleheads)?.BobbleheadDescription;
+            
         }
 
         private void ConfirmBobbleheadSelection_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var selectedBobblehead in BobbleheadsListView.SelectedItems)
+            {
+                
+                var bobblehead = selectedBobblehead as Fallout3Bobbleheads;
 
+                //Update BobbleheadGotorNot value to true
+                bobblehead.BobbleheadGotorNot = true;
+
+                if (bobblehead.BobbleheadName == "Strength - Bobblehead" && Character.Strength < 10) { 
+                    Character.Strength++;
+                }
+                if (bobblehead.BobbleheadName == "Perception - Bobblehead" && Character.Perception < 10)
+                {
+                    Character.Perception++;
+                }
+                if (bobblehead.BobbleheadName == "Endurance - Bobblehead" && Character.Endurance < 10)
+                {
+                    Character.Endurance++;
+                }
+                if (bobblehead.BobbleheadName == "Charisma - Bobblehead" && Character.Charisma < 10)
+                {
+                    Character.Charisma++;
+                }
+                if (bobblehead.BobbleheadName == "Intelligence - Bobblehead" && Character.Intelligence < 10)
+                {
+                    Character.Intelligence++;
+                }
+                if (bobblehead.BobbleheadName == "Agility - Bobblehead" && Character.Agility < 10)
+                {
+                    Character.Agility++;
+                }
+                if (bobblehead.BobbleheadName == "Luck - Bobblehead" && Character.Luck < 10)
+                {
+                    Character.Luck++;
+                }
+                if (bobblehead.BobbleheadName == "Barter - Bobblehead" && Character.Barter < 100)
+                {
+                    if (Character.Barter < 90)
+                    {
+                        Character.Barter = +10;
+                    }
+                    else { 
+                        Character.Barter = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Big Guns - Bobblehead" && Character.BigGuns < 100)
+                {
+                    if (Character.BigGuns < 90)
+                    {
+                        Character.BigGuns = +10;
+                    }
+                    else
+                    {
+                        Character.BigGuns = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Energy Weapons - Bobblehead" && Character.EnergyWeapons < 100)
+                {
+                    if (Character.EnergyWeapons < 90)
+                    {
+                        Character.EnergyWeapons = +10;
+                    }
+                    else
+                    {
+                        Character.EnergyWeapons = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Explosives - Bobblehead" && Character.Explosives < 100)
+                {
+                    if (Character.Explosives < 90)
+                    {
+                        Character.Explosives = +10;
+                    }
+                    else
+                    {
+                        Character.Explosives = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Lockpick - Bobblehead" && Character.Lockpick < 100)
+                {
+                    if (Character.Lockpick < 90)
+                    {
+                        Character.Lockpick = +10;
+                    }
+                    else
+                    {
+                        Character.Lockpick = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Medicine - Bobblehead" && Character.Medicine < 100)
+                {
+                    if (Character.Medicine < 90)
+                    {
+                        Character.Medicine = +10;
+                    }
+                    else
+                    {
+                        Character.Medicine = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Melee Weapons - Bobblehead" && Character.MeleeWeapons < 100)
+                {
+                    if (Character.MeleeWeapons < 90)
+                    {
+                        Character.MeleeWeapons = +10;
+                    }
+                    else
+                    {
+                        Character.MeleeWeapons = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Repair - Bobblehead" && Character.Repair < 100)
+                {
+                    if (Character.Repair < 90)
+                    {
+                        Character.Repair = +10;
+                    }
+                    else
+                    {
+                        Character.Repair = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Science - Bobblehead" && Character.Science < 100)
+                {
+                    if (Character.Science < 90)
+                    {
+                        Character.Science = +10;
+                    }
+                    else
+                    {
+                        Character.Science = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Small Guns - Bobblehead" && Character.SmallGuns < 100)
+                {
+                    if (Character.SmallGuns < 90)
+                    {
+                        Character.SmallGuns = +10;
+                    }
+                    else
+                    {
+                        Character.SmallGuns = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Sneak - Bobblehead" && Character.Sneak < 100)
+                {
+                    if (Character.Sneak < 90)
+                    {
+                        Character.Sneak = +10;
+                    }
+                    else
+                    {
+                        Character.Sneak = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Speech - Bobblehead" && Character.Speech < 100)
+                {
+                    if (Character.Speech < 90)
+                    {
+                        Character.Speech = +10;
+                    }
+                    else
+                    {
+                        Character.Speech = 100;
+                    }
+                }
+                if (bobblehead.BobbleheadName == "Unarmed - Bobblehead" && Character.Unarmed < 100)
+                {
+                    if (Character.Unarmed < 90)
+                    {
+                        Character.Unarmed = +10;
+                    }
+                    else
+                    {
+                        Character.Unarmed = 100;
+                    }
+                }
+            }
+
+            UpdateCharacterValues();
+
+            LvlViewbox.Visibility = Visibility.Visible;
+            BobbleheadsListViewbox.Visibility = Visibility.Collapsed;
         }
 
         private void CancelBobbleHeadSelection_Click(object sender, RoutedEventArgs e)
