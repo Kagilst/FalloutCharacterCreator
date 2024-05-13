@@ -513,8 +513,10 @@ namespace FallloutCharacterCreator.Fallout3
 
             if (selectedPerk.AvaliableOrHave != 0)
             {
-
-                characterPerks.Add(selectedPerk);
+                if (selectedPerk.CurrentPerkRank == 0)
+                {
+                    characterPerks.Add(selectedPerk);
+                }
 
                 foreach (Fallout3Perks perk in Fallout3Perks.AllPerksList)
                 {
@@ -523,6 +525,7 @@ namespace FallloutCharacterCreator.Fallout3
                         perk.CurrentPerkRank++;
                         break;
                     }
+                }
 
                     if (selectedPerk.PerkName == "Daddy's Boy/Girl") {
                         if (Character.Science <= 95)
@@ -737,7 +740,7 @@ namespace FallloutCharacterCreator.Fallout3
 
 
 
-                }
+                
 
 
                 {
@@ -930,7 +933,11 @@ namespace FallloutCharacterCreator.Fallout3
 
         private void CharacterPerks_Click(object sender, RoutedEventArgs e)
         {
+            List<Fallout3Perks> currentPerks = characterPerks;
 
+            LvlViewbox.Visibility = Visibility.Collapsed;
+            CharPerksListView.ItemsSource = currentPerks;
+            CharPerksViewbox.Visibility = Visibility.Visible;
         }
 
         private void BobbleheadsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1129,6 +1136,27 @@ namespace FallloutCharacterCreator.Fallout3
         {
             LvlViewbox.Visibility = Visibility.Visible;
             BobbleheadsListViewbox.Visibility = Visibility.Collapsed;
+        }
+
+        private void ExitCharPerks_Click(object sender, RoutedEventArgs e)
+        {
+            LvlViewbox.Visibility = Visibility.Visible;
+            CharPerksViewbox.Visibility = Visibility.Collapsed;
+        }
+
+        private void CharPerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (PerksListView.SelectedItem != null)
+            {
+                Fallout3Perks selectedCharPerk = (Fallout3Perks)CharPerksListView.SelectedItem;
+
+                string PerkRankInfo = "Perk Rank: ";
+
+                PerkRankInfo += $"{selectedCharPerk.CurrentPerkRank} / {selectedCharPerk.MaxPerkRank}\n \nPerk Description:";
+
+                PerkRankInfoTextBlock.Text = PerkRankInfo;
+            }
+            PerkInfoTextBlock.Text = (CharPerksListView.SelectedItem as Fallout3Perks)?.PerkDescription;
         }
     }
 }

@@ -35,7 +35,48 @@
         </Grid.Background>
         
         <!-- Current Character Perks ViewBox-->
-        
+        <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="CharPerksViewbox">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="170" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
+                        <ListView x:Name="CharPerksListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="Transparent" SelectionChanged="CharPerksListView_SelectionChanged" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding PerkName}" Margin="5" FontFamily="/fonts/#Overseer" Foreground="#008200">
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Grid.Column="1" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5" Padding="5">
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+                            <TextBlock x:Name="PerkRankInfoTextBlock" Text="{Binding PerkRankInfo}" TextWrapping="Wrap" Margin="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                            <TextBlock x:Name="PerkInfoTextBlock" Text="{Binding SelectedItem.Description, ElementName=CharPerksListView}" TextWrapping="Wrap" Margin="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                            <Button Content="Exit" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="ExitCharPerks_Click"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Viewbox>
+
+
         <!-- Bobblehead Viewbox -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="BobbleheadsListViewbox">
             <Grid>
