@@ -15,7 +15,6 @@ namespace FallloutCharacterCreator
         public int ActionPoints { get; set; }
         public int CriticalChance { get; set; }
         public int DamageResistance { get; set; }
-        public double UnarmedDamage { get; set; }
         public int SkillPoints { get; set; }
         public int Health { get; set; }
         public int SpecialPoints { get; set; }
@@ -53,7 +52,6 @@ namespace FallloutCharacterCreator
             ActionPoints = 75;
             CriticalChance = 5;
             DamageResistance = 0;
-            UnarmedDamage = 2.5;
             SkillPoints = 15;
             Health = 200;
             SpecialPoints = 5;
@@ -80,7 +78,7 @@ namespace FallloutCharacterCreator
             TaggedSkills = 0;
         }
 
-        public void UpdateAllValues(string name, int level, int carryWeight, int actionPoints, int criticalChance, int damageResistance, double unarmedDamage, int skillPoints, 
+        public void UpdateAllValues(string name, int level, int carryWeight, int actionPoints, int criticalChance, int damageResistance, int skillPoints, 
             int health, int specialPoints, int strength, int perception, int endurance, int charisma, int intelligence, int agility, int luck, int barter, int bigGuns, int energyWeapons,
             int explosives, int lockpick, int medicine, int meleeWeapons, int repair, int science, int smallGuns, int sneak, int speech, int unarmed, int taggedSkills  ) {
             
@@ -90,7 +88,6 @@ namespace FallloutCharacterCreator
             ActionPoints = actionPoints;
             CriticalChance = criticalChance;
             DamageResistance = damageResistance;
-            UnarmedDamage = unarmedDamage;
             SkillPoints = skillPoints;
             Health = health;
             SpecialPoints = specialPoints;

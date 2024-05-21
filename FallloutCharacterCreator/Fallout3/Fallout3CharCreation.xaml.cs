@@ -40,7 +40,6 @@ namespace FallloutCharacterCreator
         public string CriticalChanceText => $"{Character.CriticalChance}";
         public string DamageResistText => $"{Character.DamageResistance}";
         public string HealthText => $"{Character.Health}";
-        public string UnarmedDamageText => $"{Character.UnarmedDamage}";
         public string TaggedSkillsText => $"{Character.TaggedSkills}/3";
         public string SkillPointsText => $"{Character.SkillPoints}";
         public string BarterText => $"{Character.Barter}";
@@ -71,13 +70,11 @@ namespace FallloutCharacterCreator
                 Character.SpecialPoints++;
                 Character.Strength--;
                 Character.CarryWeight -= 10;
-                Character.UnarmedDamage -= .5;
                 Character.MeleeWeapons -= 2;
             }
             OnPropertyChanged(nameof(StrengthText));
             OnPropertyChanged(nameof(SpecialPointsText));
             OnPropertyChanged(nameof(CarryWeightText));
-            OnPropertyChanged(nameof(UnarmedDamageText));// Update the displayed text
             OnPropertyChanged(nameof(MeleeWeaponsText));
         }
         private void IncreaseStrength(object sender, RoutedEventArgs e)
@@ -87,13 +84,11 @@ namespace FallloutCharacterCreator
                 Character.SpecialPoints--;
                 Character.Strength++;
                 Character.CarryWeight += 10;
-                Character.UnarmedDamage += .5;
                 Character.MeleeWeapons += 2;
             }
             OnPropertyChanged(nameof(StrengthText)); // Update the displayed text
             OnPropertyChanged(nameof(SpecialPointsText));
             OnPropertyChanged(nameof(CarryWeightText));
-            OnPropertyChanged(nameof(UnarmedDamageText));
         }
 
         // Methods to handle perception value
@@ -753,7 +748,7 @@ namespace FallloutCharacterCreator
 
         private void CreateCharacter_Click(object sender, RoutedEventArgs e)
         {
-            if (CharName.Text != null && Character.TaggedSkills == 3 && Character.SpecialPoints == 0)
+            if (CharName.Text != string.Empty && Character.TaggedSkills == 3 && Character.SpecialPoints == 0)
             {
                 Fallout3Character snapshot = new Fallout3Character();
                 snapshot.CharacterName = CharName.Text;
@@ -763,7 +758,6 @@ namespace FallloutCharacterCreator
                 snapshot.ActionPoints = Character.ActionPoints;
                 snapshot.CriticalChance = Character.CriticalChance;
                 snapshot.DamageResistance = Character.DamageResistance;
-                snapshot.UnarmedDamage = Character.UnarmedDamage;
                 snapshot.SkillPoints = Character.SkillPoints;
                 snapshot.Health = Character.Health;
                 snapshot.SpecialPoints = Character.SpecialPoints;
@@ -792,14 +786,10 @@ namespace FallloutCharacterCreator
                 characterSnapshots.Add(snapshot);//saves starting values
                 //characterSnapshots.Add(snapshot);//saves values for editing
 
-
-
                 ClearFrame();
                 Fallout3Leveling fallout3LevelingPage = new Fallout3Leveling(characterSnapshots);
 
                 ThreeCreationFrame.Navigate(fallout3LevelingPage);
-
-
             }
             else { 
                 MessageBox.Show("Please make sure:\n" +

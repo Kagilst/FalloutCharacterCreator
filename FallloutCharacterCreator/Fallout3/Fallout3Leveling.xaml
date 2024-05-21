@@ -34,6 +34,60 @@
             <ImageBrush ImageSource="/backgrounds/FalloutThreeBackground.jpg"/>
         </Grid.Background>
         
+        <!-- Extra Perks ViewBox -->
+        <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="ExtraPerksViewbox">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170" />
+                    <ColumnDefinition Width="170" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Height="300">
+                        <ListView x:Name="ExtraPerksListView" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Background="Transparent" SelectionChanged="ExtraPerkListView_SelectionChanged" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ExtraPerkName}" Margin="5" FontFamily="/fonts/#Overseer">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ExtraPerkHave}" Value="false">
+                                                        <Setter Property="Foreground" Value="Green"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding ExtraPerkHave}" Value="true">
+                                                        <Setter Property="Foreground" Value="Gray"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Grid.Column="1" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5" Padding="5">
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel>
+                            <TextBlock x:Name="ExtraPerkReqTextBlock" Text="{Binding ExtraPerkRequirementsString}" TextWrapping="Wrap" Margin="10,5,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                            <TextBlock x:Name="ExtraPerkDescriptionTextBlock" Text="{Binding SelectedItem.Description, ElementName=ExtraPerksListView}" TextWrapping="Wrap" Margin="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                            <Button Content="Cancel" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer" Click="ExtraPerkCancel_Click"/>
+                            <Button Content="Confirm" Margin="10,0,10,0" Padding="10,0,10,0" Foreground="#008200" FontFamily="/fonts/#Overseer"/>
+                        </StackPanel>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Viewbox>
         <!-- Current Character Perks ViewBox-->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="CharPerksViewbox">
             <Grid>
@@ -75,8 +129,6 @@
                 </Border>
             </Grid>
         </Viewbox>
-
-
         <!-- Bobblehead Viewbox -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="BobbleheadsListViewbox">
             <Grid>
@@ -142,7 +194,6 @@
                 </Border>
             </Grid>
         </Viewbox>
-
         <!-- Level up Perk List Viewbox -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="PerksListViewbox">
             <Grid>
@@ -544,7 +595,7 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                    <TextBlock Text="Name:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3" Grid.Row="0"/>
+                                    <!--<TextBlock Text="Name:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3" Grid.Row="0"/>-->
                                     <TextBlock Text="Strength:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3" Grid.Row="1"/>
                                     <TextBlock Text="Perception:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3"  Grid.Row="2"/>
                                     <TextBlock Text="Endurance:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3"  Grid.Row="3"/>
@@ -567,7 +618,7 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="{Binding CharacterNameText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" FontSize="26" Margin="3" Grid.Row="0"/>
+                                <!--<TextBlock Text="{Binding CharacterNameText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" FontSize="26" Margin="3" Grid.Row="0"/>-->
                                 <TextBlock Text="{Binding StrengthText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3" Grid.Row="1"/>
                                 <TextBlock Text="{Binding PerceptionText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3" Grid.Row="2"/>
                                 <TextBlock Text="{Binding EnduranceText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3" Grid.Row="3"/>
@@ -588,7 +639,6 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Text="Level:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="0"/>
                                 <TextBlock Text="Action Points:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="1"/>
@@ -596,14 +646,12 @@
                                 <TextBlock Text="Critical Chance:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="3"/>
                                 <TextBlock Text="Damage Resist:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="4"/>
                                 <TextBlock Text="Health:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="5"/>
-                                <TextBlock Text="Unarmed Damage:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="6"/>
-                                <TextBlock Text="Tagged Skills:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="7"/>
-                                <TextBlock Text="Skill Points:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="8"/>
+                                <TextBlock Text="Tagged Skills:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="6"/>
+                                <TextBlock Text="Skill Points:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="7"/>
                             </Grid>
                             <!-- Grid Column 4 Character Attributes Values -->
                             <Grid Grid.Column="3">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
@@ -619,9 +667,8 @@
                                 <TextBlock Text="{Binding CriticalChanceText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="3"/>
                                 <TextBlock Text="{Binding DamageResistText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="4"/>
                                 <TextBlock Text="{Binding HealthText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="5"/>
-                                <TextBlock Text="{Binding UnarmedDamageText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="6"/>
-                                <TextBlock Text="{Binding TaggedSkillsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="7"/>
-                                <TextBlock Text="{Binding SkillPointsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="8"/>
+                                <TextBlock Text="{Binding TaggedSkillsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="6"/>
+                                <TextBlock Text="{Binding SkillPointsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Grid.Row="7"/>
                             </Grid>
                             <!-- Grid Column 5 Skills Text -->
                             <Grid Grid.Column="4">
@@ -905,52 +952,68 @@
                             </Grid>
                         </Grid>
                         <!-- Leveling Frame Bottom Buttons -->
-                        <Border BorderBrush="Black" BorderThickness="2" Margin="10" Padding="5,0,5,0" CornerRadius="4">
+                        <StackPanel>
                             <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Button Name="Bobbleheads" Grid.Column="0" Content="Bobbleheads" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="Bobbleheads_Click" >
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
-                                <Button Name="Perks" Grid.Column="1" Content="Character Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="CharacterPerks_Click" >
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
-                                <Button Name="ExtraPerks" Grid.Column="2" Content="Extra Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="ExtraPerks_Click" FontFamily="/fonts/#Overseer">
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
-                                <Button Name="SkillBooks" Grid.Column="3" Content="Skill Books" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click" FontFamily="/fonts/#Overseer">
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
-                                <Button Name="LevelUp" Grid.Column="4" Content="Level Up" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="LevelUp_Click" FontFamily="/fonts/#Overseer">
-                                    <Button.Resources>
-                                        <Style TargetType="Border">
-                                            <Setter Property="CornerRadius" Value="5"/>
-                                        </Style>
-                                    </Button.Resources>
-                                </Button>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                <TextBlock Text="Name:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="3" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right"/>
+                                <TextBlock Text="{Binding CharacterNameText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" FontSize="26" Margin="3" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"/>
+                                </Grid>
+                                <Border BorderBrush="Black" BorderThickness="2" Margin="10" Padding="5,0,5,0" CornerRadius="4" Grid.Row="1">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Button Name="Bobbleheads" Grid.Column="0" Content="Bobbleheads" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="Bobbleheads_Click" >
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="5"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                        <Button Name="Perks" Grid.Column="1" Content="Character Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="CharacterPerks_Click" >
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="5"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                        <Button Name="ExtraPerks" Grid.Column="2" Content="Extra Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="ExtraPerks_Click" FontFamily="/fonts/#Overseer">
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="5"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                        <Button Name="SkillBooks" Grid.Column="3" Content="Skill Books" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click" FontFamily="/fonts/#Overseer">
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="5"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                        <Button Name="LevelUp" Grid.Column="4" Content="Level Up" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="LevelUp_Click" FontFamily="/fonts/#Overseer">
+                                            <Button.Resources>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="CornerRadius" Value="5"/>
+                                                </Style>
+                                            </Button.Resources>
+                                        </Button>
+                                    </Grid>
+                                </Border>
                             </Grid>
-                        </Border>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </Border>

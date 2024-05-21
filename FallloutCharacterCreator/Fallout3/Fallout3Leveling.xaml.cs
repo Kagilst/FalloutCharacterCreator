@@ -50,7 +50,6 @@ namespace FallloutCharacterCreator.Fallout3
         public string CriticalChanceText => $"{Character.CriticalChance}";
         public string DamageResistText => $"{Character.DamageResistance}";
         public string HealthText => $"{Character.Health}";
-        public string UnarmedDamageText => $"{Character.UnarmedDamage}";
         public string TaggedSkillsText => $"{Character.TaggedSkills}/3";
         public string SkillPointsText => $"{Character.SkillPoints}";
         public string BarterText => $"{Character.Barter}";
@@ -87,6 +86,7 @@ namespace FallloutCharacterCreator.Fallout3
             InitializeComponent();
             Fallout3Perks.InitializePerksList();
             Fallout3Bobbleheads.InitializeBobbleheadsList();
+            ExtraFallout3Perks.InitializeExtraPerksList();
             characterSnapshots = snapshots;
             DataContext = this;
             BookValues = new Fallout3SkillBooks();
@@ -488,8 +488,9 @@ namespace FallloutCharacterCreator.Fallout3
 
         private void ExtraPerks_Click(object sender, RoutedEventArgs e)
         {
-            
-
+            LvlViewbox.Visibility = Visibility.Collapsed;
+            ExtraPerksListView.ItemsSource = ExtraFallout3Perks.AllExtraPerksList;
+            ExtraPerksViewbox.Visibility = Visibility.Visible;
         }
 
         private void BooksSave_Click(object sender, RoutedEventArgs e)
@@ -752,7 +753,6 @@ namespace FallloutCharacterCreator.Fallout3
                     snapshot.ActionPoints = Character.ActionPoints;
                     snapshot.CriticalChance = Character.CriticalChance;
                     snapshot.DamageResistance = Character.DamageResistance;
-                    snapshot.UnarmedDamage = Character.UnarmedDamage;
                     if (hasEducatedPerk == false){
                         snapshot.SkillPoints = Character.Intelligence + 10;
                     }
@@ -816,7 +816,6 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(CriticalChanceText));
             OnPropertyChanged(nameof(DamageResistText));
             OnPropertyChanged(nameof(HealthText));
-            OnPropertyChanged(nameof(UnarmedDamageText));
             OnPropertyChanged(nameof(TaggedSkillsText));
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(BarterText));
@@ -922,21 +921,21 @@ namespace FallloutCharacterCreator.Fallout3
         }
 
 
-        //Still Working on functionality
-        private void Bobbleheads_Click(object sender, RoutedEventArgs e)
+        
+        private void Bobbleheads_Click(object sender, RoutedEventArgs e) //Todo: Still Working on functionality
         {
-            List<Fallout3Bobbleheads> updateBobbleList = Fallout3Bobbleheads.AllBobbleheadsList;
-            BobbleheadsListView.ItemsSource = updateBobbleList;
+            BobbleheadsListView.ItemsSource = null;
+            BobbleheadsListView.ItemsSource = Fallout3Bobbleheads.AllBobbleheadsList;
             LvlViewbox.Visibility = Visibility.Collapsed;
             BobbleheadsListViewbox.Visibility = Visibility.Visible;
         }
 
         private void CharacterPerks_Click(object sender, RoutedEventArgs e)
         {
-            List<Fallout3Perks> currentPerks = characterPerks;
-
             LvlViewbox.Visibility = Visibility.Collapsed;
-            CharPerksListView.ItemsSource = currentPerks;
+            PerkRankInfoTextBlock.Text = string.Empty;
+            CharPerksListView.ItemsSource = null;
+            CharPerksListView.ItemsSource = characterPerks;
             CharPerksViewbox.Visibility = Visibility.Visible;
         }
 
@@ -949,180 +948,188 @@ namespace FallloutCharacterCreator.Fallout3
         {
             foreach (var selectedBobblehead in BobbleheadsListView.SelectedItems)
             {
-                
                 var bobblehead = selectedBobblehead as Fallout3Bobbleheads;
 
-                //Update BobbleheadGotorNot value to true
-                bobblehead.BobbleheadGotorNot = true;
+                if (bobblehead.BobbleheadGotorNot != true)
+                {
 
-                if (bobblehead.BobbleheadName == "Strength - Bobblehead" && Character.Strength < 10) { 
-                    Character.Strength++;
+                    //Update BobbleheadGotorNot value to true
+                    bobblehead.BobbleheadGotorNot = true;
+
+                    if (bobblehead.BobbleheadName == "Strength - Bobblehead" && Character.Strength < 10)
+                    {
+                        Character.Strength++;
+                    }
+                    if (bobblehead.BobbleheadName == "Perception - Bobblehead" && Character.Perception < 10)
+                    {
+                        Character.Perception++;
+                    }
+                    if (bobblehead.BobbleheadName == "Endurance - Bobblehead" && Character.Endurance < 10)
+                    {
+                        Character.Endurance++;
+                    }
+                    if (bobblehead.BobbleheadName == "Charisma - Bobblehead" && Character.Charisma < 10)
+                    {
+                        Character.Charisma++;
+                    }
+                    if (bobblehead.BobbleheadName == "Intelligence - Bobblehead" && Character.Intelligence < 10)
+                    {
+                        Character.Intelligence++;
+                    }
+                    if (bobblehead.BobbleheadName == "Agility - Bobblehead" && Character.Agility < 10)
+                    {
+                        Character.Agility++;
+                    }
+                    if (bobblehead.BobbleheadName == "Luck - Bobblehead" && Character.Luck < 10)
+                    {
+                        Character.Luck++;
+                    }
+                    if (bobblehead.BobbleheadName == "Barter - Bobblehead" && Character.Barter < 100)
+                    {
+                        if (Character.Barter < 90)
+                        {
+                            Character.Barter = +10;
+                        }
+                        else
+                        {
+                            Character.Barter = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Big Guns - Bobblehead" && Character.BigGuns < 100)
+                    {
+                        if (Character.BigGuns < 90)
+                        {
+                            Character.BigGuns = +10;
+                        }
+                        else
+                        {
+                            Character.BigGuns = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Energy Weapons - Bobblehead" && Character.EnergyWeapons < 100)
+                    {
+                        if (Character.EnergyWeapons < 90)
+                        {
+                            Character.EnergyWeapons = +10;
+                        }
+                        else
+                        {
+                            Character.EnergyWeapons = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Explosives - Bobblehead" && Character.Explosives < 100)
+                    {
+                        if (Character.Explosives < 90)
+                        {
+                            Character.Explosives = +10;
+                        }
+                        else
+                        {
+                            Character.Explosives = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Lockpick - Bobblehead" && Character.Lockpick < 100)
+                    {
+                        if (Character.Lockpick < 90)
+                        {
+                            Character.Lockpick = +10;
+                        }
+                        else
+                        {
+                            Character.Lockpick = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Medicine - Bobblehead" && Character.Medicine < 100)
+                    {
+                        if (Character.Medicine < 90)
+                        {
+                            Character.Medicine = +10;
+                        }
+                        else
+                        {
+                            Character.Medicine = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Melee Weapons - Bobblehead" && Character.MeleeWeapons < 100)
+                    {
+                        if (Character.MeleeWeapons < 90)
+                        {
+                            Character.MeleeWeapons = +10;
+                        }
+                        else
+                        {
+                            Character.MeleeWeapons = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Repair - Bobblehead" && Character.Repair < 100)
+                    {
+                        if (Character.Repair < 90)
+                        {
+                            Character.Repair = +10;
+                        }
+                        else
+                        {
+                            Character.Repair = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Science - Bobblehead" && Character.Science < 100)
+                    {
+                        if (Character.Science < 90)
+                        {
+                            Character.Science = +10;
+                        }
+                        else
+                        {
+                            Character.Science = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Small Guns - Bobblehead" && Character.SmallGuns < 100)
+                    {
+                        if (Character.SmallGuns < 90)
+                        {
+                            Character.SmallGuns = +10;
+                        }
+                        else
+                        {
+                            Character.SmallGuns = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Sneak - Bobblehead" && Character.Sneak < 100)
+                    {
+                        if (Character.Sneak < 90)
+                        {
+                            Character.Sneak = +10;
+                        }
+                        else
+                        {
+                            Character.Sneak = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Speech - Bobblehead" && Character.Speech < 100)
+                    {
+                        if (Character.Speech < 90)
+                        {
+                            Character.Speech = +10;
+                        }
+                        else
+                        {
+                            Character.Speech = 100;
+                        }
+                    }
+                    if (bobblehead.BobbleheadName == "Unarmed - Bobblehead" && Character.Unarmed < 100)
+                    {
+                        if (Character.Unarmed < 90)
+                        {
+                            Character.Unarmed = +10;
+                        }
+                        else
+                        {
+                            Character.Unarmed = 100;
+                        }
+                    }
                 }
-                if (bobblehead.BobbleheadName == "Perception - Bobblehead" && Character.Perception < 10)
-                {
-                    Character.Perception++;
-                }
-                if (bobblehead.BobbleheadName == "Endurance - Bobblehead" && Character.Endurance < 10)
-                {
-                    Character.Endurance++;
-                }
-                if (bobblehead.BobbleheadName == "Charisma - Bobblehead" && Character.Charisma < 10)
-                {
-                    Character.Charisma++;
-                }
-                if (bobblehead.BobbleheadName == "Intelligence - Bobblehead" && Character.Intelligence < 10)
-                {
-                    Character.Intelligence++;
-                }
-                if (bobblehead.BobbleheadName == "Agility - Bobblehead" && Character.Agility < 10)
-                {
-                    Character.Agility++;
-                }
-                if (bobblehead.BobbleheadName == "Luck - Bobblehead" && Character.Luck < 10)
-                {
-                    Character.Luck++;
-                }
-                if (bobblehead.BobbleheadName == "Barter - Bobblehead" && Character.Barter < 100)
-                {
-                    if (Character.Barter < 90)
-                    {
-                        Character.Barter = +10;
-                    }
-                    else { 
-                        Character.Barter = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Big Guns - Bobblehead" && Character.BigGuns < 100)
-                {
-                    if (Character.BigGuns < 90)
-                    {
-                        Character.BigGuns = +10;
-                    }
-                    else
-                    {
-                        Character.BigGuns = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Energy Weapons - Bobblehead" && Character.EnergyWeapons < 100)
-                {
-                    if (Character.EnergyWeapons < 90)
-                    {
-                        Character.EnergyWeapons = +10;
-                    }
-                    else
-                    {
-                        Character.EnergyWeapons = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Explosives - Bobblehead" && Character.Explosives < 100)
-                {
-                    if (Character.Explosives < 90)
-                    {
-                        Character.Explosives = +10;
-                    }
-                    else
-                    {
-                        Character.Explosives = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Lockpick - Bobblehead" && Character.Lockpick < 100)
-                {
-                    if (Character.Lockpick < 90)
-                    {
-                        Character.Lockpick = +10;
-                    }
-                    else
-                    {
-                        Character.Lockpick = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Medicine - Bobblehead" && Character.Medicine < 100)
-                {
-                    if (Character.Medicine < 90)
-                    {
-                        Character.Medicine = +10;
-                    }
-                    else
-                    {
-                        Character.Medicine = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Melee Weapons - Bobblehead" && Character.MeleeWeapons < 100)
-                {
-                    if (Character.MeleeWeapons < 90)
-                    {
-                        Character.MeleeWeapons = +10;
-                    }
-                    else
-                    {
-                        Character.MeleeWeapons = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Repair - Bobblehead" && Character.Repair < 100)
-                {
-                    if (Character.Repair < 90)
-                    {
-                        Character.Repair = +10;
-                    }
-                    else
-                    {
-                        Character.Repair = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Science - Bobblehead" && Character.Science < 100)
-                {
-                    if (Character.Science < 90)
-                    {
-                        Character.Science = +10;
-                    }
-                    else
-                    {
-                        Character.Science = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Small Guns - Bobblehead" && Character.SmallGuns < 100)
-                {
-                    if (Character.SmallGuns < 90)
-                    {
-                        Character.SmallGuns = +10;
-                    }
-                    else
-                    {
-                        Character.SmallGuns = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Sneak - Bobblehead" && Character.Sneak < 100)
-                {
-                    if (Character.Sneak < 90)
-                    {
-                        Character.Sneak = +10;
-                    }
-                    else
-                    {
-                        Character.Sneak = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Speech - Bobblehead" && Character.Speech < 100)
-                {
-                    if (Character.Speech < 90)
-                    {
-                        Character.Speech = +10;
-                    }
-                    else
-                    {
-                        Character.Speech = 100;
-                    }
-                }
-                if (bobblehead.BobbleheadName == "Unarmed - Bobblehead" && Character.Unarmed < 100)
-                {
-                    if (Character.Unarmed < 90)
-                    {
-                        Character.Unarmed = +10;
-                    }
-                    else
-                    {
-                        Character.Unarmed = 100;
-                    }
+                else {
+                    continue;
                 }
             }
 
@@ -1146,7 +1153,7 @@ namespace FallloutCharacterCreator.Fallout3
 
         private void CharPerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (PerksListView.SelectedItem != null)
+            if (CharPerksListView.SelectedItem != null)
             {
                 Fallout3Perks selectedCharPerk = (Fallout3Perks)CharPerksListView.SelectedItem;
 
@@ -1157,6 +1164,27 @@ namespace FallloutCharacterCreator.Fallout3
                 PerkRankInfoTextBlock.Text = PerkRankInfo;
             }
             PerkInfoTextBlock.Text = (CharPerksListView.SelectedItem as Fallout3Perks)?.PerkDescription;
+        }
+
+        private void ExtraPerkCancel_Click(object sender, RoutedEventArgs e)
+        {
+            LvlViewbox.Visibility = Visibility.Visible;
+            ExtraPerksViewbox.Visibility = Visibility.Collapsed;
+        }
+
+        private void ExtraPerkListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ExtraPerksListView.SelectedItem != null)
+            {
+                ExtraFallout3Perks selectedExtraPerk = (ExtraFallout3Perks)ExtraPerksListView.SelectedItem;
+
+                string ExtraPerkRequirementsString = "Requirement: \n";
+
+                ExtraPerkRequirementsString += $"{selectedExtraPerk.ExtraPerkRequirements} \nPerk Description: \n";
+
+                ExtraPerkReqTextBlock.Text = ExtraPerkRequirementsString;
+            }
+            ExtraPerkDescriptionTextBlock.Text = (ExtraPerksListView.SelectedItem as ExtraFallout3Perks)?.ExtraPerkDescription;
         }
     }
 }

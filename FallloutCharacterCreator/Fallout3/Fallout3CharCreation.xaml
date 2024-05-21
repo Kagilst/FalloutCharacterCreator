@@ -170,7 +170,6 @@
                             <TextBlock Text="Critical Chance:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="Damage Resist:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="Health:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
-                            <TextBlock Text="Unarmed Damage:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="Tagged Skills:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="Skill Points:" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                         </StackPanel>
@@ -181,7 +180,6 @@
                             <TextBlock Text="{Binding CriticalChanceText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="{Binding DamageResistText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="{Binding HealthText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
-                            <TextBlock Text="{Binding UnarmedDamageText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="{Binding TaggedSkillsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                             <TextBlock Text="{Binding SkillPointsText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Margin="10,3,10,3" Height="32.5"/>
                         </StackPanel>
