@@ -35,7 +35,7 @@ namespace FallloutCharacterCreator.Fallout3
         private List<Fallout3Character> characterSnapshots;
         
         public Fallout3Character Character => GetLatestCharacter();
-        public string CharacterNameText => $"{Character.CharacterName}";
+        public string CharacterNameText => $"{Character.CharacterName}'s Stat Sheet";
         public string CharacterLevelText => $"{Character.Level}";
         public string StrengthText => $"{Character.Strength}";
         public string PerceptionText => $"{Character.Perception}";
@@ -94,97 +94,6 @@ namespace FallloutCharacterCreator.Fallout3
 
         }
 
-        private void PerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            if (PerksListView.SelectedItem != null)
-            {
-                // Cast the selected item to Fallout3Perks
-                Fallout3Perks selectedPerk = (Fallout3Perks)PerksListView.SelectedItem;
-                string requirementsText = "Requirements:\n";
-                if (selectedPerk.RequiredLevel > 0)
-                {
-                    requirementsText += $"Required Level: {selectedPerk.RequiredLevel}\n";
-                }
-                if (selectedPerk.RequiredStrength > 0)
-                {
-                    requirementsText += $"Strength {selectedPerk.RequiredStrength}\n";
-                }
-                if (selectedPerk.RequiredPerception > 0)
-                {
-                    requirementsText += $"Perception: {selectedPerk.RequiredPerception}\n";
-                }
-                if (selectedPerk.RequiredEndurance > 0)
-                {
-                    requirementsText += $"Endurance: {selectedPerk.RequiredEndurance}\n";
-                }
-                if (selectedPerk.RequiredCharisma > 0)
-                {
-                    requirementsText += $"Charisma: {selectedPerk.RequiredCharisma}\n";
-                }
-                if (selectedPerk.RequiredIntelligence > 0)
-                {
-                    requirementsText += $"Intelligence: {selectedPerk.RequiredIntelligence}\n";
-                }
-                if (selectedPerk.RequiredAgility > 0)
-                {
-                    requirementsText += $"Agility: {selectedPerk.RequiredAgility}\n";
-                }
-                if (selectedPerk.RequiredLuck > 0)
-                {
-                    requirementsText += $"Luck: {selectedPerk.RequiredLuck}\n";
-                }
-                if (selectedPerk.RequiredScience > 0)
-                {
-                    requirementsText += $"Science: {selectedPerk.RequiredScience}\n";
-                }
-                if (selectedPerk.RequiredExplosives > 0)
-                {
-                    requirementsText += $"Explosives: {selectedPerk.RequiredExplosives}\n";
-                }
-                if (selectedPerk.RequiredSneak > 0)
-                {
-                    requirementsText += $"Sneak: {selectedPerk.RequiredSneak}\n";
-                }
-                if (selectedPerk.RequiredMedicine > 0)
-                {
-                    requirementsText += $"Medicine: {selectedPerk.RequiredMedicine}\n";
-                }
-                if (selectedPerk.RequiredLockpick > 0)
-                {
-                    requirementsText += $"Lockpick: {selectedPerk.RequiredLockpick}\n";
-                }
-                if (selectedPerk.RequiredSmallGuns > 0)
-                {
-                    requirementsText += $"Small Guns: {selectedPerk.RequiredSmallGuns}\n";
-                }
-                if (selectedPerk.RequiredEnergyWeapons > 0)
-                {
-                    requirementsText += $"Energy Weapons: {selectedPerk.RequiredEnergyWeapons}\n";
-                }
-                if (selectedPerk.RequiredBarter > 0)
-                {
-                    requirementsText += $"Barter: {selectedPerk.RequiredBarter}\n";
-                }
-                if (selectedPerk.RequiredUnarmed > 0)
-                {
-                    requirementsText += $"Unarmed: {selectedPerk.RequiredUnarmed}\n";
-                }
-                if (selectedPerk.RequiredMeleeWeapons > 0)
-                {
-                    requirementsText += $"Melee Weapons: {selectedPerk.RequiredMeleeWeapons}\n";
-                }
-
-                PerkReqTextBox.Text = requirementsText;
-
-
-            }
-
-            // Update the description TextBlock when a different perk is selected
-            PerkDescriptionTextBlock.Text = (PerksListView.SelectedItem as Fallout3Perks)?.PerkDescription;
-        }
-
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         // Method to notify property changed
@@ -192,6 +101,8 @@ namespace FallloutCharacterCreator.Fallout3
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        //Todo: Change decrease and increase function to use only one click event for decrease and increase
         private void DecreaseBarter(object sender, RoutedEventArgs e)
         {
             
@@ -480,25 +391,109 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(UnarmedText));
         }
 
+        //Skillbook functionality
         private void SkillBooks_Click(object sender, RoutedEventArgs e)
         {
             LvlViewbox.Visibility = Visibility.Collapsed;
             SkillBooksViewbox.Visibility = Visibility.Visible;
         }
 
-        private void ExtraPerks_Click(object sender, RoutedEventArgs e)
-        {
-            LvlViewbox.Visibility = Visibility.Collapsed;
-            ExtraPerksListView.ItemsSource = ExtraFallout3Perks.AllExtraPerksList;
-            ExtraPerksViewbox.Visibility = Visibility.Visible;
-        }
-
         private void BooksSave_Click(object sender, RoutedEventArgs e)
         {
             LvlViewbox.Visibility = Visibility.Visible;
             SkillBooksViewbox.Visibility = Visibility.Collapsed;
-        }
+        } //Todo: Implement save functionality
+        //LevelUp and Levelup perk selection functionality
 
+        private void PerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (PerksListView.SelectedItem != null)
+            {
+                // Cast the selected item to Fallout3Perks
+                Fallout3Perks selectedPerk = (Fallout3Perks)PerksListView.SelectedItem;
+                string requirementsText = "Requirements:\n";
+                if (selectedPerk.RequiredLevel > 0)
+                {
+                    requirementsText += $"Required Level: {selectedPerk.RequiredLevel}\n";
+                }
+                if (selectedPerk.RequiredStrength > 0)
+                {
+                    requirementsText += $"Strength {selectedPerk.RequiredStrength}\n";
+                }
+                if (selectedPerk.RequiredPerception > 0)
+                {
+                    requirementsText += $"Perception: {selectedPerk.RequiredPerception}\n";
+                }
+                if (selectedPerk.RequiredEndurance > 0)
+                {
+                    requirementsText += $"Endurance: {selectedPerk.RequiredEndurance}\n";
+                }
+                if (selectedPerk.RequiredCharisma > 0)
+                {
+                    requirementsText += $"Charisma: {selectedPerk.RequiredCharisma}\n";
+                }
+                if (selectedPerk.RequiredIntelligence > 0)
+                {
+                    requirementsText += $"Intelligence: {selectedPerk.RequiredIntelligence}\n";
+                }
+                if (selectedPerk.RequiredAgility > 0)
+                {
+                    requirementsText += $"Agility: {selectedPerk.RequiredAgility}\n";
+                }
+                if (selectedPerk.RequiredLuck > 0)
+                {
+                    requirementsText += $"Luck: {selectedPerk.RequiredLuck}\n";
+                }
+                if (selectedPerk.RequiredScience > 0)
+                {
+                    requirementsText += $"Science: {selectedPerk.RequiredScience}\n";
+                }
+                if (selectedPerk.RequiredExplosives > 0)
+                {
+                    requirementsText += $"Explosives: {selectedPerk.RequiredExplosives}\n";
+                }
+                if (selectedPerk.RequiredSneak > 0)
+                {
+                    requirementsText += $"Sneak: {selectedPerk.RequiredSneak}\n";
+                }
+                if (selectedPerk.RequiredMedicine > 0)
+                {
+                    requirementsText += $"Medicine: {selectedPerk.RequiredMedicine}\n";
+                }
+                if (selectedPerk.RequiredLockpick > 0)
+                {
+                    requirementsText += $"Lockpick: {selectedPerk.RequiredLockpick}\n";
+                }
+                if (selectedPerk.RequiredSmallGuns > 0)
+                {
+                    requirementsText += $"Small Guns: {selectedPerk.RequiredSmallGuns}\n";
+                }
+                if (selectedPerk.RequiredEnergyWeapons > 0)
+                {
+                    requirementsText += $"Energy Weapons: {selectedPerk.RequiredEnergyWeapons}\n";
+                }
+                if (selectedPerk.RequiredBarter > 0)
+                {
+                    requirementsText += $"Barter: {selectedPerk.RequiredBarter}\n";
+                }
+                if (selectedPerk.RequiredUnarmed > 0)
+                {
+                    requirementsText += $"Unarmed: {selectedPerk.RequiredUnarmed}\n";
+                }
+                if (selectedPerk.RequiredMeleeWeapons > 0)
+                {
+                    requirementsText += $"Melee Weapons: {selectedPerk.RequiredMeleeWeapons}\n";
+                }
+
+                PerkReqTextBox.Text = requirementsText;
+
+
+            }
+
+            // Update the description TextBlock when a different perk is selected
+            PerkDescriptionTextBlock.Text = (PerksListView.SelectedItem as Fallout3Perks)?.PerkDescription;
+        }
         private void CancelPerkSelection_Click(object sender, RoutedEventArgs e)
         {
             LvlViewbox.Visibility = Visibility.Visible;
@@ -846,12 +841,10 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(LockpickBookText));
             OnPropertyChanged(nameof(BigGunsBookText));
         }
-
-
         private void LevelUp_Click(object sender, RoutedEventArgs e)
         {     
 
-            if (Character.SkillPoints == 0 && Character.Level < 50) {
+            if (Character.SkillPoints == 0 && Character.Level < 30) {
 
                 foreach (Fallout3Perks perkcheck in Fallout3Perks.AllPerksList)
                 {
@@ -921,27 +914,13 @@ namespace FallloutCharacterCreator.Fallout3
         }
 
 
-        
+        //Bobblehead Functionality
         private void Bobbleheads_Click(object sender, RoutedEventArgs e) //Todo: Still Working on functionality
         {
             BobbleheadsListView.ItemsSource = null;
             BobbleheadsListView.ItemsSource = Fallout3Bobbleheads.AllBobbleheadsList;
             LvlViewbox.Visibility = Visibility.Collapsed;
             BobbleheadsListViewbox.Visibility = Visibility.Visible;
-        }
-
-        private void CharacterPerks_Click(object sender, RoutedEventArgs e)
-        {
-            LvlViewbox.Visibility = Visibility.Collapsed;
-            PerkRankInfoTextBlock.Text = string.Empty;
-            CharPerksListView.ItemsSource = null;
-            CharPerksListView.ItemsSource = characterPerks;
-            CharPerksViewbox.Visibility = Visibility.Visible;
-        }
-
-        private void BobbleheadsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
         }
 
         private void ConfirmBobbleheadSelection_Click(object sender, RoutedEventArgs e)
@@ -1128,7 +1107,8 @@ namespace FallloutCharacterCreator.Fallout3
                         }
                     }
                 }
-                else {
+                else
+                {
                     continue;
                 }
             }
@@ -1145,6 +1125,41 @@ namespace FallloutCharacterCreator.Fallout3
             BobbleheadsListViewbox.Visibility = Visibility.Collapsed;
         }
 
+        //Character Perks Functionality
+        List<CombinedPerk3> combinedPerks = new List<CombinedPerk3>();
+        private void CharacterPerks_Click(object sender, RoutedEventArgs e)
+        {
+            combinedPerks.Clear();//Todo: maybe update to make more effecient using hashset or another way
+            foreach (var perk in characterPerks)
+            {
+                combinedPerks.Add(new CombinedPerk3
+                {
+                    PerkName = perk.PerkName,
+                    PerkDescription = perk.PerkDescription,
+                    Rank = perk.CurrentPerkRank,
+                    MaxRank = perk.MaxPerkRank
+                });
+            }
+
+            foreach (var extraPerk in extraCharacterPerks)
+            {
+                combinedPerks.Add(new CombinedPerk3
+                {
+                    PerkName = extraPerk.ExtraPerkName,
+                    PerkDescription = extraPerk.ExtraPerkDescription,
+                    Rank = 1,
+                    MaxRank = 1
+                });
+            }
+
+            LvlViewbox.Visibility = Visibility.Collapsed;
+            PerkRankInfoTextBlock.Text = string.Empty;
+            CharPerksListView.ItemsSource = null;
+            CharPerksListView.ItemsSource = combinedPerks;
+            CharPerksViewbox.Visibility = Visibility.Visible;
+        }
+
+        
         private void ExitCharPerks_Click(object sender, RoutedEventArgs e)
         {
             LvlViewbox.Visibility = Visibility.Visible;
@@ -1155,17 +1170,18 @@ namespace FallloutCharacterCreator.Fallout3
         {
             if (CharPerksListView.SelectedItem != null)
             {
-                Fallout3Perks selectedCharPerk = (Fallout3Perks)CharPerksListView.SelectedItem;
+                CombinedPerk3 selectedCharPerk = (CombinedPerk3)CharPerksListView.SelectedItem;
 
                 string PerkRankInfo = "Perk Rank: ";
 
-                PerkRankInfo += $"{selectedCharPerk.CurrentPerkRank} / {selectedCharPerk.MaxPerkRank}\n \nPerk Description:";
+                PerkRankInfo += $"{selectedCharPerk.Rank} / {selectedCharPerk.MaxRank}\n \nPerk Description:";
 
                 PerkRankInfoTextBlock.Text = PerkRankInfo;
             }
-            PerkInfoTextBlock.Text = (CharPerksListView.SelectedItem as Fallout3Perks)?.PerkDescription;
+            PerkInfoTextBlock.Text = (CharPerksListView.SelectedItem as CombinedPerk3)?.PerkDescription;
         }
 
+        //Extra Perks functionality
         private void ExtraPerkCancel_Click(object sender, RoutedEventArgs e)
         {
             LvlViewbox.Visibility = Visibility.Visible;
@@ -1185,6 +1201,34 @@ namespace FallloutCharacterCreator.Fallout3
                 ExtraPerkReqTextBlock.Text = ExtraPerkRequirementsString;
             }
             ExtraPerkDescriptionTextBlock.Text = (ExtraPerksListView.SelectedItem as ExtraFallout3Perks)?.ExtraPerkDescription;
+        }
+
+        List<ExtraFallout3Perks> extraCharacterPerks = new List<ExtraFallout3Perks>();
+        private void ExtraPerkConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            ExtraFallout3Perks selectedPerk = ExtraPerksListView.SelectedItem as ExtraFallout3Perks;
+
+            if (selectedPerk.ExtraPerkHave != true)
+            {
+                extraCharacterPerks.Add(selectedPerk);
+                selectedPerk.ExtraPerkHave = true;
+                LvlViewbox.Visibility = Visibility.Visible;
+                ExtraPerksViewbox.Visibility = Visibility.Collapsed;
+            }
+            else {
+                MessageBox.Show("The Perk you choose you either already have or cannot obtain.\n",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+            }
+        }
+        private void ExtraPerks_Click(object sender, RoutedEventArgs e)
+        {
+            ExtraPerksListView.ItemsSource = null;
+            ExtraPerkReqTextBlock.Text = string.Empty;
+            LvlViewbox.Visibility = Visibility.Collapsed;
+            ExtraPerksListView.ItemsSource = ExtraFallout3Perks.AllExtraPerksList;
+            ExtraPerksViewbox.Visibility = Visibility.Visible;
         }
     }
 }

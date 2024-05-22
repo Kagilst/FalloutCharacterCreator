@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -802,6 +803,23 @@ namespace FallloutCharacterCreator
             
             }
 
+        }
+
+        private void CharName_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Allow only letters, spaces, hyphens, and apostrophes
+            Regex regex = new Regex("^[a-zA-Z-' ]+$");
+            e.Handled = !regex.IsMatch(e.Text);
+        }
+
+        private void CharName_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            // Handle backspace, delete, tab, left arrow, and right arrow keys
+            if (e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Tab ||
+                e.Key == Key.Left || e.Key == Key.Right)
+            {
+                e.Handled = false;
+            }
         }
     }
 }
