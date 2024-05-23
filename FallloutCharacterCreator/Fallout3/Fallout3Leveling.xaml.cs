@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,9 +27,7 @@ namespace FallloutCharacterCreator.Fallout3
         public Fallout3Character GetLatestCharacter()
         {
             return characterSnapshots[characterSnapshots.Count - 1];
-        }
-
-        
+        }      
 
         public Fallout3SkillBooks BookValues { get; set; }
 
@@ -103,17 +102,156 @@ namespace FallloutCharacterCreator.Fallout3
         }
 
         //Todo: Change decrease and increase function to use only one click event for decrease and increase
-        private void DecreaseBarter(object sender, RoutedEventArgs e)
+        private void DecreaseSkill(ref int skill)
         {
-            
-            if (Character.SkillPoints < Character.Intelligence + 10)
+            if (skill > 0)
             {
-                Character.SkillPoints++;
-                Character.Barter--;
+                skill--;
             }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(BarterText));
+        }
 
+        private void DecreaseSkill_Click(object sender, RoutedEventArgs e) {
+
+            Button clickedButton = sender as Button;
+
+            if (clickedButton != null)
+            {
+                // Get the skill name from the Tag property
+                string skillName = clickedButton.Tag.ToString();
+                int tempIntel;
+                var lastSnapshot = characterSnapshots.Count - 2;
+                if (hasEducatedPerk == true)
+                {
+                    tempIntel = Character.Intelligence + 3;
+                }
+                else {
+                    tempIntel = Character.Intelligence;
+                }
+
+                    //Switch for decrease the skill
+                    switch (skillName)
+                    {
+                        case "Barter":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Barter < Character.Barter)
+                            {
+                                Character.SkillPoints++;
+                                Character.Barter--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(BarterText));
+                            break;
+                        case "BigGuns":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].BigGuns < Character.BigGuns)
+                            {
+                                Character.SkillPoints++;
+                                Character.BigGuns--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(BigGunsText));
+                            break;
+                        case "EnergyWeapons":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].EnergyWeapons < Character.EnergyWeapons)
+                            {
+                                Character.SkillPoints++;
+                                Character.EnergyWeapons--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(EnergyWeaponsText));
+                            break;
+                        case "Explosives":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Explosives < Character.Explosives)
+                            {
+                                Character.SkillPoints++;
+                                Character.Explosives--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(ExplosivesText));
+                            break;
+                        case "Lockpick":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Lockpick < Character.Lockpick)
+                            {
+                                Character.SkillPoints++;
+                                Character.Lockpick--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(LockpickText));
+                            break;
+                        case "Medicine":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Medicine < Character.Medicine)
+                            {
+                                Character.SkillPoints++;
+                                Character.Medicine--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(MedicineText));
+                            break;
+                        case "MeleeWeapons":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].MeleeWeapons < Character.MeleeWeapons)
+                            {
+                                Character.SkillPoints++;
+                                Character.MeleeWeapons--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(MeleeWeaponsText));
+                            break;
+                        case "Repair":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Repair < Character.Repair)
+                            {
+                                Character.SkillPoints++;
+                                Character.Repair--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(RepairText));
+                            break;
+                        case "Science":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Science < Character.Science)
+                            {
+                                Character.SkillPoints++;
+                                Character.Science--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(ScienceText));
+                            break;
+                        case "SmallGuns":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].SmallGuns < Character.SmallGuns)
+                            {
+                                Character.SkillPoints++;
+                                Character.SmallGuns--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(SmallGunsText));
+                            break;
+                        case "Sneak":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Sneak < Character.Sneak)
+                            {
+                                Character.SkillPoints++;
+                                Character.Sneak--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(SneakText));
+                            break;
+                        case "Speech":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Speech < Character.Speech)
+                            {
+                                Character.SkillPoints++;
+                                Character.Speech--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(SpeechText));
+                            break;
+                        case "Unarmed":
+                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Unarmed < Character.Unarmed)
+                            {
+                                Character.SkillPoints++;
+                                Character.Unarmed--;
+                            }
+                            OnPropertyChanged(nameof(SkillPointsText));
+                            OnPropertyChanged(nameof(UnarmedText));
+                            break;
+
+                }
+
+            }
         }
 
         private void IncreaseBarter(object sender, RoutedEventArgs e)
@@ -127,17 +265,6 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(BarterText));
         }
 
-        private void DecreaseBigGuns(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.BigGuns--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(BigGunsText));
-        }
-
         private void IncreaseBigGuns(object sender, RoutedEventArgs e)
         {
             if (Character.BigGuns < 100 && Character.SkillPoints > 0)
@@ -147,17 +274,6 @@ namespace FallloutCharacterCreator.Fallout3
             }
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(BigGunsText));
-        }
-
-        private void DecreaseEnergyWeapons(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.EnergyWeapons--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(EnergyWeaponsText));
         }
 
         private void IncreaseEnergyWeapons(object sender, RoutedEventArgs e)
@@ -171,17 +287,6 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(EnergyWeaponsText));
         }
 
-        private void DecreaseExplosives(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Explosives--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(ExplosivesText));
-        }
-
         private void IncreaseExplosives(object sender, RoutedEventArgs e)
         {
             if (Character.Explosives < 100 && Character.SkillPoints > 0)
@@ -191,17 +296,6 @@ namespace FallloutCharacterCreator.Fallout3
             }
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(ExplosivesText));
-        }
-
-        private void DecreaseLockpick(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Lockpick--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(LockpickText));
         }
 
         private void IncreaseLockpick(object sender, RoutedEventArgs e)
@@ -215,17 +309,6 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(LockpickText));
         }
 
-        private void DecreaseMedicine(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Medicine--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(MedicineText));
-        }
-
         private void IncreaseMedicine(object sender, RoutedEventArgs e)
         {
             if (Character.Medicine < 100 && Character.SkillPoints > 0)
@@ -235,17 +318,6 @@ namespace FallloutCharacterCreator.Fallout3
             }
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(MedicineText));
-        }
-
-        private void DecreaseMeleeWeapons(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.MeleeWeapons--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(MeleeWeaponsText));
         }
 
         private void IncreaseMeleeWeapons(object sender, RoutedEventArgs e)
@@ -259,17 +331,6 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(MeleeWeaponsText));
         }
 
-        private void DecreaseRepair(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Repair--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(RepairText));
-        }
-
         private void IncreaseRepair(object sender, RoutedEventArgs e)
         {
             if (Character.Repair < 100 && Character.SkillPoints > 0)
@@ -279,17 +340,6 @@ namespace FallloutCharacterCreator.Fallout3
             }
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(RepairText));
-        }
-
-        private void DecreaseScience(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Science--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(ScienceText));
         }
 
         private void IncreaseScience(object sender, RoutedEventArgs e)
@@ -303,17 +353,6 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(ScienceText));
         }
 
-        private void DecreaseSmallGuns(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.SmallGuns--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(SmallGunsText));
-        }
-
         private void IncreaseSmallGuns(object sender, RoutedEventArgs e)
         {
             if (Character.SmallGuns < 100 && Character.SkillPoints > 0)
@@ -323,17 +362,6 @@ namespace FallloutCharacterCreator.Fallout3
             }
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(SmallGunsText));
-        }
-
-        private void DecreaseSneak(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Sneak--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(SneakText));
         }
 
         private void IncreaseSneak(object sender, RoutedEventArgs e)
@@ -347,17 +375,6 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(SneakText));
         }
 
-        private void DecreaseSpeech(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Speech--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(SpeechText));
-        }
-
         private void IncreaseSpeech(object sender, RoutedEventArgs e)
         {
             if (Character.Speech < 100 && Character.SkillPoints > 0)
@@ -367,17 +384,6 @@ namespace FallloutCharacterCreator.Fallout3
             }
             OnPropertyChanged(nameof(SkillPointsText));
             OnPropertyChanged(nameof(SpeechText));
-        }
-
-        private void DecreaseUnarmed(object sender, RoutedEventArgs e)
-        {
-            if (Character.SkillPoints < Character.Intelligence + 10)
-            {
-                Character.SkillPoints++;
-                Character.Unarmed--;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(UnarmedText));
         }
 
         private void IncreaseUnarmed(object sender, RoutedEventArgs e)

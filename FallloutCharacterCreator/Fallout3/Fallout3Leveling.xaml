@@ -720,91 +720,91 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseBarter" Grid.Row="0" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Barter" Grid.Row="0" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseBigGuns" Grid.Row="1" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="BigGuns" Grid.Row="1" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseEnergyWeapons" Grid.Row="2" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="EnergyWeapons" Grid.Row="2" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseExplosives" Grid.Row="3" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Explosives" Grid.Row="3" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseLockpick" Grid.Row="4" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Lockpick" Grid.Row="4" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseMedicine" Grid.Row="5" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Medicine" Grid.Row="5" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseMeleeWeapons" Grid.Row="6" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="MeleeWeapons" Grid.Row="6" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseRepair" Grid.Row="7" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Repair" Grid.Row="7" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseScience" Grid.Row="8" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Science" Grid.Row="8" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseSmallGuns" Grid.Row="9" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="SmallGuns" Grid.Row="9" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseSneak"  Grid.Row="10" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Sneak"  Grid.Row="10" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseSpeech" Grid.Row="11" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Speech" Grid.Row="11" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
                                         </Style>
                                     </Button.Resources>
                                 </Button>
-                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Click="DecreaseUnarmed" Grid.Row="12" Margin="0,2,0,2" Height="21">
+                                <Button Content="&lt;"  HorizontalAlignment="Center" Grid.Column="0" BorderBrush="Black" Tag="Unarmed" Grid.Row="12" Margin="0,2,0,2" Height="21" Click="DecreaseSkill_Click">
                                     <Button.Resources>
                                         <Style TargetType="Border">
                                             <Setter Property="CornerRadius" Value="5"/>
