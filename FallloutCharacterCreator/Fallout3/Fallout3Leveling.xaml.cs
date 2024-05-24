@@ -254,147 +254,140 @@ namespace FallloutCharacterCreator.Fallout3
             }
         }
 
-        private void IncreaseBarter(object sender, RoutedEventArgs e)
-        {
-            if (Character.Barter < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Barter++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(BarterText));
-        }
+        private void IncreaseSkill_Click(object sender, RoutedEventArgs e) {
+            Button clickedButton = sender as Button;
 
-        private void IncreaseBigGuns(object sender, RoutedEventArgs e)
-        {
-            if (Character.BigGuns < 100 && Character.SkillPoints > 0)
+            if (clickedButton != null)
             {
-                Character.SkillPoints--;
-                Character.BigGuns++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(BigGunsText));
-        }
+                // Get the skill name from the Tag property
+                string skillName = clickedButton.Tag.ToString();
+                var lastSnapshot = characterSnapshots.Count - 2;
 
-        private void IncreaseEnergyWeapons(object sender, RoutedEventArgs e)
-        {
-            if (Character.EnergyWeapons < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.EnergyWeapons++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(EnergyWeaponsText));
-        }
+                //Switch for increase skill
+                switch (skillName)
+                {
+                    case "Barter":
+                        if (Character.Barter < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Barter++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(BarterText));
+                        break;
+                    case "BigGuns":
+                        if (Character.BigGuns < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.BigGuns++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(BigGunsText));
+                        break;
+                    case "EnergyWeapons":
+                        if (Character.EnergyWeapons < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.EnergyWeapons++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(EnergyWeaponsText));
+                        break;
+                    case "Explosives":
+                        if (Character.Explosives < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Explosives++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(ExplosivesText));
+                        break;
+                    case "Lockpick":
+                        if (Character.Lockpick < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Lockpick++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(LockpickText));
+                        break;
+                    case "Medicine":
+                        if (Character.Medicine < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Medicine++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(MedicineText));
+                        break;
+                    case "MeleeWeapons":
+                        if (Character.MeleeWeapons < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.MeleeWeapons++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(MeleeWeaponsText));
+                        break;
+                    case "Repair":
+                        if (Character.Repair < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Repair++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(RepairText));
+                        break;
+                    case "Science":
+                        if (Character.Science < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Science++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(ScienceText));
+                        break;
+                    case "SmallGuns":
+                        if (Character.SmallGuns < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.SmallGuns++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(SmallGunsText));
+                        break;
+                    case "Sneak":
+                        if (Character.Sneak < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Sneak++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(SneakText));
+                        break;
+                    case "Speech":
+                        if (Character.Speech < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Speech++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(SpeechText));
+                        break;
+                    case "Unarmed":
+                        if (Character.Unarmed < 100 && Character.SkillPoints > 0)
+                        {
+                            Character.SkillPoints--;
+                            Character.Unarmed++;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(UnarmedText));
+                        break;
 
-        private void IncreaseExplosives(object sender, RoutedEventArgs e)
-        {
-            if (Character.Explosives < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Explosives++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(ExplosivesText));
-        }
+                }
 
-        private void IncreaseLockpick(object sender, RoutedEventArgs e)
-        {
-            if (Character.Lockpick < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Lockpick++;
             }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(LockpickText));
-        }
 
-        private void IncreaseMedicine(object sender, RoutedEventArgs e)
-        {
-            if (Character.Medicine < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Medicine++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(MedicineText));
-        }
-
-        private void IncreaseMeleeWeapons(object sender, RoutedEventArgs e)
-        {
-            if (Character.MeleeWeapons < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.MeleeWeapons++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(MeleeWeaponsText));
-        }
-
-        private void IncreaseRepair(object sender, RoutedEventArgs e)
-        {
-            if (Character.Repair < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Repair++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(RepairText));
-        }
-
-        private void IncreaseScience(object sender, RoutedEventArgs e)
-        {
-            if (Character.Science < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Science++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(ScienceText));
-        }
-
-        private void IncreaseSmallGuns(object sender, RoutedEventArgs e)
-        {
-            if (Character.SmallGuns < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.SmallGuns++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(SmallGunsText));
-        }
-
-        private void IncreaseSneak(object sender, RoutedEventArgs e)
-        {
-            if (Character.Sneak < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Sneak++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(SneakText));
-        }
-
-        private void IncreaseSpeech(object sender, RoutedEventArgs e)
-        {
-            if (Character.Speech < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Speech++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(SpeechText));
-        }
-
-        private void IncreaseUnarmed(object sender, RoutedEventArgs e)
-        {
-            if (Character.Unarmed < 100 && Character.SkillPoints > 0)
-            {
-                Character.SkillPoints--;
-                Character.Unarmed++;
-            }
-            OnPropertyChanged(nameof(SkillPointsText));
-            OnPropertyChanged(nameof(UnarmedText));
         }
 
         //Skillbook functionality
@@ -508,7 +501,7 @@ namespace FallloutCharacterCreator.Fallout3
 
         List<Fallout3Perks> characterPerks = new List<Fallout3Perks>();
 
-        bool hasEducatedPerk = false; 
+        public bool hasEducatedPerk = false; 
         private void ConfirmPerkSelection_Click(object sender, RoutedEventArgs e)
         {
             Fallout3Perks selectedPerk = PerksListView.SelectedItem as Fallout3Perks;

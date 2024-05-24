@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FallloutCharacterCreator.Fallout3;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -78,42 +79,41 @@ namespace FallloutCharacterCreator
             TaggedSkills = 0;
         }
 
-        public void UpdateAllValues(string name, int level, int carryWeight, int actionPoints, int criticalChance, int damageResistance, int skillPoints, 
-            int health, int specialPoints, int strength, int perception, int endurance, int charisma, int intelligence, int agility, int luck, int barter, int bigGuns, int energyWeapons,
-            int explosives, int lockpick, int medicine, int meleeWeapons, int repair, int science, int smallGuns, int sneak, int speech, int unarmed, int taggedSkills  ) {
-            
-            CharacterName = name;
-            Level = level;
-            CarryWeight = carryWeight;
-            ActionPoints = actionPoints;
-            CriticalChance = criticalChance;
-            DamageResistance = damageResistance;
-            SkillPoints = skillPoints;
-            Health = health;
-            SpecialPoints = specialPoints;
-            Strength = strength;
-            Perception = perception;
-            Endurance = endurance;
-            Charisma = charisma;
-            Intelligence = intelligence;
-            Agility = agility;
-            Luck = luck;
-            Barter = barter;
-            BigGuns = bigGuns;
-            EnergyWeapons = energyWeapons;
-            Explosives = explosives;
-            Lockpick = lockpick;
-            Medicine = medicine;
-            MeleeWeapons = meleeWeapons;
-            Repair = repair;
-            Science = science;
-            SmallGuns = smallGuns;
-            Sneak = sneak;
-            Speech = speech;
-            Unarmed = unarmed;
-            TaggedSkills = taggedSkills;
-
-        }
+        //public Fallout3Character Clone() {
+        //    return new Fallout3Character
+        //    {
+        //        CharacterName = this.CharacterName,
+        //        Level = this.Level,
+        //        CarryWeight = this.CarryWeight,
+        //        ActionPoints = this.ActionPoints,
+        //        CriticalChance = this.CriticalChance,
+        //        DamageResistance = this.DamageResistance,
+        //        SkillPoints = this.SkillPoints,
+        //        Health = this.Health,
+        //        SpecialPoints = this.SpecialPoints,
+        //        Strength = this.Strength,
+        //        Perception = this.Perception,
+        //        Endurance = this.Endurance,
+        //        Charisma = this.Charisma,
+        //        Intelligence = this.Intelligence,
+        //        Agility = this.Agility,
+        //        Luck = this.Luck,
+        //        Barter = this.Barter,
+        //        BigGuns = this.BigGuns,
+        //        EnergyWeapons = this.EnergyWeapons,
+        //        Explosives = this.Explosives,
+        //        Lockpick = this.Lockpick,
+        //        Medicine = this.Medicine,
+        //        MeleeWeapons = this.MeleeWeapons,
+        //        Repair = this.Repair,
+        //        Science = this.Science,
+        //        SmallGuns = this.SmallGuns,
+        //        Sneak = this.Sneak,
+        //        Speech = this.Speech,
+        //        Unarmed = this.Unarmed,
+        //        TaggedSkills = this.TaggedSkills
+        //    };
+        //}
 
     }
 
