@@ -33,12 +33,12 @@
         <Grid.Background>
             <ImageBrush ImageSource="/backgrounds/FalloutThreeBackground.jpg"/>
         </Grid.Background>
-        
         <!-- Extra Perks ViewBox -->
         <Viewbox Stretch="Uniform" Margin="0,40,0,40" Visibility="Collapsed" Name="ExtraPerksViewbox">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="170" />
+                    <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="170" />
                 </Grid.ColumnDefinitions>
 
@@ -199,6 +199,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="170" />
                 </Grid.ColumnDefinitions>
                 
@@ -226,8 +227,50 @@
                         </ListView>
                     </ScrollViewer>
                 </Border>
-                
-                <Border Grid.Column="1" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5" Padding="5">
+
+                <Border Grid.Column="1" BorderBrush="#008200" BorderThickness="1" Margin="5" Visibility="Collapsed" Name="IntenseTrainingPerkGrid" Height="131" VerticalAlignment="Top">
+                    <ListView Height="auto" Width="auto" Background="#ccd3d3d3" ItemContainerStyle="{DynamicResource _ListBoxItemStyle}" Name="IntenseListView">
+                        <ListView.Items>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <TextBlock Text="Strength" FontFamily="/fonts/#Overseer" Foreground="#008200" Name="IntenseStrength"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <TextBlock Text="Perception" FontFamily="/fonts/#Overseer" Foreground="#008200" Name="IntensePerception"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <TextBlock Text="Endurance" FontFamily="/fonts/#Overseer" Foreground="#008200" Name="IntenseEndurance"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <TextBlock Text="Charisma" FontFamily="/fonts/#Overseer" Foreground="#008200" Name="IntenseCharisma"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <TextBlock Text="Agility" FontFamily="/fonts/#Overseer" Foreground="#008200" Name="IntenseAgility"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <TextBlock Text="Intelligence" FontFamily="/fonts/#Overseer" Foreground="#008200" Name="IntenseIntelligence"/>
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel>
+                                    <TextBlock Text="Luck" FontFamily="/fonts/#Overseer" Foreground="#008200" Name="IntenseLuck"/>
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView.Items>
+                    </ListView>
+                </Border>
+
+                <Border Grid.Column="2" Background="#ccd3d3d3" BorderBrush="#008200" BorderThickness="1" Margin="5" Padding="5">
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>

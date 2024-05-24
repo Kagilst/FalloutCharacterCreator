@@ -53,7 +53,7 @@ namespace FallloutCharacterCreator.Fallout3
                 ExtraPerkName = "Power Armor Training",
                 ExtraPerkHave = false,
                 ExtraPerkRequirements = "Learned from Paladin Gunny in the Citadel or by completing Operation: Anchorage.",
-                ExtraPerkDescription = " You're now able to wear any form of power armor."
+                ExtraPerkDescription = "You're now able to wear any form of power armor."
             });
 
             AllExtraPerksList.Add(new ExtraFallout3Perks

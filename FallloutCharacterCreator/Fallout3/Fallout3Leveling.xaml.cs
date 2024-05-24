@@ -22,6 +22,9 @@ namespace FallloutCharacterCreator.Fallout3
     /// <summary>
     /// Interaction logic for Fallout3Leveling.xaml
     /// </summary>
+    /// 
+    //Todo: Add revert level button
+    //Todo: Add clothing and armor(include button to show stats with and without armor? Make it so stats with armor can not be editted?)
     public partial class Fallout3Leveling : Page, INotifyPropertyChanged
     {
         public Fallout3Character GetLatestCharacter()
@@ -101,15 +104,7 @@ namespace FallloutCharacterCreator.Fallout3
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        //Todo: Change decrease and increase function to use only one click event for decrease and increase
-        private void DecreaseSkill(ref int skill)
-        {
-            if (skill > 0)
-            {
-                skill--;
-            }
-        }
-
+        //Skill value change functions
         private void DecreaseSkill_Click(object sender, RoutedEventArgs e) {
 
             Button clickedButton = sender as Button;
@@ -402,8 +397,8 @@ namespace FallloutCharacterCreator.Fallout3
             LvlViewbox.Visibility = Visibility.Visible;
             SkillBooksViewbox.Visibility = Visibility.Collapsed;
         } //Todo: Implement save functionality
+        
         //LevelUp and Levelup perk selection functionality
-
         private void PerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -411,6 +406,40 @@ namespace FallloutCharacterCreator.Fallout3
             {
                 // Cast the selected item to Fallout3Perks
                 Fallout3Perks selectedPerk = (Fallout3Perks)PerksListView.SelectedItem;
+                if (selectedPerk.PerkName == "Intense Training")
+                {
+                    if (Character.Strength == 10) {
+                        IntenseStrength.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Perception == 10)
+                    {
+                        IntensePerception.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Endurance == 10)
+                    {
+                        IntenseEndurance.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Charisma == 10)
+                    {
+                        IntenseCharisma.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Agility == 10)
+                    {
+                        IntenseAgility.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Intelligence == 10)
+                    {
+                        IntenseIntelligence.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Luck == 10)
+                    {
+                        IntenseLuck.Foreground = Brushes.Gray;
+                    }
+                    IntenseTrainingPerkGrid.Visibility = Visibility.Visible;
+                }
+                else {
+                    IntenseTrainingPerkGrid.Visibility = Visibility.Collapsed;
+                }
                 string requirementsText = "Requirements:\n";
                 if (selectedPerk.RequiredLevel > 0)
                 {
@@ -604,9 +633,9 @@ namespace FallloutCharacterCreator.Fallout3
                         }
                     }
 
-                    if (selectedPerk.PerkName == "Intense Training")
+                    if (selectedPerk.PerkName == "Intense Training")//Todo: Finish implementing
                     {
-                        //Still deciding how to implement
+                        if (IntenseListView.SelectedItem != Brushes.Gray) { }
                     }
 
                     if (selectedPerk.PerkName == "Comprehension")
@@ -732,10 +761,6 @@ namespace FallloutCharacterCreator.Fallout3
                         if (Character.Agility < 9) { Character.Agility = 9; }
                         if (Character.Luck < 9) { Character.Luck = 9; }
                     }
-
-
-
-                
 
 
                 {
@@ -1193,9 +1218,9 @@ namespace FallloutCharacterCreator.Fallout3
             {
                 ExtraFallout3Perks selectedExtraPerk = (ExtraFallout3Perks)ExtraPerksListView.SelectedItem;
 
-                string ExtraPerkRequirementsString = "Requirement: \n";
+                string ExtraPerkRequirementsString = "Requirement:\n";
 
-                ExtraPerkRequirementsString += $"{selectedExtraPerk.ExtraPerkRequirements} \nPerk Description: \n";
+                ExtraPerkRequirementsString += $"{selectedExtraPerk.ExtraPerkRequirements}\n\nPerk Description:";
 
                 ExtraPerkReqTextBlock.Text = ExtraPerkRequirementsString;
             }
@@ -1211,6 +1236,44 @@ namespace FallloutCharacterCreator.Fallout3
             {
                 extraCharacterPerks.Add(selectedPerk);
                 selectedPerk.ExtraPerkHave = true;
+                if (selectedPerk.ExtraPerkName == "Dream Crusher") {
+                    ExtraFallout3Perks.AllExtraPerksList[7].ExtraPerkHave = true;
+                }
+                if (selectedPerk.ExtraPerkName == "Ant Might")
+                {
+                    Character.Strength++;
+                }
+                if (selectedPerk.ExtraPerkName == "Ant Sight")
+                {
+                    Character.Perception++;
+                }
+                if (selectedPerk.ExtraPerkName == "Barkskin")
+                {
+                    Character.DamageResistance += 5;
+                }
+                if (selectedPerk.ExtraPerkName == "Survival Junior/Expert/Guru")
+                {
+                    //Todo: add new frame which allows user to choose rank and type
+                }
+                if (selectedPerk.ExtraPerkName == "Covert Ops")
+                {
+                    Character.Science += 3;
+                    Character.SmallGuns += 3;
+                    Character.Lockpick += 3;
+                }
+                if (selectedPerk.ExtraPerkName == "Booster Shot")
+                {
+                    //Todo: add new feature that shows radiation resistance
+                }
+                if (selectedPerk.ExtraPerkName == "Pitt Fighter")
+                {
+                    Character.DamageResistance += 3;
+                    //Todo: add radiation resistance increase
+                }
+                if (selectedPerk.ExtraPerkName == "Superior Defender")
+                {
+                    //Todo: decide whether or not to add increase to DR even tho it only applies when Standing Still(maybe have frame that tells the user it doesnt apply changes to DR since it only applies when standing still)
+                }
                 LvlViewbox.Visibility = Visibility.Visible;
                 ExtraPerksViewbox.Visibility = Visibility.Collapsed;
             }

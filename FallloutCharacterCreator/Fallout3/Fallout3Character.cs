@@ -79,41 +79,42 @@ namespace FallloutCharacterCreator
             TaggedSkills = 0;
         }
 
-        //public Fallout3Character Clone() {
-        //    return new Fallout3Character
-        //    {
-        //        CharacterName = this.CharacterName,
-        //        Level = this.Level,
-        //        CarryWeight = this.CarryWeight,
-        //        ActionPoints = this.ActionPoints,
-        //        CriticalChance = this.CriticalChance,
-        //        DamageResistance = this.DamageResistance,
-        //        SkillPoints = this.SkillPoints,
-        //        Health = this.Health,
-        //        SpecialPoints = this.SpecialPoints,
-        //        Strength = this.Strength,
-        //        Perception = this.Perception,
-        //        Endurance = this.Endurance,
-        //        Charisma = this.Charisma,
-        //        Intelligence = this.Intelligence,
-        //        Agility = this.Agility,
-        //        Luck = this.Luck,
-        //        Barter = this.Barter,
-        //        BigGuns = this.BigGuns,
-        //        EnergyWeapons = this.EnergyWeapons,
-        //        Explosives = this.Explosives,
-        //        Lockpick = this.Lockpick,
-        //        Medicine = this.Medicine,
-        //        MeleeWeapons = this.MeleeWeapons,
-        //        Repair = this.Repair,
-        //        Science = this.Science,
-        //        SmallGuns = this.SmallGuns,
-        //        Sneak = this.Sneak,
-        //        Speech = this.Speech,
-        //        Unarmed = this.Unarmed,
-        //        TaggedSkills = this.TaggedSkills
-        //    };
-        //}
+        public Fallout3Character Clone()
+        {
+            return new Fallout3Character
+            {
+                CharacterName = this.CharacterName,
+                Level = this.Level,
+                CarryWeight = this.CarryWeight,
+                ActionPoints = this.ActionPoints,
+                CriticalChance = this.CriticalChance,
+                DamageResistance = this.DamageResistance,
+                SkillPoints = this.SkillPoints,
+                Health = this.Health,
+                SpecialPoints = this.SpecialPoints,
+                Strength = this.Strength,
+                Perception = this.Perception,
+                Endurance = this.Endurance,
+                Charisma = this.Charisma,
+                Intelligence = this.Intelligence,
+                Agility = this.Agility,
+                Luck = this.Luck,
+                Barter = this.Barter,
+                BigGuns = this.BigGuns,
+                EnergyWeapons = this.EnergyWeapons,
+                Explosives = this.Explosives,
+                Lockpick = this.Lockpick,
+                Medicine = this.Medicine,
+                MeleeWeapons = this.MeleeWeapons,
+                Repair = this.Repair,
+                Science = this.Science,
+                SmallGuns = this.SmallGuns,
+                Sneak = this.Sneak,
+                Speech = this.Speech,
+                Unarmed = this.Unarmed,
+                TaggedSkills = this.TaggedSkills
+            };
+        }
 
     }
 

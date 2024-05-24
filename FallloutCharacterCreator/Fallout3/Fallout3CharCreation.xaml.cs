@@ -751,75 +751,42 @@ namespace FallloutCharacterCreator
         {
             if (CharName.Text != string.Empty && Character.TaggedSkills == 3 && Character.SpecialPoints == 0)
             {
-                Fallout3Character snapshot = new Fallout3Character();
-                snapshot.CharacterName = CharName.Text;
-                snapshot.Level = Character.Level;
-                snapshot.SpecialPoints = Character.SpecialPoints;
-                snapshot.CarryWeight = Character.CarryWeight;
-                snapshot.ActionPoints = Character.ActionPoints;
-                snapshot.CriticalChance = Character.CriticalChance;
-                snapshot.DamageResistance = Character.DamageResistance;
-                snapshot.SkillPoints = Character.SkillPoints;
-                snapshot.Health = Character.Health;
-                snapshot.SpecialPoints = Character.SpecialPoints;
-                snapshot.Strength = Character.Strength;
-                snapshot.Perception = Character.Perception;
-                snapshot.Endurance = Character.Endurance;
-                snapshot.Charisma = Character.Charisma;
-                snapshot.Intelligence = Character.Intelligence;
-                snapshot.Agility = Character.Agility;
-                snapshot.Luck = Character.Luck;
-                snapshot.Barter = Character.Barter;
-                snapshot.BigGuns = Character.BigGuns;
-                snapshot.EnergyWeapons = Character.EnergyWeapons;
-                snapshot.Explosives = Character.Explosives;
-                snapshot.Lockpick = Character.Lockpick;
-                snapshot.Medicine = Character.Medicine;
-                snapshot.MeleeWeapons = Character.MeleeWeapons;
-                snapshot.Repair = Character.Repair;
-                snapshot.Science = Character.Science;
-                snapshot.SmallGuns = Character.SmallGuns;
-                snapshot.Sneak = Character.Sneak;
-                snapshot.Speech = Character.Speech;
-                snapshot.Unarmed = Character.Unarmed;
-                snapshot.TaggedSkills = Character.TaggedSkills;
+                Fallout3Character snapshot = new Fallout3Character() { 
+                CharacterName = CharName.Text,
+                Level = Character.Level,
+                SpecialPoints = Character.SpecialPoints,
+                CarryWeight = Character.CarryWeight,
+                ActionPoints = Character.ActionPoints,
+                CriticalChance = Character.CriticalChance,
+                DamageResistance = Character.DamageResistance,
+                SkillPoints = Character.SkillPoints,
+                Health = Character.Health,
+                Strength = Character.Strength,
+                Perception = Character.Perception,
+                Endurance = Character.Endurance,
+                Charisma = Character.Charisma,
+                Intelligence = Character.Intelligence,
+                Agility = Character.Agility,
+                Luck = Character.Luck,
+                Barter = Character.Barter,
+                BigGuns = Character.BigGuns,
+                EnergyWeapons = Character.EnergyWeapons,
+                Explosives = Character.Explosives,
+                Lockpick = Character.Lockpick,
+                Medicine = Character.Medicine,
+                MeleeWeapons = Character.MeleeWeapons,
+                Repair = Character.Repair,
+                Science = Character.Science,
+                SmallGuns = Character.SmallGuns,
+                Sneak = Character.Sneak,
+                Speech = Character.Speech,
+                Unarmed = Character.Unarmed,
+                TaggedSkills = Character.TaggedSkills
+            };
 
-                characterSnapshots.Add(snapshot);//saves starting values
+                characterSnapshots.Add(snapshot.Clone()); // Saves starting values
+                characterSnapshots.Add(snapshot.Clone()); // Saves values for editing
 
-                Fallout3Character snapshot2 = new Fallout3Character();
-                snapshot.CharacterName = CharName.Text;
-                snapshot.Level = Character.Level;
-                snapshot.SpecialPoints = Character.SpecialPoints;
-                snapshot.CarryWeight = Character.CarryWeight;
-                snapshot.ActionPoints = Character.ActionPoints;
-                snapshot.CriticalChance = Character.CriticalChance;
-                snapshot.DamageResistance = Character.DamageResistance;
-                snapshot.SkillPoints = Character.SkillPoints;
-                snapshot.Health = Character.Health;
-                snapshot.SpecialPoints = Character.SpecialPoints;
-                snapshot.Strength = Character.Strength;
-                snapshot.Perception = Character.Perception;
-                snapshot.Endurance = Character.Endurance;
-                snapshot.Charisma = Character.Charisma;
-                snapshot.Intelligence = Character.Intelligence;
-                snapshot.Agility = Character.Agility;
-                snapshot.Luck = Character.Luck;
-                snapshot.Barter = Character.Barter;
-                snapshot.BigGuns = Character.BigGuns;
-                snapshot.EnergyWeapons = Character.EnergyWeapons;
-                snapshot.Explosives = Character.Explosives;
-                snapshot.Lockpick = Character.Lockpick;
-                snapshot.Medicine = Character.Medicine;
-                snapshot.MeleeWeapons = Character.MeleeWeapons;
-                snapshot.Repair = Character.Repair;
-                snapshot.Science = Character.Science;
-                snapshot.SmallGuns = Character.SmallGuns;
-                snapshot.Sneak = Character.Sneak;
-                snapshot.Speech = Character.Speech;
-                snapshot.Unarmed = Character.Unarmed;
-                snapshot.TaggedSkills = Character.TaggedSkills;
-
-                characterSnapshots.Add(snapshot2);//saves values for editing
 
                 ClearFrame();
                 Fallout3Leveling fallout3LevelingPage = new Fallout3Leveling(characterSnapshots);
