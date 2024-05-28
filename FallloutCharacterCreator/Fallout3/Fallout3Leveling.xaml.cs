@@ -440,6 +440,67 @@ namespace FallloutCharacterCreator.Fallout3
                 else {
                     IntenseTrainingPerkGrid.Visibility = Visibility.Collapsed;
                 }
+                if (selectedPerk.PerkName == "Tag!")
+                {
+                    if (Character.Barter == 100)
+                    {
+                        TagBarter.Foreground = Brushes.Gray;
+                    }
+                    if (Character.BigGuns == 100)
+                    {
+                        TagBigGuns.Foreground = Brushes.Gray;
+                    }
+                    if (Character.EnergyWeapons == 100)
+                    {
+                        TagEnergyWeapons.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Explosives == 100)
+                    {
+                        TagExplosives.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Lockpick == 100)
+                    {
+                        TagLockpick.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Medicine == 100)
+                    {
+                        TagMedicine.Foreground = Brushes.Gray;
+                    }
+                    if (Character.MeleeWeapons == 100)
+                    {
+                        TagMeleeWeapons.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Repair == 100)
+                    {
+                        TagRepair.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Science == 100)
+                    {
+                        TagScience.Foreground = Brushes.Gray;
+                    }
+                    if (Character.SmallGuns == 100)
+                    {
+                        TagSmallGuns.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Sneak == 100)
+                    {
+                        TagSneak.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Speech == 100)
+                    {
+                        TagSpeech.Foreground = Brushes.Gray;
+                    }
+                    if (Character.Unarmed == 100)
+                    {
+                        TagUnarmed.Foreground = Brushes.Gray;
+                    }
+                    TagPerkGrid.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    TagPerkGrid.Visibility = Visibility.Collapsed;
+                }
+
                 string requirementsText = "Requirements:\n";
                 if (selectedPerk.RequiredLevel > 0)
                 {
@@ -531,22 +592,20 @@ namespace FallloutCharacterCreator.Fallout3
         List<Fallout3Perks> characterPerks = new List<Fallout3Perks>();
 
         public bool hasEducatedPerk = false; 
+        public bool hasComprehensionPerk = false;
         private void ConfirmPerkSelection_Click(object sender, RoutedEventArgs e)
         {
             Fallout3Perks selectedPerk = PerksListView.SelectedItem as Fallout3Perks;
+            int perkIndex = 0;
 
             if (selectedPerk.AvaliableOrHave != 0)
             {
-                if (selectedPerk.CurrentPerkRank == 0)
-                {
-                    characterPerks.Add(selectedPerk);
-                }
 
-                foreach (Fallout3Perks perk in Fallout3Perks.AllPerksList)
+                for (int i = 0; i < Fallout3Perks.AllPerksList.Count; i++)
                 {
-                    if (perk.PerkName == selectedPerk.PerkName)
+                    if (Fallout3Perks.AllPerksList[i].PerkName == selectedPerk.PerkName)
                     {
-                        perk.CurrentPerkRank++;
+                        perkIndex = i;
                         break;
                     }
                 }
@@ -633,15 +692,99 @@ namespace FallloutCharacterCreator.Fallout3
                         }
                     }
 
-                    if (selectedPerk.PerkName == "Intense Training")//Todo: Finish implementing
+                    if (selectedPerk.PerkName == "Intense Training")
                     {
-                        if (IntenseListView.SelectedItem != Brushes.Gray) { }
+                    if (_selectedTextBlock == null) return;
+
+                    switch (_selectedTextBlock.Text)
+                    {
+                        case "Strength":
+                            if (Character.Strength < 10)
+                            {
+                                Character.Strength++;
+                                break;
+                            }
+                            else {
+                                
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Perception":
+                            if (Character.Perception < 10)
+                            {
+                                Character.Perception++;
+                                break;
+                            }
+                            else {
+                                
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Endurance":
+                            if (Character.Endurance < 10)
+                            {
+                                Character.Endurance++;
+                                break;
+                            }
+                            else {
+                                
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Charisma":
+                            if (Character.Charisma < 10)
+                            {
+                                Character.Charisma++;
+                                break;
+                            }
+                            else {
+                               
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                            
+                        case "Agility":
+                            if (Character.Agility < 10)
+                            {
+                                Character.Agility++;
+                                break;
+                            }
+                            else
+                            {
+                                
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Intelligence":
+                            if (Character.Intelligence < 10)
+                            {
+                                Character.Intelligence++;
+                                break;
+                            }
+                            else {
+                                
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Luck":
+                            if (Character.Luck < 10)
+                            {
+                                Character.Luck++;
+                                break;
+                            }
+                            else {
+                                
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        default:
+                            break;
                     }
+                }
 
                     if (selectedPerk.PerkName == "Comprehension")
                     {
-
-                        //Still need to implement
+                        hasComprehensionPerk = true;
                     }
 
                     if (selectedPerk.PerkName == "Educated")
@@ -730,10 +873,35 @@ namespace FallloutCharacterCreator.Fallout3
                         }
                     }
 
-                    if (selectedPerk.PerkName == "Tag")
+                    if (selectedPerk.PerkName == "Tag") //Todo: Finish all cases
                     {
-                        //Need to implement
+                    if (_tagSelectedTextBlock == null) return;
+
+                    switch (_tagSelectedTextBlock.Text)
+                    {
+                        case "Barter":
+                            if (Character.Barter < 100)
+                            {
+                                if (Character.Barter >= 85)
+                                {
+                                    Character.Barter = 100;
+                                }
+                                else
+                                {
+                                    Character.Barter += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        
+                        default:
+                            break;
                     }
+                }
 
                     if (selectedPerk.PerkName == "Action Boy/Girl")
                     {
@@ -761,6 +929,13 @@ namespace FallloutCharacterCreator.Fallout3
                         if (Character.Agility < 9) { Character.Agility = 9; }
                         if (Character.Luck < 9) { Character.Luck = 9; }
                     }
+
+                if (selectedPerk.CurrentPerkRank == 0)
+                {
+                    characterPerks.Add(selectedPerk);
+                }
+
+                    Fallout3Perks.AllPerksList[perkIndex].CurrentPerkRank++;
 
 
                 {
@@ -1292,5 +1467,30 @@ namespace FallloutCharacterCreator.Fallout3
             ExtraPerksListView.ItemsSource = ExtraFallout3Perks.AllExtraPerksList;
             ExtraPerksViewbox.Visibility = Visibility.Visible;
         }
-    }
+
+        private TextBlock _selectedTextBlock;
+        private void IntenseListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (IntenseListView.SelectedItem is ListViewItem selectedItem)
+            {
+                var stackPanel = selectedItem.Content as StackPanel;
+                if (stackPanel != null)
+                {
+                    _selectedTextBlock = stackPanel.Children[0] as TextBlock;
+                }
+            }
+        }
+        private TextBlock _tagSelectedTextBlock;
+        private void TagListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (TagListView.SelectedItem is ListViewItem selectedItem)
+            {
+                var stackPanel = selectedItem.Content as StackPanel;
+                if (stackPanel != null)
+                {
+                    _tagSelectedTextBlock = stackPanel.Children[0] as TextBlock;
+                }
+
+            }
+        }
 }
