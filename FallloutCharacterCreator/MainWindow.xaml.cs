@@ -1,4 +1,5 @@
-﻿using FallloutCharacterCreator.Fallout3;
+﻿using FallloutCharacterCreator.Fallout1;
+using FallloutCharacterCreator.Fallout3;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -50,7 +51,7 @@ namespace FallloutCharacterCreator
                 // Apply the animation to the opacity property of the ImageBrush
                 newImageBrush.BeginAnimation(ImageBrush.OpacityProperty, animation);
 
-                // Set the background of the outer grid (this refers to MainWindow's Grid)
+                // Set the background of the outer grid
                 gridMain.Background = newImageBrush;
 
                 // Set a callback to change the image after the animation completes
@@ -82,7 +83,8 @@ namespace FallloutCharacterCreator
 
         private void fallout_Click(object sender, RoutedEventArgs e)
         {
-
+            Fallout1CharCreation falloutOnePage = new Fallout1CharCreation();
+            this.Content = falloutOnePage;
         }
 
         private void falloutTwo_Click(object sender, RoutedEventArgs e)

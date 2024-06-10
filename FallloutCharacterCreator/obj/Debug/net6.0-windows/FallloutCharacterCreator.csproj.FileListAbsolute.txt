@@ -23,3 +23,5 @@ C:\Users\Kyle\source\repos\FallloutCharacterCreator\FallloutCharacterCreator\obj
 C:\Users\Kyle\source\repos\FallloutCharacterCreator\FallloutCharacterCreator\obj\Debug\net6.0-windows\Fallout3\Fallout3CharCreation.baml
 C:\Users\Kyle\source\repos\FallloutCharacterCreator\FallloutCharacterCreator\obj\Debug\net6.0-windows\Fallout3\Fallout3Leveling.g.cs
 C:\Users\Kyle\source\repos\FallloutCharacterCreator\FallloutCharacterCreator\obj\Debug\net6.0-windows\Fallout3\Fallout3Leveling.baml
+C:\Users\Kyle\source\repos\FallloutCharacterCreator\FallloutCharacterCreator\obj\Debug\net6.0-windows\Fallout1\Fallout1CharCreation.g.cs
+C:\Users\Kyle\source\repos\FallloutCharacterCreator\FallloutCharacterCreator\obj\Debug\net6.0-windows\Fallout1\Fallout1CharCreation.baml

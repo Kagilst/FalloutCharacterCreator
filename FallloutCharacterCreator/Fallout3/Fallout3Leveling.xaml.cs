@@ -30,12 +30,12 @@ namespace FallloutCharacterCreator.Fallout3
         public Fallout3Character GetLatestCharacter()
         {
             return characterSnapshots[characterSnapshots.Count - 1];
-        }      
+        }
 
         public Fallout3SkillBooks BookValues { get; set; }
 
         private List<Fallout3Character> characterSnapshots;
-        
+
         public Fallout3Character Character => GetLatestCharacter();
         public string CharacterNameText => $"{Character.CharacterName}'s Stat Sheet";
         public string CharacterLevelText => $"{Character.Level}";
@@ -105,7 +105,8 @@ namespace FallloutCharacterCreator.Fallout3
         }
 
         //Skill value change functions
-        private void DecreaseSkill_Click(object sender, RoutedEventArgs e) {
+        private void DecreaseSkill_Click(object sender, RoutedEventArgs e)
+        {
 
             Button clickedButton = sender as Button;
 
@@ -119,137 +120,139 @@ namespace FallloutCharacterCreator.Fallout3
                 {
                     tempIntel = Character.Intelligence + 3;
                 }
-                else {
+                else
+                {
                     tempIntel = Character.Intelligence;
                 }
 
-                    //Switch for decrease the skill
-                    switch (skillName)
-                    {
-                        case "Barter":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Barter < Character.Barter)
-                            {
-                                Character.SkillPoints++;
-                                Character.Barter--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(BarterText));
-                            break;
-                        case "BigGuns":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].BigGuns < Character.BigGuns)
-                            {
-                                Character.SkillPoints++;
-                                Character.BigGuns--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(BigGunsText));
-                            break;
-                        case "EnergyWeapons":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].EnergyWeapons < Character.EnergyWeapons)
-                            {
-                                Character.SkillPoints++;
-                                Character.EnergyWeapons--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(EnergyWeaponsText));
-                            break;
-                        case "Explosives":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Explosives < Character.Explosives)
-                            {
-                                Character.SkillPoints++;
-                                Character.Explosives--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(ExplosivesText));
-                            break;
-                        case "Lockpick":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Lockpick < Character.Lockpick)
-                            {
-                                Character.SkillPoints++;
-                                Character.Lockpick--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(LockpickText));
-                            break;
-                        case "Medicine":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Medicine < Character.Medicine)
-                            {
-                                Character.SkillPoints++;
-                                Character.Medicine--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(MedicineText));
-                            break;
-                        case "MeleeWeapons":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].MeleeWeapons < Character.MeleeWeapons)
-                            {
-                                Character.SkillPoints++;
-                                Character.MeleeWeapons--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(MeleeWeaponsText));
-                            break;
-                        case "Repair":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Repair < Character.Repair)
-                            {
-                                Character.SkillPoints++;
-                                Character.Repair--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(RepairText));
-                            break;
-                        case "Science":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Science < Character.Science)
-                            {
-                                Character.SkillPoints++;
-                                Character.Science--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(ScienceText));
-                            break;
-                        case "SmallGuns":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].SmallGuns < Character.SmallGuns)
-                            {
-                                Character.SkillPoints++;
-                                Character.SmallGuns--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(SmallGunsText));
-                            break;
-                        case "Sneak":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Sneak < Character.Sneak)
-                            {
-                                Character.SkillPoints++;
-                                Character.Sneak--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(SneakText));
-                            break;
-                        case "Speech":
+                //Switch for decrease the skill
+                switch (skillName)
+                {
+                    case "Barter":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Barter < Character.Barter)
+                        {
+                            Character.SkillPoints++;
+                            Character.Barter--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(BarterText));
+                        break;
+                    case "BigGuns":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].BigGuns < Character.BigGuns)
+                        {
+                            Character.SkillPoints++;
+                            Character.BigGuns--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(BigGunsText));
+                        break;
+                    case "EnergyWeapons":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].EnergyWeapons < Character.EnergyWeapons)
+                        {
+                            Character.SkillPoints++;
+                            Character.EnergyWeapons--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(EnergyWeaponsText));
+                        break;
+                    case "Explosives":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Explosives < Character.Explosives)
+                        {
+                            Character.SkillPoints++;
+                            Character.Explosives--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(ExplosivesText));
+                        break;
+                    case "Lockpick":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Lockpick < Character.Lockpick)
+                        {
+                            Character.SkillPoints++;
+                            Character.Lockpick--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(LockpickText));
+                        break;
+                    case "Medicine":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Medicine < Character.Medicine)
+                        {
+                            Character.SkillPoints++;
+                            Character.Medicine--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(MedicineText));
+                        break;
+                    case "MeleeWeapons":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].MeleeWeapons < Character.MeleeWeapons)
+                        {
+                            Character.SkillPoints++;
+                            Character.MeleeWeapons--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(MeleeWeaponsText));
+                        break;
+                    case "Repair":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Repair < Character.Repair)
+                        {
+                            Character.SkillPoints++;
+                            Character.Repair--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(RepairText));
+                        break;
+                    case "Science":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Science < Character.Science)
+                        {
+                            Character.SkillPoints++;
+                            Character.Science--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(ScienceText));
+                        break;
+                    case "SmallGuns":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].SmallGuns < Character.SmallGuns)
+                        {
+                            Character.SkillPoints++;
+                            Character.SmallGuns--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(SmallGunsText));
+                        break;
+                    case "Sneak":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Sneak < Character.Sneak)
+                        {
+                            Character.SkillPoints++;
+                            Character.Sneak--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(SneakText));
+                        break;
+                    case "Speech":
                         if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Speech < Character.Speech)
-                            {
-                                Character.SkillPoints++;
-                                Character.Speech--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(SpeechText));
-                            break;
-                        case "Unarmed":
-                            if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Unarmed < Character.Unarmed)
-                            {
-                                Character.SkillPoints++;
-                                Character.Unarmed--;
-                            }
-                            OnPropertyChanged(nameof(SkillPointsText));
-                            OnPropertyChanged(nameof(UnarmedText));
-                            break;
+                        {
+                            Character.SkillPoints++;
+                            Character.Speech--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(SpeechText));
+                        break;
+                    case "Unarmed":
+                        if (Character.SkillPoints < tempIntel + 10 && characterSnapshots[lastSnapshot].Unarmed < Character.Unarmed)
+                        {
+                            Character.SkillPoints++;
+                            Character.Unarmed--;
+                        }
+                        OnPropertyChanged(nameof(SkillPointsText));
+                        OnPropertyChanged(nameof(UnarmedText));
+                        break;
 
                 }
 
             }
         }
 
-        private void IncreaseSkill_Click(object sender, RoutedEventArgs e) {
+        private void IncreaseSkill_Click(object sender, RoutedEventArgs e)
+        {
             Button clickedButton = sender as Button;
 
             if (clickedButton != null)
@@ -397,7 +400,7 @@ namespace FallloutCharacterCreator.Fallout3
             LvlViewbox.Visibility = Visibility.Visible;
             SkillBooksViewbox.Visibility = Visibility.Collapsed;
         } //Todo: Implement save functionality
-        
+
         //LevelUp and Levelup perk selection functionality
         private void PerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -408,7 +411,8 @@ namespace FallloutCharacterCreator.Fallout3
                 Fallout3Perks selectedPerk = (Fallout3Perks)PerksListView.SelectedItem;
                 if (selectedPerk.PerkName == "Intense Training")
                 {
-                    if (Character.Strength == 10) {
+                    if (Character.Strength == 10)
+                    {
                         IntenseStrength.Foreground = Brushes.Gray;
                     }
                     if (Character.Perception == 10)
@@ -437,7 +441,8 @@ namespace FallloutCharacterCreator.Fallout3
                     }
                     IntenseTrainingPerkGrid.Visibility = Visibility.Visible;
                 }
-                else {
+                else
+                {
                     IntenseTrainingPerkGrid.Visibility = Visibility.Collapsed;
                 }
                 if (selectedPerk.PerkName == "Tag!")
@@ -591,12 +596,20 @@ namespace FallloutCharacterCreator.Fallout3
 
         List<Fallout3Perks> characterPerks = new List<Fallout3Perks>();
 
-        public bool hasEducatedPerk = false; 
+        public bool hasEducatedPerk = false;
         public bool hasComprehensionPerk = false;
         private void ConfirmPerkSelection_Click(object sender, RoutedEventArgs e)
         {
             Fallout3Perks selectedPerk = PerksListView.SelectedItem as Fallout3Perks;
             int perkIndex = 0;
+
+            if (selectedPerk == null) {
+                MessageBox.Show("Please select a perk",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+                return;
+            }
 
             if (selectedPerk.AvaliableOrHave != 0)
             {
@@ -610,90 +623,92 @@ namespace FallloutCharacterCreator.Fallout3
                     }
                 }
 
-                    if (selectedPerk.PerkName == "Daddy's Boy/Girl") {
-                        if (Character.Science <= 95)
-                        {
-                            Character.Science += 5;
-                        }
-                        else {
-                            Character.Science = 100;
-                        }
-
-                        if (Character.Medicine <= 95)
-                        {
-                            Character.Medicine += 5;
-                        }
-                        else
-                        {
-                            Character.Medicine = 100;
-                        }
+                if (selectedPerk.PerkName == "Daddy's Boy/Girl")
+                {
+                    if (Character.Science <= 95)
+                    {
+                        Character.Science += 5;
+                    }
+                    else
+                    {
+                        Character.Science = 100;
                     }
 
-                    if (selectedPerk.PerkName == "Gun Nut")
+                    if (Character.Medicine <= 95)
                     {
-                        if (Character.SmallGuns <= 95)
-                        {
-                            Character.SmallGuns += 5;
-                        }
-                        else
-                        {
-                            Character.SmallGuns = 100;
-                        }
+                        Character.Medicine += 5;
+                    }
+                    else
+                    {
+                        Character.Medicine = 100;
+                    }
+                }
 
-                        if (Character.Repair <= 95)
-                        {
-                            Character.Repair += 5;
-                        }
-                        else
-                        {
-                            Character.Repair = 100;
-                        }
+                if (selectedPerk.PerkName == "Gun Nut")
+                {
+                    if (Character.SmallGuns <= 95)
+                    {
+                        Character.SmallGuns += 5;
+                    }
+                    else
+                    {
+                        Character.SmallGuns = 100;
                     }
 
-                    if (selectedPerk.PerkName == "Little Leaguer")
+                    if (Character.Repair <= 95)
                     {
-                        if (Character.MeleeWeapons <= 95)
-                        {
-                            Character.MeleeWeapons += 5;
-                        }
-                        else
-                        {
-                            Character.MeleeWeapons = 100;
-                        }
+                        Character.Repair += 5;
+                    }
+                    else
+                    {
+                        Character.Repair = 100;
+                    }
+                }
 
-                        if (Character.Explosives <= 95)
-                        {
-                            Character.Explosives += 5;
-                        }
-                        else
-                        {
-                            Character.Explosives = 100;
-                        }
+                if (selectedPerk.PerkName == "Little Leaguer")
+                {
+                    if (Character.MeleeWeapons <= 95)
+                    {
+                        Character.MeleeWeapons += 5;
+                    }
+                    else
+                    {
+                        Character.MeleeWeapons = 100;
                     }
 
-                    if (selectedPerk.PerkName == "Theif")
+                    if (Character.Explosives <= 95)
                     {
-                        if (Character.Lockpick <= 95)
-                        {
-                            Character.Lockpick += 5;
-                        }
-                        else
-                        {
-                            Character.Lockpick = 100;
-                        }
+                        Character.Explosives += 5;
+                    }
+                    else
+                    {
+                        Character.Explosives = 100;
+                    }
+                }
 
-                        if (Character.Sneak <= 95)
-                        {
-                            Character.Sneak += 5;
-                        }
-                        else
-                        {
-                            Character.Sneak = 100;
-                        }
+                if (selectedPerk.PerkName == "Theif")
+                {
+                    if (Character.Lockpick <= 95)
+                    {
+                        Character.Lockpick += 5;
+                    }
+                    else
+                    {
+                        Character.Lockpick = 100;
                     }
 
-                    if (selectedPerk.PerkName == "Intense Training")
+                    if (Character.Sneak <= 95)
                     {
+                        Character.Sneak += 5;
+                    }
+                    else
+                    {
+                        Character.Sneak = 100;
+                    }
+                }
+
+                if (selectedPerk.PerkName == "Intense Training")
+                {
                     if (_selectedTextBlock == null) return;
 
                     switch (_selectedTextBlock.Text)
@@ -704,8 +719,9 @@ namespace FallloutCharacterCreator.Fallout3
                                 Character.Strength++;
                                 break;
                             }
-                            else {
-                                
+                            else
+                            {
+
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
@@ -715,8 +731,9 @@ namespace FallloutCharacterCreator.Fallout3
                                 Character.Perception++;
                                 break;
                             }
-                            else {
-                                
+                            else
+                            {
+
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
@@ -726,8 +743,9 @@ namespace FallloutCharacterCreator.Fallout3
                                 Character.Endurance++;
                                 break;
                             }
-                            else {
-                                
+                            else
+                            {
+
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
@@ -737,12 +755,13 @@ namespace FallloutCharacterCreator.Fallout3
                                 Character.Charisma++;
                                 break;
                             }
-                            else {
-                               
+                            else
+                            {
+
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
-                            
+
                         case "Agility":
                             if (Character.Agility < 10)
                             {
@@ -751,7 +770,7 @@ namespace FallloutCharacterCreator.Fallout3
                             }
                             else
                             {
-                                
+
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
@@ -761,8 +780,9 @@ namespace FallloutCharacterCreator.Fallout3
                                 Character.Intelligence++;
                                 break;
                             }
-                            else {
-                                
+                            else
+                            {
+
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
@@ -772,8 +792,9 @@ namespace FallloutCharacterCreator.Fallout3
                                 Character.Luck++;
                                 break;
                             }
-                            else {
-                                
+                            else
+                            {
+
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
@@ -782,99 +803,102 @@ namespace FallloutCharacterCreator.Fallout3
                     }
                 }
 
-                    if (selectedPerk.PerkName == "Comprehension")
+                if (selectedPerk.PerkName == "Comprehension")
+                {
+                    hasComprehensionPerk = true;
+                }
+
+                if (selectedPerk.PerkName == "Educated")
+                {
+                    hasEducatedPerk = true;
+                }
+
+                if (selectedPerk.PerkName == "Scoundrel")
+                {
+                    if (Character.Speech <= 95)
                     {
-                        hasComprehensionPerk = true;
+                        Character.Speech += 5;
+                    }
+                    else
+                    {
+                        Character.Speech = 100;
                     }
 
-                    if (selectedPerk.PerkName == "Educated")
+                    if (Character.Barter <= 95)
                     {
-                        hasEducatedPerk = true;
+                        Character.Barter += 5;
                     }
-
-                    if (selectedPerk.PerkName == "Scoundrel")
+                    else
                     {
-                        if (Character.Speech <= 95)
-                        {
-                            Character.Speech += 5;
-                        }
-                        else
-                        {
-                            Character.Speech = 100;
-                        }
-
-                        if (Character.Barter <= 95)
-                        {
-                            Character.Barter += 5;
-                        }
-                        else
-                        {
-                            Character.Barter = 100;
-                        }
+                        Character.Barter = 100;
                     }
+                }
 
-                    if (selectedPerk.PerkName == "Toughness")
+                if (selectedPerk.PerkName == "Toughness")
+                {
+                    if (Character.DamageResistance < 75)
                     {
-                        if (Character.DamageResistance < 75) {
-                            Character.DamageResistance = +10; }
-                        else { 
-                            Character.DamageResistance = 85;
-                        }
+                        Character.DamageResistance = +10;
                     }
-
-                    if (selectedPerk.PerkName == "Size Matter")
+                    else
                     {
-                        if (Character.BigGuns < 85)
-                        {
-                            Character.BigGuns += 15;
-                        }
-                        else
-                        {
-                            Character.BigGuns = 100;
-                        }
+                        Character.DamageResistance = 85;
                     }
+                }
 
-                    if (selectedPerk.PerkName == "Strong Back")
+                if (selectedPerk.PerkName == "Size Matter")
+                {
+                    if (Character.BigGuns < 85)
                     {
-                            Character.CarryWeight += 50;
+                        Character.BigGuns += 15;
                     }
-
-                    if (selectedPerk.PerkName == "Finesse")
+                    else
                     {
-                            Character.CriticalChance += 5;                       
+                        Character.BigGuns = 100;
                     }
+                }
 
-                    if (selectedPerk.PerkName == "Life Giver")
+                if (selectedPerk.PerkName == "Strong Back")
+                {
+                    Character.CarryWeight += 50;
+                }
+
+                if (selectedPerk.PerkName == "Finesse")
+                {
+                    Character.CriticalChance += 5;
+                }
+
+                if (selectedPerk.PerkName == "Life Giver")
+                {
+                    Character.Health += 30;
+                }
+
+                if (selectedPerk.PerkName == "Silent Running")
+                {
+                    if (Character.Sneak < 90)
                     {
-                        Character.Health += 30;
+                        Character.Sneak += 10;
                     }
-
-                    if (selectedPerk.PerkName == "Silent Running")
+                    else
                     {
-                        if (Character.Sneak < 90)
-                        {
-                            Character.Sneak += 10;
-                        }
-                        else
-                        {
-                            Character.Sneak = 100;
-                        }
+                        Character.Sneak = 100;
                     }
+                }
 
-                    if (selectedPerk.PerkName == "Cyborg")
+                if (selectedPerk.PerkName == "Cyborg")
+                {
+                    if (Character.EnergyWeapons < 90)
                     {
-                        if (Character.EnergyWeapons < 90)
-                        {
-                            Character.EnergyWeapons += 10;
-                        }
-                        else
-                        {
-                            Character.EnergyWeapons = 100;
-                        }
+                        Character.EnergyWeapons += 10;
                     }
-
-                    if (selectedPerk.PerkName == "Tag") //Todo: Finish all cases
+                    else
                     {
+                        Character.EnergyWeapons = 100;
+                    }
+                }
+
+                if (selectedPerk.PerkName == "Tag") //Todo: Finish all cases
+                {
                     if (_tagSelectedTextBlock == null) return;
 
                     switch (_tagSelectedTextBlock.Text)
@@ -897,45 +921,260 @@ namespace FallloutCharacterCreator.Fallout3
                                 MessageBox.Show($"{_selectedTextBlock.Text} already max!");
                                 return;
                             }
-                        
+                        case "BigGuns":
+                            if (Character.BigGuns < 100)
+                            {
+                                if (Character.BigGuns >= 85)
+                                {
+                                    Character.BigGuns = 100;
+                                }
+                                else
+                                {
+                                    Character.BigGuns += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "EnergyWeapons":
+                            if (Character.EnergyWeapons < 100)
+                            {
+                                if (Character.EnergyWeapons >= 85)
+                                {
+                                    Character.EnergyWeapons = 100;
+                                }
+                                else
+                                {
+                                    Character.EnergyWeapons += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Explosives":
+                            if (Character.Explosives < 100)
+                            {
+                                if (Character.Explosives >= 85)
+                                {
+                                    Character.Explosives = 100;
+                                }
+                                else
+                                {
+                                    Character.Explosives += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Lockpick":
+                            if (Character.Lockpick < 100)
+                            {
+                                if (Character.Lockpick >= 85)
+                                {
+                                    Character.Lockpick = 100;
+                                }
+                                else
+                                {
+                                    Character.Lockpick += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Medicine":
+                            if (Character.Medicine < 100)
+                            {
+                                if (Character.Medicine >= 85)
+                                {
+                                    Character.Medicine = 100;
+                                }
+                                else
+                                {
+                                    Character.Medicine += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "MeleeWeapons":
+                            if (Character.MeleeWeapons < 100)
+                            {
+                                if (Character.MeleeWeapons >= 85)
+                                {
+                                    Character.MeleeWeapons = 100;
+                                }
+                                else
+                                {
+                                    Character.MeleeWeapons += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Repair":
+                            if (Character.Repair < 100)
+                            {
+                                if (Character.Repair >= 85)
+                                {
+                                    Character.Repair = 100;
+                                }
+                                else
+                                {
+                                    Character.Repair += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Science":
+                            if (Character.Science < 100)
+                            {
+                                if (Character.Science >= 85)
+                                {
+                                    Character.Science = 100;
+                                }
+                                else
+                                {
+                                    Character.Science += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "SmallGuns":
+                            if (Character.SmallGuns < 100)
+                            {
+                                if (Character.SmallGuns >= 85)
+                                {
+                                    Character.SmallGuns = 100;
+                                }
+                                else
+                                {
+                                    Character.SmallGuns += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Sneak":
+                            if (Character.Sneak < 100)
+                            {
+                                if (Character.Sneak >= 85)
+                                {
+                                    Character.Sneak = 100;
+                                }
+                                else
+                                {
+                                    Character.Sneak += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Speech":
+                            if (Character.Speech < 100)
+                            {
+                                if (Character.Speech >= 85)
+                                {
+                                    Character.Speech = 100;
+                                }
+                                else
+                                {
+                                    Character.Speech += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
+                        case "Unarmed":
+                            if (Character.Unarmed < 100)
+                            {
+                                if (Character.Unarmed >= 85)
+                                {
+                                    Character.Unarmed = 100;
+                                }
+                                else
+                                {
+                                    Character.Unarmed += 15;
+                                }
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{_selectedTextBlock.Text} already max!");
+                                return;
+                            }
                         default:
                             break;
                     }
                 }
 
-                    if (selectedPerk.PerkName == "Action Boy/Girl")
-                    {
-                        Character.ActionPoints += 25;
-                    }
+                if (selectedPerk.PerkName == "Action Boy/Girl")
+                {
+                    Character.ActionPoints += 25;
+                }
 
-                    if (selectedPerk.PerkName == "No Weaknesses")
-                    {
-                        if (Character.Strength < 5) { Character.Strength = 5; }
-                        if (Character.Perception < 5) { Character.Perception = 5; }
-                        if (Character.Endurance < 5) { Character.Endurance = 5; }
-                        if (Character.Charisma < 5) { Character.Charisma = 5; }
-                        if (Character.Intelligence < 5) { Character.Intelligence = 5; }
-                        if (Character.Agility < 5) { Character.Agility = 5; }
-                        if (Character.Luck < 5) { Character.Luck = 5; }
-                    }
+                if (selectedPerk.PerkName == "No Weaknesses")
+                {
+                    if (Character.Strength < 5) { Character.Strength = 5; }
+                    if (Character.Perception < 5) { Character.Perception = 5; }
+                    if (Character.Endurance < 5) { Character.Endurance = 5; }
+                    if (Character.Charisma < 5) { Character.Charisma = 5; }
+                    if (Character.Intelligence < 5) { Character.Intelligence = 5; }
+                    if (Character.Agility < 5) { Character.Agility = 5; }
+                    if (Character.Luck < 5) { Character.Luck = 5; }
+                }
 
-                    if (selectedPerk.PerkName == "Almost Perfect")
-                    {
-                        if (Character.Strength < 9) { Character.Strength = 9; }
-                        if (Character.Perception < 9) { Character.Perception = 9; }
-                        if (Character.Endurance < 9) { Character.Endurance = 9; }
-                        if (Character.Charisma < 9) { Character.Charisma = 9; }
-                        if (Character.Intelligence < 9) { Character.Intelligence = 9; }
-                        if (Character.Agility < 9) { Character.Agility = 9; }
-                        if (Character.Luck < 9) { Character.Luck = 9; }
-                    }
+                if (selectedPerk.PerkName == "Almost Perfect")
+                {
+                    if (Character.Strength < 9) { Character.Strength = 9; }
+                    if (Character.Perception < 9) { Character.Perception = 9; }
+                    if (Character.Endurance < 9) { Character.Endurance = 9; }
+                    if (Character.Charisma < 9) { Character.Charisma = 9; }
+                    if (Character.Intelligence < 9) { Character.Intelligence = 9; }
+                    if (Character.Agility < 9) { Character.Agility = 9; }
+                    if (Character.Luck < 9) { Character.Luck = 9; }
+                }
 
                 if (selectedPerk.CurrentPerkRank == 0)
                 {
                     characterPerks.Add(selectedPerk);
                 }
 
-                    Fallout3Perks.AllPerksList[perkIndex].CurrentPerkRank++;
+                Fallout3Perks.AllPerksList[perkIndex].CurrentPerkRank++;
 
 
                 {
@@ -947,10 +1186,12 @@ namespace FallloutCharacterCreator.Fallout3
                     snapshot.ActionPoints = Character.ActionPoints;
                     snapshot.CriticalChance = Character.CriticalChance;
                     snapshot.DamageResistance = Character.DamageResistance;
-                    if (hasEducatedPerk == false){
+                    if (hasEducatedPerk == false)
+                    {
                         snapshot.SkillPoints = Character.Intelligence + 10;
                     }
-                    else {
+                    else
+                    {
                         snapshot.SkillPoints = Character.Intelligence + 13;
                     }
                     snapshot.Health = Character.Health + 10;
@@ -985,13 +1226,14 @@ namespace FallloutCharacterCreator.Fallout3
                     PerksListViewbox.Visibility = Visibility.Collapsed;
                 }
             }
-            else {
-                    MessageBox.Show("You do not have the requirement for this perk",
-                        "Warning",
-                        MessageBoxButton.OK,
-                        MessageBoxImage.Warning);
-                
-            }            
+            else
+            {
+                MessageBox.Show("You do not have the requirement for this perk",
+                    "Warning",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
+
+            }
         }
         private void UpdateCharacterValues()
         {
@@ -1041,9 +1283,10 @@ namespace FallloutCharacterCreator.Fallout3
             OnPropertyChanged(nameof(BigGunsBookText));
         }
         private void LevelUp_Click(object sender, RoutedEventArgs e)
-        {     
+        {
 
-            if (Character.SkillPoints == 0 && Character.Level < 30) {
+            if (Character.SkillPoints == 0 && Character.Level < 30)
+            {
 
                 foreach (Fallout3Perks perkcheck in Fallout3Perks.AllPerksList)
                 {
@@ -1075,7 +1318,8 @@ namespace FallloutCharacterCreator.Fallout3
                     {
                         break;
                     }
-                    else if (perkcheck.CurrentPerkRank == perkcheck.MaxPerkRank) { 
+                    else if (perkcheck.CurrentPerkRank == perkcheck.MaxPerkRank)
+                    {
                         perkcheck.AvaliableOrHave = 2;
                     }
 
@@ -1086,16 +1330,16 @@ namespace FallloutCharacterCreator.Fallout3
                     List<Fallout3Perks> unavailablePerks = Fallout3Perks.AllPerksList
         .Where(perk => perk.AvaliableOrHave == 0)
         .ToList();
-                    
+
                     List<Fallout3Perks> perkListDisplay = availablePerks.Concat(unavailablePerks).ToList();
 
                     LvlViewbox.Visibility = Visibility.Collapsed;
                     PerksListView.ItemsSource = perkListDisplay;
                     PerksListViewbox.Visibility = Visibility.Visible;
                 }
-                
+
             }
-            else if(Character.SkillPoints != 0)
+            else if (Character.SkillPoints != 0)
             {
                 MessageBox.Show("Please make sure:\n" +
                     "- You use all avaliable skill point",
@@ -1122,7 +1366,7 @@ namespace FallloutCharacterCreator.Fallout3
             BobbleheadsListViewbox.Visibility = Visibility.Visible;
         }
 
-        private void ConfirmBobbleheadSelection_Click(object sender, RoutedEventArgs e)
+        private void ConfirmBobbleheadSelection_Click(object sender, RoutedEventArgs e)//todo: testing
         {
             foreach (var selectedBobblehead in BobbleheadsListView.SelectedItems)
             {
@@ -1358,7 +1602,7 @@ namespace FallloutCharacterCreator.Fallout3
             CharPerksViewbox.Visibility = Visibility.Visible;
         }
 
-        
+
         private void ExitCharPerks_Click(object sender, RoutedEventArgs e)
         {
             LvlViewbox.Visibility = Visibility.Visible;
@@ -1411,7 +1655,8 @@ namespace FallloutCharacterCreator.Fallout3
             {
                 extraCharacterPerks.Add(selectedPerk);
                 selectedPerk.ExtraPerkHave = true;
-                if (selectedPerk.ExtraPerkName == "Dream Crusher") {
+                if (selectedPerk.ExtraPerkName == "Dream Crusher")
+                {
                     ExtraFallout3Perks.AllExtraPerksList[7].ExtraPerkHave = true;
                 }
                 if (selectedPerk.ExtraPerkName == "Ant Might")
@@ -1452,7 +1697,8 @@ namespace FallloutCharacterCreator.Fallout3
                 LvlViewbox.Visibility = Visibility.Visible;
                 ExtraPerksViewbox.Visibility = Visibility.Collapsed;
             }
-            else {
+            else
+            {
                 MessageBox.Show("The Perk you choose you either already have or cannot obtain.\n",
                     "Warning",
                     MessageBoxButton.OK,
@@ -1481,7 +1727,7 @@ namespace FallloutCharacterCreator.Fallout3
             }
         }
         private TextBlock _tagSelectedTextBlock;
-        private void TagListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TagListView_SelectionChanged(object sender, SelectionChangedEventArgs e)//Todo: testing functionality
         {
             if (TagListView.SelectedItem is ListViewItem selectedItem)
             {
@@ -1493,4 +1739,10 @@ namespace FallloutCharacterCreator.Fallout3
 
             }
         }
+
+        private void LvlDown_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
 }

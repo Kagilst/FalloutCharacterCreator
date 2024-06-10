@@ -1078,36 +1078,44 @@
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Button Name="Bobbleheads" Grid.Column="0" Content="Bobbleheads" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="Bobbleheads_Click" >
+                                    <Button Name="LvlDown" Grid.Column="0" Content="Level Down" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="LvlDown_Click" >
                                         <Button.Resources>
                                             <Style TargetType="Border">
                                                 <Setter Property="CornerRadius" Value="5"/>
                                             </Style>
                                         </Button.Resources>
                                     </Button>
-                                    <Button Name="Perks" Grid.Column="1" Content="Character Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="CharacterPerks_Click" >
+                                    <Button Name="Bobbleheads" Grid.Column="1" Content="Bobbleheads" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="Bobbleheads_Click" >
                                         <Button.Resources>
                                             <Style TargetType="Border">
                                                 <Setter Property="CornerRadius" Value="5"/>
                                             </Style>
                                         </Button.Resources>
                                     </Button>
-                                    <Button Name="ExtraPerks" Grid.Column="2" Content="Extra Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="ExtraPerks_Click" FontFamily="/fonts/#Overseer">
+                                    <Button Name="Perks" Grid.Column="2" Content="Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" Click="CharacterPerks_Click" >
                                         <Button.Resources>
                                             <Style TargetType="Border">
                                                 <Setter Property="CornerRadius" Value="5"/>
                                             </Style>
                                         </Button.Resources>
                                     </Button>
-                                    <Button Name="SkillBooks" Grid.Column="3" Content="Skill Books" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click" FontFamily="/fonts/#Overseer">
+                                    <Button Name="ExtraPerks" Grid.Column="3" Content="Extra Perks" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="ExtraPerks_Click" FontFamily="/fonts/#Overseer">
                                         <Button.Resources>
                                             <Style TargetType="Border">
                                                 <Setter Property="CornerRadius" Value="5"/>
                                             </Style>
                                         </Button.Resources>
                                     </Button>
-                                    <Button Name="LevelUp" Grid.Column="4" Content="Level Up" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="LevelUp_Click" FontFamily="/fonts/#Overseer">
+                                    <Button Name="SkillBooks" Grid.Column="4" Content="Skill Books" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="SkillBooks_Click" FontFamily="/fonts/#Overseer">
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"/>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                    <Button Name="LevelUp" Grid.Column="5" Content="Level Up" BorderBrush="#008200" Margin="5" Height="32.5" FontSize="20" Padding="5,0,5,0" HorizontalAlignment="Center" Click="LevelUp_Click" FontFamily="/fonts/#Overseer">
                                         <Button.Resources>
                                             <Style TargetType="Border">
                                                 <Setter Property="CornerRadius" Value="5"/>

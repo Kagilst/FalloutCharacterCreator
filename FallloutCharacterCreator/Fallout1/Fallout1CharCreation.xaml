@@ -1,0 +1,95 @@
+﻿<Page x:Class="FallloutCharacterCreator.Fallout1.Fallout1CharCreation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FallloutCharacterCreator.Fallout1"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Fallout1CharCreation">
+
+    <Grid>
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="/backgrounds/RustBackground.jpg"/>
+        </Grid.Background>-->
+
+        <Border BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10" Margin="10,10,0,10" Grid.Column="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10" Margin="10,10,10,10" Grid.Column="0">
+                    <Grid>
+
+                    </Grid>
+                </Border>
+                <Border BorderBrush="Black" Background="#ccd3d3d3" Opacity="10" BorderThickness="3" CornerRadius="10" Padding="10" Margin="10,10,10,10" Grid.Column="1">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
+                            <!--SkillsTitle-->
+                            <Grid>
+                                <TextBlock Text="Skills" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Grid.Column="0" Padding="25,0,0,0"/>
+                            </Grid>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1">
+                            <!--Skills-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                            </Grid>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="2">
+                            <!--TaggedSkills and Value-->
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="Tagged Skills:" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Grid.Column="0"/>
+                                <TextBlock Text="{Binding TaggedSkillsText}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="/fonts/#Overseer" FontSize="26" Foreground="#008200" Grid.Column="1"/>
+                            </Grid>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="3">
+                            <!--DescriptionName-->
+                            <Grid>
+                            </Grid>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="4">
+                            <!--Description Maybe add Images from the Game-->
+                            <Grid></Grid>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Row="5" Height="auto" Width="auto">
+                            <!--Buttons-->
+                            <Grid Height="auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Content="Cancel" BorderBrush="Black" Margin="5,42,5,42" Height="32.5" FontSize="20" Padding="5,0,5,0"/>
+                                <Button Grid.Column="1" Content="Create" BorderBrush="Black" Margin="5,42,5,42" Height="32.5" FontSize="20" Padding="5,0,5,0"/>
+
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Border>
+
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
