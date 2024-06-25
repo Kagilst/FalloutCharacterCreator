@@ -439,98 +439,98 @@
                         <TextBlock Grid.Row="12" Grid.Column="3" Text="{Binding LockpickBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer" Foreground="#008200" Margin="3" />
                         <TextBlock Grid.Row="13" Grid.Column="3" Text="{Binding BigGunsBookText}" VerticalAlignment="Center" FontFamily="/fonts/#Overseer"  Foreground="#008200" Margin="3" />
                         <!-- Increase Book Count-->
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="0" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="0" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="ScienceUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="1" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="1" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="SneakUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="2" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="2" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="MedicineUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="3" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="3" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="RepairUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="4" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="4" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="ExplosivesUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="5" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="5" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="MeleeWeaponsUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="6" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="6" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="SmallGunsUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="7" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="7" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="SpeechUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="8" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="8" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="EnergyWeaponsUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="9" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="9" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="ParadiseUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="10" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="10" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="UnarmedUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="11" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="11" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="BarterUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="12" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="12" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="LockpickUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="13" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&gt;" BorderBrush="Black" Grid.Row="13" Grid.Column="4" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookUp_Click" Tag="BigGunsUp">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
@@ -538,98 +538,98 @@
                             </Button.Resources>
                         </Button>
                         <!-- Decrease Book Count -->
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="0" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="0" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="ScienceDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="1" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="1" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="SneakDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="2" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="2" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="MedicineDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="3" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="3" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="RepairDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="4" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="4" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="ExplosivesDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="5" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="5" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="MeleeWeaponsDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="6" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="6" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="SmallGunsDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="7" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="7" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="SpeechDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="8" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="8" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="EnergyWeaponsDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="9" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="9" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="ParadiseDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="10" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="10" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="UnarmedDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="11" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="11" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="BarterDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="12" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="12" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="LockpickDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="13" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15">
+                        <Button Content="&lt;" BorderBrush="Black" Grid.Row="13" Grid.Column="2" Margin="0,0,0,1" Padding="0,0,0,3"  FontSize="15" Click="SkillBookDown_Click" Tag="BigGunsDown">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5"/>

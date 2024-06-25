@@ -1744,5 +1744,876 @@ namespace FallloutCharacterCreator.Fallout3
         {
 
         }
+
+        //TODO: create a way to track how many books were increased with and without comprehension book that way when user
+        //adds several books without the comprehension book then obtains comprehension perk and decreases books it wont over decrease more skill points than were added
+        private void SkillBookUp_Click(object sender, RoutedEventArgs e) 
+        {
+            Button clickedButton = sender as Button;
+
+            if (clickedButton != null)
+            {
+                // Get the book name from the Tag property
+                string bookName = clickedButton.Tag.ToString();
+                int compBook = 2;
+
+                var lastSnapshot = characterSnapshots.Count - 2;
+
+                //Switch for increase book
+                switch (bookName)
+                {
+                    case "ScienceUp":
+                        if (Character.Science < 100)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Science < 99)
+                                {
+                                    Character.Science += compBook;
+                                }
+                                else
+                                {
+                                    Character.Science = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Science++;
+                            }
+                            BookValues.ScienceBook++;
+                        }
+                        else {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Science Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(ScienceText));
+                        OnPropertyChanged(nameof(ScienceBookText));
+                        break;
+                    case "SneakUp":
+                        if (Character.Sneak < 100 && BookValues.SneakBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Sneak < 99)
+                                {
+                                    Character.Sneak += compBook;
+                                }
+                                else
+                                {
+                                    Character.Sneak = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Sneak++;
+                            }
+                            BookValues.SneakBook++;
+                        }
+                        else if (Character.Sneak == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Sneak Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Chinese Army: Special Ops Training Manual books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(SneakText));
+                        OnPropertyChanged(nameof(SneakBookText));
+                        break;
+                    case "MedicineUp":
+                        if (Character.Medicine < 100 && BookValues.MedicineBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Medicine < 99)
+                                {
+                                    Character.Medicine += compBook;
+                                }
+                                else
+                                {
+                                    Character.Medicine = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Medicine++;
+                            }
+                            BookValues.MedicineBook++;
+                        }
+                        else if (Character.Medicine == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Medicine Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible D.C. Journal of Internal Medicine books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(MedicineText));
+                        OnPropertyChanged(nameof(MedicineBookText));
+                        break;
+                    case "RepairUp":
+                        if (Character.Repair < 100 && BookValues.RepairBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Repair < 99)
+                                {
+                                    Character.Repair += compBook;
+                                }
+                                else
+                                {
+                                    Character.Repair = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Repair++;
+                            }
+                            BookValues.RepairBook++;
+                        }
+                        else if (Character.Repair == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Repair Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Dean's Electronics books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(RepairText));
+                        OnPropertyChanged(nameof(RepairBookText));
+                        break;
+                    case "ExplosivesUp":
+                        if (Character.Explosives < 100 && BookValues.ExplosivesBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Explosives < 99)
+                                {
+                                    Character.Explosives += compBook;
+                                }
+                                else
+                                {
+                                    Character.Explosives = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Explosives++;
+                            }
+                            BookValues.ExplosivesBook++;
+                        }
+                        else if (Character.Explosives == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Explosives Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Duck and Cover! books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(ExplosivesText));
+                        OnPropertyChanged(nameof(ExplosivesBookText));
+                        break;
+                    case "MeleeWeaponsUp":
+                        if (Character.MeleeWeapons < 100 && BookValues.MeleeWeaponsBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.MeleeWeapons < 99)
+                                {
+                                    Character.MeleeWeapons += compBook;
+                                }
+                                else
+                                {
+                                    Character.MeleeWeapons = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.MeleeWeapons++;
+                            }
+                            BookValues.MeleeWeaponsBook++;
+                        }
+                        else if (Character.MeleeWeapons == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Melee Weapons Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Grognak the Barbarian books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(MeleeWeaponsText));
+                        OnPropertyChanged(nameof(MeleeWeaponsBookText));
+                        break;
+                    case "SmallGunsUp":
+                        if (Character.SmallGuns < 100 && BookValues.SmallGunsBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.SmallGuns < 99)
+                                {
+                                    Character.SmallGuns += compBook;
+                                }
+                                else
+                                {
+                                    Character.SmallGuns = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.SmallGuns++;
+                            }
+                            BookValues.SmallGunsBook++;
+                        }
+                        else if (Character.SmallGuns == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Small Guns Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Guns and Bullets books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(SmallGunsText));
+                        OnPropertyChanged(nameof(SmallGunsBookText));
+                        break;
+                    case "SpeechUp":
+                        if (Character.Speech < 100 && BookValues.SpeechBook < 24)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Speech < 99)
+                                {
+                                    Character.Speech += compBook;
+                                }
+                                else
+                                {
+                                    Character.Speech = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Speech++;
+                            }
+                            BookValues.SpeechBook++;
+                        }
+                        else if (Character.Speech == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Speech Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Lying, Congressional Style books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(SpeechText));
+                        OnPropertyChanged(nameof(SpeechBookText));
+                        break;
+                    case "EnergyWeaponsUp":
+                        if (Character.EnergyWeapons < 100 && BookValues.EnergyWeaponsBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.EnergyWeapons < 99)
+                                {
+                                    if (Character.EnergyWeapons < 99)
+                                    {
+                                        Character.EnergyWeapons += compBook;
+                                    }
+                                    else
+                                    {
+                                        Character.EnergyWeapons = 100;
+                                    }
+                                }
+                                else {
+                                    Character.EnergyWeapons = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.EnergyWeapons++;
+                            }
+                            BookValues.EnergyWeaponsBook++;
+                        }
+                        else if (Character.EnergyWeapons == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Energy Weapons Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Nikola Tesla and You books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(EnergyWeaponsText));
+                        OnPropertyChanged(nameof(EnergyWeaponsBookText));
+                        break;
+                    case "ParadiseUp":
+                        if (Character.Speech < 100 && BookValues.ParadiseLost < 1)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Speech < 99)
+                                {
+                                    Character.Speech += compBook;
+                                }
+                                else
+                                {
+                                    Character.Speech = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Speech++;
+                            }
+                            BookValues.ParadiseLost++;
+                        }
+                        else if (Character.Speech == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Speech Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read the only Paradise Lost book.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(SpeechText));
+                        OnPropertyChanged(nameof(ParadiseLostText));
+                        break;
+                    case "UnarmedUp":
+                        if (Character.Unarmed < 100 && BookValues.UnarmedBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Unarmed < 99)
+                                {
+                                    Character.Unarmed += compBook;
+                                }
+                                else
+                                {
+                                    Character.Unarmed = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Unarmed++;
+                            }
+                            BookValues.UnarmedBook++;
+                        }
+                        else if (Character.Unarmed == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Unarmed Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Pugilism Illustrated books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(UnarmedText));
+                        OnPropertyChanged(nameof(UnarmedBookText));
+                        break;
+                    case "BarterUp":
+                        if (Character.Barter < 100 && BookValues.BarterBook < 24)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Barter < 99)
+                                {
+                                    Character.Barter += compBook;
+                                }
+                                else
+                                {
+                                    Character.Barter = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Barter++;
+                            }
+                            BookValues.BarterBook++;
+                        }
+                        else if (Character.Barter == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Barter Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Tales of a Junktown Jerky Vendor books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(BarterText));
+                        OnPropertyChanged(nameof(BarterBookText));
+                        break;
+                    case "LockpickUp":
+                        if (Character.Lockpick < 100 && BookValues.LockpickBook < 25)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.Lockpick < 99)
+                                {
+                                    Character.Lockpick += compBook;
+                                }
+                                else
+                                {
+                                    Character.Lockpick = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.Lockpick++;
+                            }
+                            BookValues.LockpickBook++;
+                        }
+                        else if (Character.Lockpick == 100)
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Lockpick Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already read all possible Tumblers Today books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(LockpickText));
+                        OnPropertyChanged(nameof(LockpickBookText));
+                        break;
+                    case "BigGunsUp":
+                        if (Character.BigGuns < 100)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                if (Character.BigGuns < 99)
+                                {
+                                    Character.BigGuns += compBook;
+                                }
+                                else
+                                {
+                                    Character.BigGuns = 100;
+                                }
+                            }
+                            else
+                            {
+                                Character.BigGuns++;
+                            }
+                            BookValues.BigGunsBook++;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " already has 100 Big Guns Skill.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(BigGunsText));
+                        OnPropertyChanged(nameof(BigGunsBookText));
+                        break;
+                }
+            }
+        }
+
+        private void SkillBookDown_Click(object sender, RoutedEventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            if (clickedButton != null)
+            {
+                // Get the book name from the Tag property
+                string bookName = clickedButton.Tag.ToString();
+                int compBook = 2;
+
+                var lastSnapshot = characterSnapshots.Count - 2;
+
+                //Switch for increase book
+                switch (bookName)
+                {
+                    case "ScienceDown":
+                        if (BookValues.ScienceBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Science -= compBook;    
+                            }
+                            else
+                            {
+                                Character.Science--;
+                            }
+                            BookValues.ScienceBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Big Book of Science books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(ScienceText));
+                        OnPropertyChanged(nameof(ScienceBookText));
+                        break;
+                    case "SneakDown":
+                            if (BookValues.SneakBook > 0)
+                            {
+                                if (hasComprehensionPerk == true)
+                                {
+                                    Character.Sneak -= compBook;
+                                }
+                                else
+                                {
+                                    Character.Sneak--;
+                                }
+                                BookValues.SneakBook--;
+                            }
+                            else
+                            {
+                                MessageBox.Show(Character.CharacterName + " has already unread all Chinese Army: Special Ops Training Manual books.\n",
+                                "Warning",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Warning);
+                            }
+                        OnPropertyChanged(nameof(SneakText));
+                        OnPropertyChanged(nameof(SneakBookText));
+                        break;
+                    case "MedicineDown":
+                        if (BookValues.MedicineBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Medicine -= compBook;
+                            }
+                            else
+                            {
+                                Character.Medicine--;
+                            }
+                            BookValues.MedicineBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all D.C. Journal of Internal Medicine books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+
+                        OnPropertyChanged(nameof(MedicineText));
+                        OnPropertyChanged(nameof(MedicineBookText));
+                        break;
+                    case "RepairDown":
+                        if (BookValues.RepairBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Repair -= compBook;
+                            }
+                            else
+                            {
+                                Character.Repair--;
+                            }
+                            BookValues.RepairBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Dean's Electronics books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(RepairText));
+                        OnPropertyChanged(nameof(RepairBookText));
+                        break;
+                    case "ExplosivesDown":
+                        if (BookValues.ExplosivesBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Explosives -= compBook;
+                            }
+                            else
+                            {
+                                Character.Explosives--;
+                            }
+                            BookValues.ExplosivesBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Duck and Cover! books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(ExplosivesText));
+                        OnPropertyChanged(nameof(ExplosivesBookText));
+                        break;
+                    case "MeleeWeaponsDown":
+                        if (BookValues.MeleeWeaponsBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.MeleeWeapons -= compBook;
+                            }
+                            else
+                            {
+                                Character.MeleeWeapons--;
+                            }
+                            BookValues.MeleeWeaponsBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Grognak the Barbarian books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(MeleeWeaponsText));
+                        OnPropertyChanged(nameof(MeleeWeaponsBookText));
+                        break;
+                    case "SmallGunsDown":
+                        if (BookValues.SmallGunsBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.SmallGuns -= compBook;
+                            }
+                            else
+                            {
+                                Character.SmallGuns--;
+                            }
+                            BookValues.SmallGunsBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Guns and Bullets books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(SmallGunsText));
+                        OnPropertyChanged(nameof(SmallGunsBookText));
+                        break;
+                    case "SpeechDown":
+                        if (BookValues.SpeechBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Speech -= compBook;
+                            }
+                            else
+                            {
+                                Character.Speech--;
+                            }
+                            BookValues.SpeechBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Lying, Congressional Style books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(SpeechText));
+                        OnPropertyChanged(nameof(SpeechBookText));
+                        break;
+                    case "EnergyWeaponsDown":
+                        if (BookValues.EnergyWeaponsBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.EnergyWeapons -= compBook;
+                            }
+                            else
+                            {
+                                Character.EnergyWeapons--;
+                            }
+                            BookValues.EnergyWeaponsBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Nikola Tesla and You books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(EnergyWeaponsText));
+                        OnPropertyChanged(nameof(EnergyWeaponsBookText));
+                        break;
+                    case "ParadiseDown":
+                        if (BookValues.ParadiseLost > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Speech -= compBook;
+                            }
+                            else
+                            {
+                                Character.Speech--;
+                            }
+                            BookValues.ParadiseLost--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread Paradise Lost.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(SpeechText));
+                        OnPropertyChanged(nameof(ParadiseLostText));
+                        break;
+                    case "UnarmedDown":
+                        if (BookValues.UnarmedBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Unarmed -= compBook;
+                            }
+                            else
+                            {
+                                Character.Unarmed--;
+                            }
+                            BookValues.UnarmedBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Pugilism Illustrated books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(UnarmedText));
+                        OnPropertyChanged(nameof(UnarmedBookText));
+                        break;
+                    case "BarterDown":
+                        if (BookValues.BarterBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Barter -= compBook;
+                            }
+                            else
+                            {
+                                Character.Barter--;
+                            }
+                            BookValues.BarterBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Tales of a Junktown Jerky Vendor books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(BarterText));
+                        OnPropertyChanged(nameof(BarterBookText));
+                        break;
+                    case "LockpickDown":
+                        if (BookValues.LockpickBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.Lockpick -= compBook;
+                            }
+                            else
+                            {
+                                Character.Lockpick--;
+                            }
+                            BookValues.LockpickBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all Tumblers Today books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(LockpickText));
+                        OnPropertyChanged(nameof(LockpickBookText));
+                        break;
+                    case "BigGunsDown":
+                        if (BookValues.BigGunsBook > 0)
+                        {
+                            if (hasComprehensionPerk == true)
+                            {
+                                Character.BigGuns -= compBook;
+                            }
+                            else
+                            {
+                                Character.BigGuns--;
+                            }
+                            BookValues.BigGunsBook--;
+                        }
+                        else
+                        {
+                            MessageBox.Show(Character.CharacterName + " has already unread all U.S. Army: 20 Handy Flamethrower Recipes books.\n",
+                            "Warning",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Warning);
+                        }
+                        OnPropertyChanged(nameof(BigGunsText));
+                        OnPropertyChanged(nameof(BigGunsBookText));
+                        break;
+                }
+            }
+        }
     }
 }
