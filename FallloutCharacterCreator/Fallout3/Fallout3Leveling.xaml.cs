@@ -388,18 +388,7 @@ namespace FallloutCharacterCreator.Fallout3
 
         }
 
-        //Skillbook functionality
-        private void SkillBooks_Click(object sender, RoutedEventArgs e)
-        {
-            LvlViewbox.Visibility = Visibility.Collapsed;
-            SkillBooksViewbox.Visibility = Visibility.Visible;
-        }
-
-        private void BooksSave_Click(object sender, RoutedEventArgs e)
-        {
-            LvlViewbox.Visibility = Visibility.Visible;
-            SkillBooksViewbox.Visibility = Visibility.Collapsed;
-        } //Todo: Implement save functionality
+        
 
         //LevelUp and Levelup perk selection functionality
         private void PerksListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1347,7 +1336,7 @@ namespace FallloutCharacterCreator.Fallout3
                     MessageBoxButton.OK,
                     MessageBoxImage.Warning);
             }
-            else if (Character.Level == 50)
+            else if (Character.Level == 30)
             {
                 MessageBox.Show("You are already max character level\n",
                     "Warning",
@@ -1602,7 +1591,6 @@ namespace FallloutCharacterCreator.Fallout3
             CharPerksViewbox.Visibility = Visibility.Visible;
         }
 
-
         private void ExitCharPerks_Click(object sender, RoutedEventArgs e)
         {
             LvlViewbox.Visibility = Visibility.Visible;
@@ -1742,11 +1730,46 @@ namespace FallloutCharacterCreator.Fallout3
 
         private void LvlDown_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Character.Level > 1) {
+                characterSnapshots.RemoveAt(characterSnapshots.Count - 1);
+                Fallout3Character Character = characterSnapshots[characterSnapshots.Count - 2];//doesnt work as expected
+                UpdateCharacterValues();
+            }
+            else 
+            {
+                //Maybe make it so when character is level 1 and they go down it returns to character Creation screen
+                MessageBox.Show(Character.CharacterName + " is already the minimum Level.\n", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
-        //TODO: create a way to track how many books were increased with and without comprehension book that way when user
-        //adds several books without the comprehension book then obtains comprehension perk and decreases books it wont over decrease more skill points than were added
+        //Skill Book functionality
+        int compBarter = 0;
+        int compBigGuns = 0;
+        int compEnergyWeapons = 0;
+        int compExplosives = 0;
+        int compLockpick = 0;
+        int compMedicine = 0;
+        int compMeleeWeapons = 0;
+        int compRepair = 0;
+        int compScience = 0;
+        int compSmallGuns = 0;
+        int compSneak = 0;
+        int compSpeech = 0;
+        int compUnarmed = 0;
+        int compParadise = 0;
+
+        private void SkillBooks_Click(object sender, RoutedEventArgs e)
+        {
+            LvlViewbox.Visibility = Visibility.Collapsed;
+            SkillBooksViewbox.Visibility = Visibility.Visible;
+        }
+
+        private void BooksSave_Click(object sender, RoutedEventArgs e)
+        {
+            LvlViewbox.Visibility = Visibility.Visible;
+            SkillBooksViewbox.Visibility = Visibility.Collapsed;
+        }
+
         private void SkillBookUp_Click(object sender, RoutedEventArgs e) 
         {
             Button clickedButton = sender as Button;
@@ -1770,6 +1793,7 @@ namespace FallloutCharacterCreator.Fallout3
                                 if (Character.Science < 99)
                                 {
                                     Character.Science += compBook;
+                                    compScience++;
                                 }
                                 else
                                 {
@@ -1799,6 +1823,7 @@ namespace FallloutCharacterCreator.Fallout3
                                 if (Character.Sneak < 99)
                                 {
                                     Character.Sneak += compBook;
+                                    compSneak++;
                                 }
                                 else
                                 {
@@ -1835,6 +1860,7 @@ namespace FallloutCharacterCreator.Fallout3
                                 if (Character.Medicine < 99)
                                 {
                                     Character.Medicine += compBook;
+                                    compMedicine++;
                                 }
                                 else
                                 {
@@ -1871,6 +1897,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.Repair < 99)
                                 {
+                                    compRepair++;
                                     Character.Repair += compBook;
                                 }
                                 else
@@ -1908,6 +1935,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.Explosives < 99)
                                 {
+                                    compExplosives++;
                                     Character.Explosives += compBook;
                                 }
                                 else
@@ -1945,6 +1973,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.MeleeWeapons < 99)
                                 {
+                                    compMeleeWeapons++;
                                     Character.MeleeWeapons += compBook;
                                 }
                                 else
@@ -1982,6 +2011,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.SmallGuns < 99)
                                 {
+                                    compSmallGuns++;
                                     Character.SmallGuns += compBook;
                                 }
                                 else
@@ -2019,6 +2049,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.Speech < 99)
                                 {
+                                    compSpeech++;
                                     Character.Speech += compBook;
                                 }
                                 else
@@ -2058,6 +2089,7 @@ namespace FallloutCharacterCreator.Fallout3
                                 {
                                     if (Character.EnergyWeapons < 99)
                                     {
+                                        compEnergyWeapons++;
                                         Character.EnergyWeapons += compBook;
                                     }
                                     else
@@ -2099,6 +2131,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.Speech < 99)
                                 {
+                                    compParadise++;
                                     Character.Speech += compBook;
                                 }
                                 else
@@ -2136,6 +2169,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.Unarmed < 99)
                                 {
+                                    compUnarmed++;
                                     Character.Unarmed += compBook;
                                 }
                                 else
@@ -2173,6 +2207,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.Barter < 99)
                                 {
+                                    compBarter++;
                                     Character.Barter += compBook;
                                 }
                                 else
@@ -2210,6 +2245,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.Lockpick < 99)
                                 {
+                                    compLockpick++;
                                     Character.Lockpick += compBook;
                                 }
                                 else
@@ -2247,6 +2283,7 @@ namespace FallloutCharacterCreator.Fallout3
                             {
                                 if (Character.BigGuns < 99)
                                 {
+                                    compBigGuns++;
                                     Character.BigGuns += compBook;
                                 }
                                 else
@@ -2292,8 +2329,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "ScienceDown":
                         if (BookValues.ScienceBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compScience > 0)
                             {
+                                compScience--;
                                 Character.Science -= compBook;    
                             }
                             else
@@ -2315,8 +2353,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "SneakDown":
                             if (BookValues.SneakBook > 0)
                             {
-                                if (hasComprehensionPerk == true)
+                                if (hasComprehensionPerk == true && compSneak > 0)
                                 {
+                                    compSneak--;
                                     Character.Sneak -= compBook;
                                 }
                                 else
@@ -2338,8 +2377,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "MedicineDown":
                         if (BookValues.MedicineBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compMedicine > 0)
                             {
+                                compMedicine--;
                                 Character.Medicine -= compBook;
                             }
                             else
@@ -2362,8 +2402,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "RepairDown":
                         if (BookValues.RepairBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compRepair > 0)
                             {
+                                compRepair--;
                                 Character.Repair -= compBook;
                             }
                             else
@@ -2383,10 +2424,11 @@ namespace FallloutCharacterCreator.Fallout3
                         OnPropertyChanged(nameof(RepairBookText));
                         break;
                     case "ExplosivesDown":
-                        if (BookValues.ExplosivesBook > 0)
+                        if (BookValues.ExplosivesBook > 0 && compExplosives > 0)
                         {
                             if (hasComprehensionPerk == true)
                             {
+                                compExplosives--;
                                 Character.Explosives -= compBook;
                             }
                             else
@@ -2406,10 +2448,11 @@ namespace FallloutCharacterCreator.Fallout3
                         OnPropertyChanged(nameof(ExplosivesBookText));
                         break;
                     case "MeleeWeaponsDown":
-                        if (BookValues.MeleeWeaponsBook > 0)
+                        if (BookValues.MeleeWeaponsBook > 0 && compMeleeWeapons > 0)
                         {
                             if (hasComprehensionPerk == true)
                             {
+                                compMeleeWeapons--;
                                 Character.MeleeWeapons -= compBook;
                             }
                             else
@@ -2429,10 +2472,11 @@ namespace FallloutCharacterCreator.Fallout3
                         OnPropertyChanged(nameof(MeleeWeaponsBookText));
                         break;
                     case "SmallGunsDown":
-                        if (BookValues.SmallGunsBook > 0)
+                        if (BookValues.SmallGunsBook > 0 && compSmallGuns > 0)
                         {
                             if (hasComprehensionPerk == true)
                             {
+                                compSmallGuns--;
                                 Character.SmallGuns -= compBook;
                             }
                             else
@@ -2454,8 +2498,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "SpeechDown":
                         if (BookValues.SpeechBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compSpeech > 0)
                             {
+                                compSpeech--;
                                 Character.Speech -= compBook;
                             }
                             else
@@ -2477,8 +2522,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "EnergyWeaponsDown":
                         if (BookValues.EnergyWeaponsBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compEnergyWeapons > 0)
                             {
+                                compEnergyWeapons--;
                                 Character.EnergyWeapons -= compBook;
                             }
                             else
@@ -2500,8 +2546,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "ParadiseDown":
                         if (BookValues.ParadiseLost > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compParadise > 0)
                             {
+                                compParadise--;
                                 Character.Speech -= compBook;
                             }
                             else
@@ -2523,8 +2570,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "UnarmedDown":
                         if (BookValues.UnarmedBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compUnarmed > 0)
                             {
+                                compUnarmed--;
                                 Character.Unarmed -= compBook;
                             }
                             else
@@ -2546,8 +2594,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "BarterDown":
                         if (BookValues.BarterBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compBarter > 0)
                             {
+                                compBarter--;
                                 Character.Barter -= compBook;
                             }
                             else
@@ -2569,8 +2618,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "LockpickDown":
                         if (BookValues.LockpickBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compLockpick > 0)
                             {
+                                compLockpick--;
                                 Character.Lockpick -= compBook;
                             }
                             else
@@ -2592,8 +2642,9 @@ namespace FallloutCharacterCreator.Fallout3
                     case "BigGunsDown":
                         if (BookValues.BigGunsBook > 0)
                         {
-                            if (hasComprehensionPerk == true)
+                            if (hasComprehensionPerk == true && compBigGuns > 0)
                             {
+                                compBigGuns--;
                                 Character.BigGuns -= compBook;
                             }
                             else
